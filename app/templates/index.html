@@ -3,57 +3,200 @@
 
 {% block content %}
 
+
 <section>
 		<div class="block no-padding">
 			<div class="row">
 				<div class="col-md-12">
+					
 					<div class="main-featured-sec no-layer">
+						
 						<ul class="featured-bg-slide">
+							{% for ban in banners %}
+							
+							<li><img height="600" width="1300" src="{{ ban.banner.url }}" alt="" /></li>
+							{% endfor %}
+							<!--<li><img src="http://placehold.it/1600x950" alt="" /></li>
 							<li><img src="http://placehold.it/1600x950" alt="" /></li>
-							<li><img src="http://placehold.it/1600x950" alt="" /></li>
-							<li><img src="http://placehold.it/1600x950" alt="" /></li>
-							<li><img src="http://placehold.it/1600x950" alt="" /></li>
+							<li><img src="http://placehold.it/1600x950" alt="" /></li>-->
 						</ul>
 						<div class="mian-featured-area">
 							<div class="main-featured-text">
-								<h1>Find the Best Places to Be</h1>
-								<span>All the top locations – from restaurants and clubs, to cinemas, galleries, and more.</span>
+								<h1>{{ ban.titulo }}</h1>
+								<span>{{ban.subtitulo}}</span>
 							</div>
+
+							
 							<div class="directory-searcher style2  extra-margin">
 								<form>
 									<div class="field"><input type="text" placeholder="Keywords"></div>
 									<div class="field">
-										<select data-placeholder="All Locations" class="chosen-select" tabindex="2">
-								            <option value="All Locations">All Locations</option>
-								            <option value="United States">United States</option>
-								            <option value="United Kingdom">United Kingdom</option>
-								            <option value="Afghanistan">Afghanistan</option>
-								            <option value="Aland Islands">Aland Islands</option>
-								            <option value="Albania">Albania</option>
+										<select data-placeholder="Estados" class="chosen-select" tabindex="2">
+								            <option value="All Locations">Municipios</option>
+								            <option value="United States">Chiapa de Corzo</option>
+								            <option value="United Kingdom">Ocozocoautla</option>
+								            <option value="Afghanistan">San Cristóbal</option>
+								            <option value="Aland Islands">Berriozabal</option>
+								            <option value="Albania">San Fernando</option>
 								        </select>
 									</div>
 									<div class="field">
 										<select data-placeholder="All Categories" class="chosen-select" tabindex="2">
-								            <option value="All Categories">All Categories</option>
-								            <option value="Foods">Foods</option>
-								            <option value="Lodging">Lodging</option>
-								            <option value="Nightlife">Nightlife</option>
-								            <option value="AOutdoors">Outdoors</option>
-								            <option value="Restaurants">Restaurants</option>
+								            <option value="All Categories">Todas las Categorías</option>
+								            <option value="Foods">Restaurantes</option>
+								            <option value="Lodging">Cafeterías</option>
+								            <option value="Nightlife">Farmacias</option>
+								            <option value="AOutdoors">Servicios</option>
+								            <option value="Restaurants">Consultorios</option>
 								        </select>
 									</div>
 									<div class="field">
-										<button type="submit"><i class="la la-search"></i>SEARCH</button>
+										<button type="submit"><i class="la la-search"></i>Buscar</button>
 									</div>
 								</form>
 							</div>
 							<a class="arrow-down floating" href="#scroll-here" title=""><i class="la la-angle-down"></i></a>
 						</div>
+						
 					</div>
+					
 				</div>
 			</div>
 		</div>
 	</section>
+
+	<div class="heading">
+		<h2>Regístrate y Aprovecha</h2>
+		<span>¡Intégrate, Actualízate en Tecnologías Digitales y Gana!</span>
+	</div>
+
+	<!-- COMIENZA EL MODAL DE REGISTRO SI ESTA REGISTRADO COMO USUARIO --->
+
+
+	
+		
+		
+<div class="formulario">
+	
+			<form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					Datos para directorio de negocios
+				</span>
+
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
+					<span class="label-input100">Nombre del Titular</span>
+					<input class="input100" type="text" name="name" placeholder="Nombre completo">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
+					<span class="label-input100">WhatsApp del Titular</span>
+					<input class="input100" type="text" name="name" placeholder="WhatsApp">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
+					<span class="label-input100">Telefono/WhatsApp del negocio</span>
+					<input class="input100" type="text" name="name" placeholder="Telefono/WhatsApp del negocio">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
+					<span class="label-input100">¿Quién te invitó a integrarte?</span>
+					<input class="input100" type="text" name="name" placeholder="¿Quién te invitó a integrarte?">
+					<span class="focus-input100"></span>
+				</div>
+
+
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<span class="label-input100">Correo electrónico</span>
+					<input class="input100" type="text" name="email" placeholder="Correo electrónico">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
+					<span class="label-input100">¿Nombre del negocio o servicio?</span>
+					<input class="input100" type="text" name="name" placeholder="¿Nombre del negocio o servicio?">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
+					<span class="label-input100">Tipo de negocio</span>
+					<input class="input100" type="text" name="name" placeholder="Tipo de negocio">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
+					<span class="label-input100">Porcentaje de MKTCoin que aceptará</span>
+					<input class="input100" type="text" name="name" placeholder="Porcentaje de MKTCoin que aceptará">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
+					<span class="label-input100">Login de usuario MKTCoin</span>
+					<input class="input100" type="text" name="name" placeholder="Login de usuario MKTCoin">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Message is required">
+					<span class="label-input100">Descripción de la empresa</span>
+					<textarea class="input100" name="message" placeholder="Your message here..."></textarea>
+					<span class="focus-input100"></span>
+				</div>
+
+
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
+					<span class="label-input100">Sitio Web</span>
+					<input class="input100" type="text" name="name" placeholder="Sitio Web">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
+					<span class="label-input100">Dirección/ubicación</span>
+					<input class="input100" type="text" name="name" placeholder="Dirección/ubicación">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
+					<span class="label-input100">País</span>
+					<input class="input100" type="text" name="name" placeholder="País">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
+					<span class="label-input100">Ciudad</span>
+					<input class="input100" type="text" name="name" placeholder="Ciudad">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
+					<span class="label-input100">Estado</span>
+					<input class="input100" type="text" name="name" placeholder="Estado">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Message is required">
+					<span class="label-input100">Comentarios</span>
+					<textarea class="input100" name="message" placeholder="Your message here..."></textarea>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn">
+						<span>
+							Enviar
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+					</button>
+				</div>
+			</form>
+
+</div>
+	
+
+	<!--TERMINA MODAL DE REGISTRO-->
+
+	
 
 	<section id="scroll-here">
 		<div class="block">
@@ -61,7 +204,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="heading">
-							<h2>EXPLORE CITIES</h2>
+							<h2>EXPLORA POR CIUDADES</h2>
 							<span>Easily Found Among You Wanted More Than 7M Firms</span>
 						</div>
 					</div>
@@ -71,8 +214,8 @@
 								<div class="dt-box style2">
 									<a href="#" title="">
 										<img src="http://placehold.it/270x257" alt="" />
-										<span>montreal</span>
-										<strong>Show All Listings</strong>
+										<span>Tuxtla Gutiérrez</span>
+										<strong>Ver</strong>
 									</a>
 								</div>
 							</div>
@@ -80,8 +223,8 @@
 								<div class="dt-box style2">
 									<a href="#" title="">
 										<img src="http://placehold.it/570x257" alt="" />
-										<span>NewYork</span>
-										<strong>Show All Listings</strong>
+										<span>Berriozabal</span>
+										<strong>Ver</strong>
 									</a>
 								</div>
 							</div>
@@ -89,8 +232,8 @@
 								<div class="dt-box style2">
 									<a href="#" title="">
 										<img src="http://placehold.it/270x257" alt="" />
-										<span>Chicago</span>
-										<strong>Show All Listings</strong>
+										<span>San Cristóbal</span>
+										<strong>Ver</strong>
 									</a>
 								</div>
 							</div>
@@ -100,8 +243,8 @@
 								<div class="dt-box style2">
 									<a href="#" title="">
 										<img src="http://placehold.it/570x257" alt="" />
-										<span>California</span>
-										<strong>Show All Listings</strong>
+										<span>Chiapa de Corzo</span>
+										<strong>Ver</strong>
 									</a>
 								</div>
 							</div>
@@ -109,8 +252,8 @@
 								<div class="dt-box style2">
 									<a href="#" title="">
 										<img src="http://placehold.it/270x257" alt="" />
-										<span>Los Angeles</span>
-										<strong>Show All Listings</strong>
+										<span>Ocozocoautla</span>
+										<strong>Ver</strong>
 									</a>
 								</div>
 							</div>
@@ -118,8 +261,8 @@
 								<div class="dt-box style2">
 									<a href="#" title="">
 										<img src="http://placehold.it/270x257" alt="" />
-										<span>boston</span>
-										<strong>Show All Listings</strong>
+										<span>Jiquipilas</span>
+										<strong>Ver</strong>
 									</a>
 								</div>
 							</div>
@@ -136,7 +279,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="heading">
-							<h2>Recent Places</h2>
+							<h2>Negocios mas destacados</h2>
 							<span>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</span>
 						</div>
 						<div class="recent-place-sec" id="places-carousel">
@@ -148,23 +291,12 @@
 										</div>
 										<div class="recent-place-detail">
 											<div class="listing-box-title">
-												<h3><a href="#" title="">Sunpro Technology inc</a></h3>
-												<span>Los Angeles /  Sillicon Valley </span>
+												<h3><a href="#" title="">Ejemplo Uno</a></h3>
+												<span>Tuxtla Gutiérrez</span>
 												<span>(416) 551-0589</span>
 											</div>
-											<span class="price-list">$149.90</span>
-											<div class="listing-rate-share">
-												<div class="rated-list">
-													<b class="la la-star"></b>
-													<b class="la la-star"></b>
-													<b class="la la-star"></b>
-													<b class="la la-star-o"></b>
-													<b class="la la-star-o"></b>
-													<span>(13)</span>
-												</div>
-												<span><i class="la la-share-alt"></i><strong>Share</strong></span>
-												<a href="#" title=""><i class="la la-heart-o"></i></a>
-											</div>
+											
+									
 										</div>
 									</div>
 									<div class="recent-places-box">
@@ -173,23 +305,11 @@
 										</div>
 										<div class="recent-place-detail">
 											<div class="listing-box-title">
-												<h3><a href="#" title="">Sunpro Technology inc</a></h3>
-												<span>Los Angeles /  Sillicon Valley </span>
+												<h3><a href="#" title="">Ejemplo Dos</a></h3>
+												<span>Tuxtla Gutiérrez</span>
 												<span>(416) 551-0589</span>
 											</div>
-											<span class="price-list">$149.90</span>
-											<div class="listing-rate-share">
-												<div class="rated-list">
-													<b class="la la-star"></b>
-													<b class="la la-star"></b>
-													<b class="la la-star"></b>
-													<b class="la la-star-o"></b>
-													<b class="la la-star-o"></b>
-													<span>(13)</span>
-												</div>
-												<span><i class="la la-share-alt"></i><strong>Share</strong></span>
-												<a href="#" title=""><i class="la la-heart-o"></i></a>
-											</div>
+										
 										</div>
 									</div>
 								</div>
@@ -200,23 +320,11 @@
 										</div>
 										<div class="recent-place-detail">
 											<div class="listing-box-title">
-												<h3><a href="#" title="">Sunpro Technology inc</a></h3>
-												<span>Los Angeles /  Sillicon Valley </span>
+												<h3><a href="#" title="">Ejemplo Tres</a></h3>
+												<span>Tuxtla Gutiérrez</span>
 												<span>(416) 551-0589</span>
 											</div>
-											<span class="price-list">$149.90</span>
-											<div class="listing-rate-share">
-												<div class="rated-list">
-													<b class="la la-star"></b>
-													<b class="la la-star"></b>
-													<b class="la la-star"></b>
-													<b class="la la-star-o"></b>
-													<b class="la la-star-o"></b>
-													<span>(13)</span>
-												</div>
-												<span><i class="la la-share-alt"></i><strong>Share</strong></span>
-												<a href="#" title=""><i class="la la-heart-o"></i></a>
-											</div>
+										
 										</div>
 									</div>
 									<div class="recent-places-box">
@@ -225,27 +333,17 @@
 										</div>
 										<div class="recent-place-detail">
 											<div class="listing-box-title">
-												<h3><a href="#" title="">Sunpro Technology inc</a></h3>
-												<span>Los Angeles /  Sillicon Valley </span>
+												<h3><a href="#" title="">Ejemplo Cuatro</a></h3>
+												<span>Tuxtla Gutiérrez</span>
 												<span>(416) 551-0589</span>
 											</div>
-											<span class="price-list">$149.90</span>
-											<div class="listing-rate-share">
-												<div class="rated-list">
-													<b class="la la-star"></b>
-													<b class="la la-star"></b>
-													<b class="la la-star"></b>
-													<b class="la la-star-o"></b>
-													<b class="la la-star-o"></b>
-													<span>(13)</span>
-												</div>
-												<span><i class="la la-share-alt"></i><strong>Share</strong></span>
-												<a href="#" title=""><i class="la la-heart-o"></i></a>
-											</div>
+											
 										</div>
 									</div>
 								</div>
 							</div>
+
+							<!--
 							<div class="row">
 								<div class="col-md-6">
 									<div class="recent-places-box">
@@ -458,6 +556,7 @@
 									</div>
 								</div>
 							</div>
+						-->
 						</div>
 					</div>
 				</div>
@@ -471,7 +570,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="heading">
-							<h2>Quick and Easy Search</h2>
+							<h2>Búsqueda Rápida y Fácil</h2>
 						</div>
 					</div>
 					<div class="col-md-12">
@@ -480,21 +579,21 @@
 								<div class="col-md-4">
 									<div class="services style2">
 										<i class="la la-paperclip"></i>
-										<h3>Choose a Category</h3>
+										<h3>Eleige la categoría</h3>
 										<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
 									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="services style2">
 										<i class="la la-map-marker"></i>
-										<h3>Find Locations</h3>
+										<h3>Busca por ciudad o estado</h3>
 										<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
 									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="services style2">
 										<i class="la la-tencent-weibo"></i>
-										<h3>Go Have Fun</h3>
+										<h3>¡Vamos a divertirnos!</h3>
 										<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
 									</div>
 								</div>
@@ -514,22 +613,22 @@
 						<div class="counter-sec">
 							<div class="counter">
 								<i class="la la-file"></i>
-								<h3>LISTINGS</h3>
+								<h3>EMPRESAS</h3>
 								<span>108</span>
 							</div>
 							<div class="counter">
 								<i class="la la-user"></i>
-								<h3>USERS</h3>
+								<h3>USUARIOS</h3>
 								<span>675</span>
 							</div>
 							<div class="counter">
 								<i class="la la-list"></i>
-								<h3>LISTING TYPES</h3>
+								<h3>ASOCIOADOS</h3>
 								<span>13</span>
 							</div>
 							<div class="counter">
 								<i class="la la-folder-o"></i>
-								<h3>CATEGORIES</h3>
+								<h3>CATEGORIAS</h3>
 								<span>45</span>
 							</div>
 						</div>
@@ -538,6 +637,8 @@
 			</div>
 		</div>
 	</section>
+
+	<!--
 
 	<section>
 		<div class="block gray">
@@ -563,7 +664,7 @@
 											<p>Dating is a part of the human mating process whereby two people meet socially for…</p>
 											<a href="#" title="">MORE</a>
 										</div>
-									</div><!-- BLog Post  -->
+									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="blog-post style2">
@@ -578,7 +679,7 @@
 											<p>Dating is a part of the human mating process whereby two people meet socially for…</p>
 											<a href="#" title="">MORE</a>
 										</div>
-									</div><!-- BLog Post  -->
+									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="blog-post style2">
@@ -593,7 +694,7 @@
 											<p>Dating is a part of the human mating process whereby two people meet socially for…</p>
 											<a href="#" title="">MORE</a>
 										</div>
-									</div><!-- BLog Post  -->
+									</div>
 								</div>
 							</div>
 							<a href="#" title="" class="view-all-blog">View Blog</a>
@@ -604,13 +705,15 @@
 		</div>
 	</section>
 
+-->
+
 	<section>
 		<div class="block">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
 						<div class="heading">
-							<h2>CATEGORIES</h2>
+							<h2>CATEGORIAS</h2>
 							<span>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium <br />doloremque laudantium, totam rem aperiam.</span>
 						</div>
 						<div class="categories-sec">
@@ -619,7 +722,7 @@
 									<div class="category-box style2">
 										<div class="category-box-detail">
 											<span><i class="la la-briefcase"></i></span>
-											<h3><a href="#" title="">Business</a></h3>
+											<h3><a href="#" title="">Negocios</a></h3>
 											<p>8 listings</p>
 										</div>
 									</div><!-- Category Box -->
@@ -628,7 +731,7 @@
 									<div class="category-box style2">
 										<div class="category-box-detail">
 											<span><i class="la la-car"></i></span>
-											<h3><a href="#" title="">Cars</a></h3>
+											<h3><a href="#" title="">Servicios</a></h3>
 											<p>8 listings</p>
 										</div>
 									</div><!-- Category Box -->
@@ -637,7 +740,7 @@
 									<div class="category-box style2">
 										<div class="category-box-detail">
 											<span><i class="la la-bed"></i></span>
-											<h3><a href="#" title="">Hotels</a></h3>
+											<h3><a href="#" title="">Hoteles</a></h3>
 											<p>8 listings</p>
 										</div>
 									</div><!-- Category Box -->
@@ -646,7 +749,7 @@
 									<div class="category-box style2">
 										<div class="category-box-detail">
 											<span><i class="la la-spoon"></i></span>
-											<h3><a href="#" title="">Food & Drinks</a></h3>
+											<h3><a href="#" title="">Comidas y Bebidas</a></h3>
 											<p>8 listings</p>
 										</div>
 									</div><!-- Category Box -->
@@ -655,7 +758,7 @@
 									<div class="category-box style2">
 										<div class="category-box-detail">
 											<span><i class="la la-shopping-cart"></i></span>
-											<h3><a href="#" title="">Shoppings</a></h3>
+											<h3><a href="#" title="">Tiendas</a></h3>
 											<p>8 listings</p>
 										</div>
 									</div><!-- Category Box -->
@@ -664,7 +767,7 @@
 									<div class="category-box style2">
 										<div class="category-box-detail">
 											<span><i class="la la-book"></i></span>
-											<h3><a href="#" title="">Educations</a></h3>
+											<h3><a href="#" title="">Educación</a></h3>
 											<p>8 listings</p>
 										</div>
 									</div><!-- Category Box -->
@@ -673,7 +776,7 @@
 									<div class="category-box style2">
 										<div class="category-box-detail">
 											<span><i class="la la-briefcase"></i></span>
-											<h3><a href="#" title="">Jobs</a></h3>
+											<h3><a href="#" title="">Cafeterias</a></h3>
 											<p>8 listings</p>
 										</div>
 									</div><!-- Category Box -->
@@ -682,7 +785,7 @@
 									<div class="category-box style2">
 										<div class="category-box-detail">
 											<span><i class="la la-plane"></i></span>
-											<h3><a href="#" title="">Travels</a></h3>
+											<h3><a href="#" title="">Viajes</a></h3>
 											<p>8 listings</p>
 										</div>
 									</div><!-- Category Box -->
@@ -701,7 +804,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="heading">
-							<h2>What Our ClIents Say</h2>
+							<h2>Testimonios</h2>
 							<span>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium <br />doloremque laudantium, totam rem aperiam.</span>
 						</div>
 						<ul class="testimonial-sec">
