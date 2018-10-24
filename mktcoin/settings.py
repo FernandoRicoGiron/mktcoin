@@ -77,10 +77,18 @@ WSGI_APPLICATION = 'mktcoin.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+           'ENGINE': 'django.db.backends.postgresql_psycopg2',
+           'NAME': 'tuxmapa_mktcoin',
+           'USER': 'tuxmapa',
+           'PASSWORD': 'i0cj6y339JMxHb2Z',
+           'HOST': 'localhost',
+           'PORT': ''
+        }
 }
 
 
