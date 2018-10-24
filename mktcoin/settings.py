@@ -25,7 +25,7 @@ SECRET_KEY = '!n7=+=4xp@)i^ico9fnavsuyz+gaf(%y7(svu772imp4^+z(d8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["www.negociosmktcoin.com","negociosmktcoin.com"]
 
 
 # Application definition
