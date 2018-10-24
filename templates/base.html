@@ -1,4 +1,6 @@
 {% load static %}
+
+
 <!DOCTYPE html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -20,27 +22,7 @@
 
 <link rel="stylesheet" href="{% static 'css/misestilos.css' %}" type="text/css" />	
 
-<!--ESTILOS DEL FORMULARIO DE REGISTRO--->
 
-<link rel="stylesheet" href="{% static 'css/cssform/main.css' %}" type="text/css" />
-<link rel="stylesheet" href="{% static 'css/cssform/util.css' %}" type="text/css" />
-
-<link rel="stylesheet" href="{% static 'fonts/fontsform/font-awesome-4.0.7/css/font-awesome.css' %}" type="text/css" />
-<link rel="stylesheet" href="{% static 'fonts/fontsform/font-awesome-4.0.7/css/font-awesome.min.css' %}" type="text/css" />
-<link rel="stylesheet" type="text/css" href="{% static 'fonts/fontsform/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
-
-
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
-
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
-
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
-
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
-
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
-
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
 
 
 
@@ -49,21 +31,32 @@
 
 </head>
 <body>
+<body>
 <div class="page-loading">
 	<div class="loadery"></div>
 </div>
 <div class="theme-layout">
-<!--
+
 	<div class="responive-header">
-		<div class="logo"><a href="index.html" title=""><img src="http://placehold.it/97x32		" alt="" /></a></div>
+		<div class="logo"><a href="index.html" title=""><img width="50" height="50" src="{% static 'images/logo.jpg' %}" alt="" /></a></div>
 		<span class="open-responsive-btn"><i class="la la-bars"></i><i class="la la-close"></i></span>
 		<div class="resp-btn-sec">
+			{% if user.is_authenticated %}
+
 			<div class="acount-header-btn">
-				<span class="register-btn">Register</span>/
-				<span class="login-btn">LogIn</span>
-			</div>-->
+				<span class="register-btn">{{user.username}}</span>
+				<a href="/cerrarsesion/"><span>Cerrar Sesión</span></a>
+			</div>
+			{% else %}
+
+
+			<div class="acount-header-btn">
+				<span class="register-btn">Registrarse</span>/
+				<span class="login-btn">Ingresar</span>
+			</div>
+			{% endif %}
 			<!--<a href="add-listing.html" title="" class="add-listing-btn"><i class="la la-plus"></i>Add Your Listing</a>-->
-	<!--		<div class="search-header">
+			<div class="search-header">
 				<span class="open-search"><i class="la la-search"></i><i class="la la-close"></i></span>
 				<form>
 					<input type="text" placeholder="Search">
@@ -74,19 +67,19 @@
 			<span class="close-reposive"><i class="la la-close"></i></span>
 			<div class="logo"><a href="index.html" title=""><img src="http://placehold.it/97x32		" alt="" /></a></div>
 			<ul>
-				<li class="menu-item-has-children">
-					<a href="#" title="">Principal</a>
-					<ul>
+				<li class="item-has-children">
+					<a href="/" title="">Inicio</a>
+					<!--<ul>
 						<li><a href="index.html" title="">Home 1</a></li>
 						<li><a href="index2.html" title="">Home 2</a></li>
 						<li><a href="index3.html" title="">Home 3</a></li>
 						<li><a href="index4.html" title="">Home 4</a></li>
 						<li><a href="index5.html" title="">Home 5</a></li>
-					</ul>
+					</ul>-->
 				</li>
-				<li class="menu-item-has-children">
-					<a href="#" title="">Listings</a>
-					<ul>
+				<li class="item-has-children">
+					<a href="/nosotros/" title="">Acerca de</a>
+					<!--<ul>
 						<li><a href="columns-list.html" title="">Column Listings</a></li>
 						<li><a href="columns-list2.html" title="">Column Listings 2</a></li>
 						<li><a href="left-sidebar-list.html" title="">Left Sidebar List</a></li>
@@ -97,19 +90,19 @@
 						<li><a href="map-list3.html" title="">Map Listing 3</a></li>
 						<li><a href="list-detail.html" title="">List Details</a></li>
 						<li><a href="list-detail2.html" title="">List Details 2</a></li>
-					</ul>
+					</ul>-->
 				</li>
 				<li class="menu-item-has-children">
-					<a href="#" title="">Pages</a>
+					<a href="/negocios/" title="">Directorio de negocios</a>
 					<ul>
-						<li><a href="my-listing.html" title="">My Listings</a></li>
-						<li><a href="add-listing.html" title="">Add Listings</a></li>
+						<li><a href="/registronegocio/" title="">Registrar negocio</a></li>
+						<!--<li><a href="add-listing.html" title="">Add Listings</a></li>
 						<li><a href="edit-profile.html" title="">Edit Profile</a></li>
 						<li><a href="register.html" title="">Register</a></li>
-						<li><a href="singin.html" title="">Sign In</a></li>
+						<li><a href="singin.html" title="">Sign In</a></li>-->
 					</ul>
 				</li>
-				<li class="menu-item-has-children">
+				<!--<li class="menu-item-has-children">
 					<a href="#" title="">Extras</a>
 					<ul>
 						<li><a href="404.html" title="">Error 404</a></li>
@@ -130,20 +123,30 @@
 						<li><a href="checkout.html" title="">Checkout</a></li>
 						<li><a href="shopping-detail.html" title="">Shop Detail</a></li>
 					</ul>
-				</li>
-				<li><a href="contact.html" title="">Contact Us</a></li>
+				</li>-->
+				<li><a href="/contacto/" title="">Contactanos</a></li>
 			</ul>
 		</div>
-	</div> -->
-
+	</div><!-- Responsive-header -->
 	
 	<header class="on-top dark">
-		<div class="logo"><a href="index.html" title=""><img width="50" height="50" src="{% static 'images/logo.jpg' %}" alt="" /></a></div>
+		<div class="logo"><a href="index.html" title=""><img src="http://placehold.it/97x32		" alt="" /></a></div>
 		<div class="menu-sec">
+
+			{% if user.is_authenticated %}
+
+			<div class="acount-header-btn">
+				<span class="register-btn">{{user.username}}</span>
+				<a href="/cerrarsesion/"><span>Cerrar Sesión</span></a>
+			</div>
+			{% else %}
+
+
 			<div class="acount-header-btn">
 				<span class="register-btn">Registrarse</span>/
-				<span class="login-btn">Iniciar Sesión</span>
+				<span class="login-btn">Ingresar</span>
 			</div>
+			{% endif %}
 			<!--<a href="add-listing.html" title="" class="add-listing-btn"><i class="la la-plus"></i>Add Your Listing</a>-->
 			<div class="search-header">
 				<span class="open-search"><i class="la la-search"></i><i class="la la-close"></i></span>
@@ -153,19 +156,42 @@
 			</div>
 			<nav class="header-menu">
 				<ul>
-					<li>
+					<li class="item-has-children">
 						<a href="/" title="">Inicio</a>
+						<!--<ul>
+							<li><a href="index.html" title="">Home 1</a></li>
+							<li><a href="index2.html" title="">Home 2</a></li>
+							<li><a href="index3.html" title="">Home 3</a></li>
+							<li><a href="index4.html" title="">Home 4</a></li>
+							<li><a href="index5.html" title="">Home 5</a></li>
+						</ul>-->
 					</li>
-					<li >
-						<a href="/negocios/" title="">Directorio de Negocios</a>
-						
+					<li class="item-has-children">
+						<a href="/nosotros/" title="">Acerca de</a>
+						<!--<ul>
+							<li><a href="columns-list.html" title="">Column Listings</a></li>
+							<li><a href="columns-list2.html" title="">Column Listings 2</a></li>
+							<li><a href="left-sidebar-list.html" title="">Left Sidebar List</a></li>
+							<li><a href="right-sidebar-list.html" title="">Right Sidebar List</a></li>
+							<li><a href="list-view.html" title="">Listing List View</a></li>
+							<li><a href="map-list1.html" title="">Map Listing 1</a></li>
+							<li><a href="map-list2.html" title="">Map Listing 2</a></li>
+							<li><a href="map-list3.html" title="">Map Listing 3</a></li>
+							<li><a href="list-detail.html" title="">List Details</a></li>
+							<li><a href="list-detail2.html" title="">List Details 2</a></li>
+						</ul>-->
 					</li>
-					<li>
-						<a href="/nosotros/" title="">Quienes somos</a>
-						
-					</li>
-					<!--
 					<li class="menu-item-has-children">
+						<a href="/negocios/" title="">Directorio de negocios</a>
+						<ul>
+							<li><a href="/registronegocio/" title="">Registrar negocio</a></li>
+							<!--<li><a href="add-listing.html" title="">Add Listings</a></li>
+							<li><a href="edit-profile.html" title="">Edit Profile</a></li>
+							<li><a href="register.html" title="">Register</a></li>
+							<li><a href="singin.html" title="">Sign In</a></li>-->
+						</ul>
+					</li>
+					<!--<li class="menu-item-has-children">
 						<a href="#" title="">Extras</a>
 						<ul>
 							<li><a href="404.html" title="">Error 404</a></li>
@@ -195,9 +221,6 @@
 
 
 
-
-
-
 	{% block content %}
 
 
@@ -205,10 +228,80 @@
 	{% endblock %}
 
 
+	<footer>
+		<div class="block remove-bottom">
+			<div data-velocity="-.1" style="background: url({% static 'images/fondofooter.jpg' %}) repeat scroll 50% 422.28px transparent;" class="parallax no-parallax scrolly-invisible"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 column">
+						<div class="widget">
+							<h3 class="footer-title">¿QUIÉNES SOMOS?</h3>
+							<div class="about-widget">
+								<p style="text-align: justify;">Empresarios Digitales, Ingenieros Senior con Experiencia en Desarrollo Web y un Equipo con Experiencia en Comercialización , Estrategias Financieras, Marketing Digital y Publicidad, contamos con un Excelente Equipo que tiene como misión integrar, expander y empoderar a nuestra Gran Comunidad Económica Digital MKTCoin para beneficio de negocios y usuarios en el mundo, así como para impulsar el crecimiento y empoderamiento a través de nuestra Criptomoneda para beneficio de miles de familias más en todo el mundo. Trabajamos con amor y servicio #PorUnFuturoBrillante</p>
+								<ul>
+									<li><a href="#" title=""><i class="la la-twitter"></i></a></li>
+									<li><a href="#" title=""><i class="la la-instagram"></i></a></li>
+									<li><a href="#" title=""><i class="la la-pinterest"></i></a></li>
+									<li><a href="#" title=""><i class="la la-google-plus"></i></a></li>
+									<li><a href="#" title=""><i class="la la-tumblr "></i></a></li>
+								</ul>
+							</div>
+						</div><!-- Widget -->
+					</div>
+					<div class="col-md-4 column">
+						<div class="widget">
+							<h3 class="footer-title"> CATEGORIAS</h3>
+							<div class="link-widget">
+								<ul>
+									<li><a href="#" title="">Food & Drink</a></li>
+									<li><a href="#" title="">IT World</a></li>
+									<li><a href="#" title="">Money & Finance</a></li>
+									<li><a href="#" title="">Movies & Cinemas</a></li>
+									<li><a href="#" title="">Sports</a></li>
+									<li><a href="#" title="">Music</a></li>
+									<li><a href="#" title="">Parties</a></li>
+									<li><a href="#" title="">People & Health</a></li>
+									<li><a href="#" title="">Seminars</a></li>
+									<li><a href="#" title="">Theatres</a></li>
+								</ul>
+							</div>
+						</div><!-- Widget -->
+					</div>
+					<div class="col-md-4 column">
+						<div class="widget">
+							<h3 class="footer-title">INFORMACIÓN DE CONTACTO</h3>
+							<div class="contact-widget">
+								<ul>
+									<li>
+										<i class="la la-map"></i>
+										<span>Dirección</span>
+										<span>Proudly Made in Canada & USA</span>
+									</li>
+									<li>
+										<i class="la la-mobile"></i>
+										<span>Teléfono</span>
+										<span>+0-456-098-789, +1-456-789-123</span>
+									</li>
+									<li>
+										<i class="la la-envelope"></i>
+										<span>Correo electrónico</span>
+										<span><a href="mailto:info@prolist.com">info@prolist.com</a>, <a href="mailto:support@prolist.com">support@prolist.com</a></span>
+									</li>
+								</ul>
+							</div>
+						</div><!-- Widget -->
+					</div>
+				</div>
+			</div>
+			<div class="bottom-line">
+				<span>Copyright NegociosMKTCoin © 2018. Todos los Derechos Reservados</span>
+			</div>
+		</div>
+	</footer>
 
 
 
-
+<!--
 
 	<footer class="with-boxed">
 		<div class="block remove-bottom no-layer gray">
@@ -236,7 +329,7 @@
 									</li>
 								</ul>
 							</div>
-						</div><!-- Widget -->
+						</div>
 					</div>
 					<div class="col-md-4 column">
 						<div class="widget">
@@ -254,7 +347,7 @@
 									
 								</ul>
 							</div>
-						</div><!-- Widget -->
+						</div>
 					</div>
 					<div class="col-md-4 column">
 						<div class="widget">
@@ -267,6 +360,8 @@
 										<input type="text" placeholder="Dudas y/o comentarios" />
 										<button type="submit"><i class="la la-angle-right"></i></button>
 									</form>
+
+
 								</div>
 							</div>
 						</div>
@@ -278,63 +373,73 @@
 			</div>
 		</div>
 	</footer>
+-->
 
 	<div class="account-popup-sec">
 		<div class="acount-popup login-popup">
 			<span class="close-popup"><i class="la la-close"></i></span>
-			<h3>LOGIN</h3>
-			<form>
+			<h3>Ingresar</h3>
+			<form action="/login/" method="post">
+				 {% csrf_token %}
 				<div class="field-form">
-					<input class="effect-16" type="text" placeholder="">
+					<input name="usuario" class="effect-16" type="text" placeholder="">
 		            <label>Usuario</label>
 		            <span class="focus-border"></span>
 				</div>
 				<div class="field-form">
-					<input class="effect-16" type="password" placeholder="">
+					<input name="password" class="effect-16" type="password" placeholder="">
 		            <label>Contraseña</label>
 		            <span class="focus-border"></span>
 				</div>
-				<p>
+				<!--<p>
 					<input class="styled-checkbox" id="styled-checkbox-1" type="checkbox" value="value1">
     				<label for="styled-checkbox-1">Recordar</label>
-				</p>
+				</p>-->
 				<a href="#" title="">¿Olvidaste tu contraseña?</a>
-				<button type="submit">LOGIN</button>
-				<div class="extra-login">
+				<button type="submit">Ingresar</button>
+				<!--<div class="extra-login">
 					<span>Or</span>
 					<ul>
-						<li class="connect-fb"><a href="#" title=""><i class="la la-facebook"></i> Ingresar con Facebook</a></li>
-						<li class="connect-twitter"><a href="#" title=""><i class="la la-twitter"></i>Ingresar con Twitter</a></li>
+						<center>
+							<li class="connect-fb"><a href="#" title=""><i class="la la-facebook"></i>Facebook</a></li>
+						</center>
+						<li class="connect-twitter"><a href="#" title=""><i class="la la-twitter"></i>Twitter</a></li>
 					</ul>
-				</div>
+				</div>-->
 			</form>
 		</div>
 		<div class="acount-popup register-popup">
 			<span class="close-popup"><i class="la la-close"></i></span>
 			<h3>REGISTRARSE</h3>
-			<form>
+			<form action="/registrar/" method="post">
+				 {% csrf_token %}
 				<div class="field-form">
-					<input class="effect-16" type="text" placeholder="">
+					<input name="nombre" class="effect-16" type="text" placeholder="">
 		            <label>Nombres (s)</label>
 		            <span class="focus-border"></span>
 				</div>
 				<div class="field-form">
-					<input class="effect-16" type="text" placeholder="">
+					<input name="apellidos" class="effect-16" type="text" placeholder="">
 		            <label>Apellidos (s)</label>
 		            <span class="focus-border"></span>
 				</div>
 				<div class="field-form">
-					<input class="effect-16" type="text" placeholder="">
+					<input name="usuario" class="effect-16" type="text" placeholder="">
+		            <label>Usuario</label>
+		            <span class="focus-border"></span>
+				</div>
+				<div class="field-form">
+					<input name="correo" class="effect-16" type="email" placeholder="">
 		            <label>Email</label>
 		            <span class="focus-border"></span>
 				</div>
 				<div class="field-form">
-					<input class="effect-16" type="password" placeholder="">
+					<input name="password" class="effect-16" type="password" placeholder="">
 		            <label>Contraseña</label>
 		            <span class="focus-border"></span>
 				</div>
 				<div class="field-form">
-					<input class="effect-16" type="password" placeholder="">
+					<input name="password_confirmation" class="effect-16" type="password" placeholder="">
 		            <label>Confirmar Contraseña</label>
 		            <span class="focus-border"></span>
 				</div>
@@ -360,39 +465,10 @@
 <script type="text/javascript" src="{% static 'js/maps.js' %}"></script><!-- Nice Select -->
 <script type="text/javascript" src="{% static 'js/waypoints.js' %}"></script><!-- Counter -->
 
+<script src="{% static 'js/sweet.js' %}"></script>
 
-
-<!--JS DEL FORMULARIO DE REGISTRO 
-
-	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
-
-	<script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
-
-	<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
-	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
-
-	<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
-
-	<script src="{% static 'vendor/daterangepicker/moment.min.js' %}"></script>
-	<script src="{% static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
-
-	<script src="{% static 'vendor/countdowntime/countdowntime.js' %}"></script>
-
-
-	
-	<script src="{% static 'js/jsform/map-custom.js' %}"></script>
-
-	<script src="{% static 'js/jsform/main.js' %}"></script>
-
-
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-23581568-13');
-</script>
--->
+{% load sweetify %}
+	{% sweetify %}
 
 </body>
 </html>

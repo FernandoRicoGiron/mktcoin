@@ -17,5 +17,43 @@ class Banner(models.Model):
 	subtitulo =  models.CharField(max_length=250, null=True, blank=True)
 
 
+class Categorias(models.Model):
+	nombre = models.CharField(null=True, blank= True, max_length=200)
+
+	def __str__(self):
+		return self.nombre
+class Imagenes(models.Model):
+	imagen = models.ImageField(upload_to='registro_empresa')
+
+
+class Registro(models.Model):
+	usuario = models.OneToOneField(User, on_delete=models.CASCADE)
+	fechaNacimientotitular =  models.DateField()
+	numeroTelefonotitular = models.CharField(null=True, blank=True, max_length=20)
+	direccionTitular = models.CharField(null=True,blank=True,max_length=100)
+	nombreEmpresa = models.CharField(null=True, blank= True, max_length=100)
+	categoria = models.ForeignKey('Categorias', on_delete=models.CASCADE)
+	descripcion =  models. TextField(null=True, blank= True)
+	pais = models.CharField(null=True, blank= True, max_length=50)
+	estado = models.CharField(null=True, blank= True, max_length=50)
+	municipio = models.CharField(null=True, blank= True, max_length=50)
+	direccionEmpresa = models.CharField(null=True, blank= True,max_length=100)
+	numTel = models.CharField(null=True, blank= True, max_length=20)
+	quieninvito = models.CharField(null=True, blank= True, max_length=50)
+	loginmkt = models.CharField(null=True, blank= True, max_length=50)
+	porcentaje = models.IntegerField(null=True, blank= True, default=0)
+	facebook = models.CharField(null=True, blank= True, max_length=50)
+	instagram = models.CharField(null=True, blank= True, max_length=50)
+	youtube = models.CharField(null=True, blank= True, max_length=50)
+	twitter = models.CharField(null=True, blank= True, max_length=50)
+	whatsapp = models.CharField(null=True, blank= True, max_length=50)
+	sitioweb = models.CharField(null=True, blank= True, max_length=50)
+	comentarios =  models. TextField(null=True, blank= True)
+	imagen = models.ManyToManyField(Imagenes)
+
+
+
+
+
 
 

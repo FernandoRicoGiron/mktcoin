@@ -7,5 +7,8 @@ from django.contrib.auth.admin import UserAdmin
 
 
 admin.site.register(Banner)
+admin.site.register(Categorias)
+admin.site.register(Imagenes)
+admin.site.register(Registro)
 
 
