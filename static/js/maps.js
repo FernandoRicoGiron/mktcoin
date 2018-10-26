@@ -15,56 +15,56 @@ $(document).on('ready', function(){
 	var map = new google.maps.Map(document.getElementById('map_div'), options);  
 	
 	// Define Marker properties
-	var image = new google.maps.MarkerImage('images/marker1.png',
+	var image = new google.maps.MarkerImage('../images/marker1.png',
 		new google.maps.Size(46, 57),
 		new google.maps.Point(0,0),
 		new google.maps.Point(18, 42)
 	);
 
 	// Define Marker properties
-	var image2 = new google.maps.MarkerImage('images/marker2.png',
+	var image2 = new google.maps.MarkerImage('../images/marker2.png',
 		new google.maps.Size(46, 57),
 		new google.maps.Point(0,0),
 		new google.maps.Point(0, 42)
 	);
 
 	// Define Marker properties
-	var image3 = new google.maps.MarkerImage('images/marker3.png',
+	var image3 = new google.maps.MarkerImage('../images/marker3.png',
 		new google.maps.Size(46, 57),
 		new google.maps.Point(0,0),
 		new google.maps.Point(0, 42)
 	);
 
 	// Define Marker properties
-	var image4 = new google.maps.MarkerImage('images/marker4.png',
+	var image4 = new google.maps.MarkerImage('../images/marker4.png',
 		new google.maps.Size(46, 57),
 		new google.maps.Point(0,0),
 		new google.maps.Point(0, 42)
 	);
 
 	// Define Marker properties
-	var image5 = new google.maps.MarkerImage('images/marker2.png',
+	var image5 = new google.maps.MarkerImage('../images/marker2.png',
 		new google.maps.Size(46, 57),
 		new google.maps.Point(0,0),
 		new google.maps.Point(0, 42)
 	);
 
 	// Define Marker properties
-	var image6 = new google.maps.MarkerImage('images/marker1.png',
+	var image6 = new google.maps.MarkerImage('../images/marker1.png',
 		new google.maps.Size(46, 57),
 		new google.maps.Point(0,0),
 		new google.maps.Point(0, 42)
 	);
 
 	// Define Marker properties
-	var image7 = new google.maps.MarkerImage('images/marker4.png',
+	var image7 = new google.maps.MarkerImage('../images/marker4.png',
 		new google.maps.Size(46, 57),
 		new google.maps.Point(0,0),
 		new google.maps.Point(18, 42)
 	);
 
 	// Define Marker properties
-	var image8 = new google.maps.MarkerImage('images/marker3.png',
+	var image8 = new google.maps.MarkerImage('../images/marker3.png',
 		new google.maps.Size(46, 57),
 		new google.maps.Point(0,0),
 		new google.maps.Point(18, 42)

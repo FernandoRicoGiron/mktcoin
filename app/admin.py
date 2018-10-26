@@ -1,14 +1,8 @@
 from django.contrib import admin
-
 from .models import *
-from django.contrib.auth.admin import UserAdmin
-
-# Register your models here.
-
 
 admin.site.register(Banner)
-admin.site.register(Categorias)
-admin.site.register(Imagenes)
-admin.site.register(Registro)
-
-
+admin.site.register(Categoria)
+admin.site.register(Imagen)
+admin.site.register(Negocio)
+admin.site.register(Ubicacion)

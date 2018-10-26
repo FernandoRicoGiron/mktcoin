@@ -1,5 +1,4 @@
 from django.db import models
-
 from django.utils import timezone
 import datetime
 from django.db import migrations
@@ -16,23 +15,46 @@ class Banner(models.Model):
 	titulo = models.CharField(max_length= 250, null=True, blank=True)
 	subtitulo =  models.CharField(max_length=250, null=True, blank=True)
 
+	def __str__(self):
+		return "Banner " + str(self.id)
 
-class Categorias(models.Model):
+
+class Categoria(models.Model):
 	nombre = models.CharField(null=True, blank= True, max_length=200)
 
 	def __str__(self):
 		return self.nombre
-class Imagenes(models.Model):
+
+class Imagen(models.Model):
 	imagen = models.ImageField(upload_to='registro_empresa')
 
+	class Meta:
+		verbose_name = "Imagen"
+		verbose_name_plural = "Imagenes"
+		
+	def __str__(self):
+		return "Imagen " + str(self.id)
 
-class Registro(models.Model):
+class Ubicacion(models.Model):
+	latitud = models.CharField(max_length=100)
+	longitud = models.CharField(max_length=100)
+
+	class Meta:
+		verbose_name = "Ubicacion"
+		verbose_name_plural = "Ubicaciones"
+		
+	def __str__(self):
+		return "Ubicacion " + str(self.id)	
+
+
+class Negocio(models.Model):
+	validado = models.BooleanField()
 	usuario = models.OneToOneField(User, on_delete=models.CASCADE)
 	fechaNacimientotitular =  models.DateField()
 	numeroTelefonotitular = models.CharField(null=True, blank=True, max_length=20)
 	direccionTitular = models.CharField(null=True,blank=True,max_length=100)
 	nombreEmpresa = models.CharField(null=True, blank= True, max_length=100)
-	categoria = models.ForeignKey('Categorias', on_delete=models.CASCADE)
+	categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
 	descripcion =  models. TextField(null=True, blank= True)
 	pais = models.CharField(null=True, blank= True, max_length=50)
 	estado = models.CharField(null=True, blank= True, max_length=50)
@@ -42,14 +64,14 @@ class Registro(models.Model):
 	quieninvito = models.CharField(null=True, blank= True, max_length=50)
 	loginmkt = models.CharField(null=True, blank= True, max_length=50)
 	porcentaje = models.IntegerField(null=True, blank= True, default=0)
-	facebook = models.CharField(null=True, blank= True, max_length=50)
-	instagram = models.CharField(null=True, blank= True, max_length=50)
-	youtube = models.CharField(null=True, blank= True, max_length=50)
-	twitter = models.CharField(null=True, blank= True, max_length=50)
-	whatsapp = models.CharField(null=True, blank= True, max_length=50)
-	sitioweb = models.CharField(null=True, blank= True, max_length=50)
-	comentarios =  models. TextField(null=True, blank= True)
-	imagen = models.ManyToManyField(Imagenes)
+	facebook = models.URLField()
+	instagram = models.URLField()
+	youtube = models.URLField()
+	twitter = models.URLField()
+	whatsapp = models.URLField()
+	sitioweb = models.URLField()
+	comentarios =  models.TextField(null=True, blank= True)
+	imagenes = models.ManyToManyField(Imagen)
 
 
 

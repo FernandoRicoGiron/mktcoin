@@ -25,7 +25,7 @@ SECRET_KEY = '!n7=+=4xp@)i^ico9fnavsuyz+gaf(%y7(svu772imp4^+z(d8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["www.negociosmktcoin.com","negociosmktcoin.com"]
+ALLOWED_HOSTS = ["*","www.negociosmktcoin.com","negociosmktcoin.com"]
 
 
 # Application definition
@@ -39,8 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
-    'sweetify'
+    'sweetify',
+    # "geoposition",
 ]
+
+GEOPOSITION_GOOGLE_MAPS_API_KEY = "AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"
+GOOGLE_MAPS_API_KEY = "AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
