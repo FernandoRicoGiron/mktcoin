@@ -12,7 +12,7 @@
 							<ul class="breadcrumbs">
 								<li><a href="#" title="">Inicio</a></li>
 								<li><a href="#" title="">Directorio de negocios</a></li>
-								<li>Contáctanos</li>
+								<li>Contactanos</li>
 							</ul>	
 						</div>
 					</div>
@@ -27,7 +27,10 @@
 				<div class="col-md-12">
 					<div class="contact-map">
 						<div id="map-container">
-						    <div id="map_div">&nbsp;</div>
+						    <div id="map_div">&nbsp;
+						    	
+						    	<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15281.76826036028!2d-93.130572!3d16.754668!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf4736c878b5dfa70!2sClub+de+Industriales+de+Chiapas!5e0!3m2!1ses-419!2smx!4v1540592703817" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+						    </div>
 						</div>
 					</div>
 				</div>
@@ -40,15 +43,16 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 column">
-						<h3 class="mini-title">Enváinos tus dudas y/o comentarios</h3>
+						<h3 class="mini-title">Envíanos tus dudas y/o comentarios</h3>
 						<div class="contactus-form"  id="contact">
 							<div id="message"></div>
-							<form method="post" action="contact.php" name="contactform" id="contactform">
+							<form method="post" action="/mensaje/" name="contactform" id="contactform">
+								{% csrf_token %}
 								<div class="row">
-									<div class="col-md-6"><input name="name" type="text" id="name" placeholder="Nombre" /></div>
-									<div class="col-md-6"><input  name="email" type="text" id="email" placeholder="Email"  /></div>
-									<div class="col-md-12"><input type="text" placeholder="Número de Teléfono" /></div>
-									<div class="col-md-12"><textarea name="comments" id="comments" placeholder="Mensaje"></textarea></div>
+									<div class="col-md-6"><input name="nombre" type="text" id="name" placeholder="Nombre" /></div>
+									<div class="col-md-6"><input  name="correo" type="text" id="email" placeholder="Email"  /></div>
+									<div class="col-md-12"><input name="telefono" type="text" placeholder="Número de Teléfono" /></div>
+									<div class="col-md-12"><textarea name="mensaje" id="comments" placeholder="Mensaje"></textarea></div>
 									<div class="col-md-12"><input type="submit" id="submit" value="Enviar Mensaje" /></div>
 								</div>
 							</form>
@@ -62,19 +66,19 @@
 									<li>
 										<i class="la la-map-marker"></i>
 										<h4>Dirección</h4>
-										<span>69 Halsey St, New York,</span>
-										<span>Ny 10002, USA</span>
+										<span>Tuxtla Gutiérrez, Chiapas,</span>
+										<span>México</span>
 									</li>
 									<li>
 										<i class="la la-phone"></i>
 										<h4>Número de Telégono</h4>
-										<span>(084) 965 4788</span>
+										<span>(961) 336 3808</span>
 									</li>
 									
 									<li>
 										<i class="la la-envelope-o"></i>
 										<h4>Correo Electrónico</h4>
-										<span>info@domain.com</span>
+										<span>wilderesc96@gmail.com</span>
 									</li>
 								</ul>
 							</div>

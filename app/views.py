@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth import login, authenticate, logout
 from django.core.mail import EmailMessage
+from django.core.mail import BadHeaderError, send_mail
 from django.conf import settings
 from django.core import serializers
 from django.contrib.auth.hashers import check_password
@@ -36,14 +37,14 @@ def index(request):
 def contacto(request):
 	return render(request, "contacto.html", {})
 
+
 def negocios(request):
 	negocios = Negocio.objects.filter(validado=True)
 	paises = Pais.objects.all()
 	estados = Estado.objects.all()
 	return render(request, "negocios.html", {"negocios":negocios, "paises":paises, "estados":estados})
 
-def registronegocio(request):
-	return render(request, "registronegocio.html", {})
+
 
 def nosotros(request):
 	return render(request, "nosotros.html", {})
@@ -71,58 +72,6 @@ def registrar(request):
 	sweetify.success(request, '¡Genial!', text='Se ha creado su usuario', persistent=':)')
 	return HttpResponseRedirect(request.META.get('HTTP_REFERER','/'))
 
-"""
-@csrf_exempt
-def registrar(request):
-	nombre =  request.POST.get("nombre")
-	apellidos = request.POST.get("apellidos")
-	correo = request.POST.get("correo")
-	usuario = request.POST.get("usuario")
-	password = request.POST.get("password")
-
-	user = User.objects.filter(username=usuario).exists()
-	if user == False:
-		user = User.objects.create_user(first_name=nombre,
-			last_name = apellidos,
-			email = correo,
-			username = usuario,
-			password = password)
-		user = authenticate(request, username=usuario, password=password)
-		user.is_active = True
-		current_site = get_current_site(request)
-		mail_subject = 'Activacion de cuenta'
-		message = render_to_string('acc_active_email.html',{
-			'user':user,
-			'domain':current_site.domain,
-			'uid':urlsafe_base64_decode(force_bytes(user.pk)),
-			'token':account_activation_token.make_token(user),
-			})
-		emaild = EmailMessage(mail_subject, message, to = [correo])
-		emaild.send()
-		sweetify.success(request, 'Gracias!', text='Valida Tu usuario en Tu Correo', persistent=':)')
-		return HttpResponseRedirect(request.META.get('HTTP_REFERER','/'))
-			#return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
-		
-	else:
-		sweetify.error(request, 'Oops!', text='¡Ese Nombre de Usuario ya Existe!', persistent=':´(')
-		return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
-
-def activate(request, uidb64, token):
-    try:
-        uid = force_text(urlsafe_base64_decode(uidb64))
-        user = User.objects.get(pk=uid)
-    except(TypeError, ValueError, OverflowError, User.DoesNotExist):
-        user = None
-    if user is not None and account_activation_token.check_token(user, token):
-        user.is_active = True
-        user.save()
-        login(request, user)
-        # return redirect('home')
-        return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
-    else:
-    	sweetify.success(request, 'Gracias!', text='Usuario Validado', persistent=':)')
-    	return HttpResponseRedirect(request.META.get('HTTP_REFERER','/'))
-   """
 
   #SECCION DE INICIO Y CIERRE DE SESION
 
@@ -141,3 +90,82 @@ def iniciosesion(request):
 def cerrarsesion(request):
 	logout(request)
 	return HttpResponseRedirect("/")
+
+@login_required
+def registronegocio(request):
+	categorias = Categoria.objects.all()
+	ubicacion = Ubicacion.objects.all()
+	paises = Pais.objects.all()
+
+	return render(request, "registronegocio.html", {"categorias":categorias,"ubicacion":ubicacion,"paises":paises})
+
+def altanegocio(request):
+	usuario = request.user
+	categoria =  Categoria.objects.get(id=request.POST.get("categoria"))
+	pais =  Pais.objects.get(id=request.POST.get("pais"))
+
+	negocio = Negocio.objects.create(usuario=usuario,
+		nombreTitular = request.POST.get("nombreTitular"),
+		fechaNacimiento= request.POST.get("fechaNacimiento"),
+		numeroTelefonotitular =request.POST.get("numeroTelefonotitular"),
+		direccionTitular=request.POST.get("direccionTitular"),
+		correo= request.POST.get("correo"),
+		nombreEmpresa= request.POST.get("nombreEmpresa"),
+		categoria = categoria,
+		pais= pais,
+		descripcion =request.POST.get("descripcion"),
+		estado = request.POST.get("estado"),
+		municipio=request.POST.get("municipio"),
+		direccionEmpresa=request.POST.get("direccionEmpresa"),
+		numTel=request.POST.get("numTel"),
+		quieninvito=request.POST.get("quieninvito"),
+		loginmkt=request.POST.get("loginmkt"),
+		porcentaje=request.POST.get("porcentaje"),
+		facebook=request.POST.get("facebook"),
+		instagram =request.POST.get("instagram"),
+		youtube= request.POST.get("youtube"),
+		twitter=request.POST.get("twitter"),
+		whatsapp=request.POST.get("whatsapp"),
+		sitioweb=request.POST.get("sitioweb"),
+		comentarios= request.POST.get("comentarios"),
+		#imagenes=, 
+
+		)
+
+	
+	lista = request.FILES.getlist("imagen")
+	for f in lista:
+		image = Imagen.objects.create(imagen=f)
+		negocio.imagenes.add(image)
+
+	
+
+	negocio.save()
+
+
+	sweetify.success(request, '¡Felicidades!', text='Se ha agregado con éxito', persistent=':)')
+	return HttpResponseRedirect(request.META.get('HTTP_REFERER','/'))
+
+	#categoria foren
+ 	#unicacion foren 
+	#imagees manytomany
+
+
+def send_email(request):
+    nombre = request.POST.get('nombre', '')
+    mensaje = request.POST.get('mensaje', '')
+    telefono = request.POST.get('telefono', '')
+    correo = request.POST.get('correo', '')
+    if nombre and mensaje and telefono and correo:
+        try:
+            sweetify.success(request, 'Gracias!', text="Su mensaje a sido enviado correctamente", persistent=':)')
+            send_mail('Mensaje de ' + nombre, 'La empresa o el cliente ' + nombre + ' ha enviado la siguiente informacion: \n' + mensaje + '\n Su número de contacto es: ' + telefono, correo, ['wilderesc97@gmail.com'])
+            
+        except BadHeaderError:
+            sweetify.error(request, 'Lo sentimos!', text='Revise sus datos', persistent=':´(')
+            #return HttpResponse('No pudo enviarse')
+        sweetify.success(request, 'Gracias!', text="Su mensaje a sido enviado correctamente", persistent=':)')
+        return HttpResponseRedirect('/')
+    else:
+        return HttpResponse('Complete los campos de informacion')
+	

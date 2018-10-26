@@ -47,7 +47,7 @@ class Estado(models.Model):
 
 class Pais(models.Model):
 	pais = models.CharField(max_length=100)
-	estado = models.ForeignKey(Estado, on_delete=models.CASCADE)
+	#estado = models.ForeignKey(Estado, on_delete=models.CASCADE)
 
 	class Meta:
 		verbose_name = "Pais"
@@ -59,7 +59,7 @@ class Pais(models.Model):
 class Ubicacion(models.Model):
 	latitud = models.CharField(max_length=100)
 	longitud = models.CharField(max_length=100)
-	pais = models.ForeignKey(Estado, on_delete=models.CASCADE)
+	pais = models.ForeignKey(Pais, on_delete=models.CASCADE)
 
 	class Meta:
 		verbose_name = "Ubicacion"
@@ -70,15 +70,19 @@ class Ubicacion(models.Model):
 
 
 class Negocio(models.Model):
-	validado = models.BooleanField()
-	usuario = models.OneToOneField(User, on_delete=models.CASCADE)
-	fechaNacimientotitular =  models.DateField()
+	validado = models.BooleanField(default=False)
+	usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+	nombreTitular = models.CharField(max_length=100)
+	fechaNacimiento =  models.DateField()
 	numeroTelefonotitular = models.CharField(null=True, blank=True, max_length=20)
 	direccionTitular = models.CharField(null=True,blank=True,max_length=100)
+	correo = models.CharField(max_length=100)
 	nombreEmpresa = models.CharField(null=True, blank= True, max_length=100)
 	categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
-	ubicacion = models.ForeignKey(Ubicacion, on_delete=models.CASCADE)
+	pais = models.ForeignKey(Pais, on_delete=models.CASCADE)
+	#ubicacion = models.ForeignKey(Ubicacion, on_delete=models.CASCADE)
 	descripcion =  models. TextField(null=True, blank= True)
+	estado = models.CharField(null=True, blank= True, max_length=50)
 	municipio = models.CharField(null=True, blank= True, max_length=50)
 	direccionEmpresa = models.CharField(null=True, blank= True,max_length=100)
 	numTel = models.CharField(null=True, blank= True, max_length=20)

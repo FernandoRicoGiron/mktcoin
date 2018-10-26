@@ -27,6 +27,10 @@
 
 
 
+
+
+
+
 <link rel="shortcut icon" type="image/png" href="images/favicon.ico"/>
 
 </head>
@@ -38,7 +42,7 @@
 <div class="theme-layout">
 
 	<div class="responive-header">
-		<div class="logo"><a href="index.html" title=""><img width="50" height="50" src="{% static 'images/logo.jpg' %}" alt="" /></a></div>
+		<div class="logo"><a href="/" title=""><img width="100" height="100" src="{% static 'images/logo.jpg' %}" alt="" /></a></div>
 		<span class="open-responsive-btn"><i class="la la-bars"></i><i class="la la-close"></i></span>
 		<div class="resp-btn-sec">
 			{% if user.is_authenticated %}
@@ -65,7 +69,7 @@
 		</div>
 		<div class="responisve-menu">
 			<span class="close-reposive"><i class="la la-close"></i></span>
-			<div class="logo"><a href="index.html" title=""><img src="http://placehold.it/97x32		" alt="" /></a></div>
+			<div class="logo"><a href="/" title=""><img src="{% static 'images/logo.jpg' %}" width="100" height="100" alt="" /></a></div>
 			<ul>
 				<li class="item-has-children">
 					<a href="/" title="">Inicio</a>
@@ -130,7 +134,7 @@
 	</div><!-- Responsive-header -->
 	
 	<header class="on-top dark">
-		<div class="logo"><a href="index.html" title=""><img src="http://placehold.it/97x32		" alt="" /></a></div>
+		<div class="logo"><a href="/" title=""><img src="{% static 'images/logo.jpg' %}" width="100" height="100" alt="" /></a></div>
 		<div class="menu-sec">
 
 			{% if user.is_authenticated %}
@@ -182,9 +186,15 @@
 						</ul>-->
 					</li>
 					<li class="menu-item-has-children">
-						<a href="/negocios/" title="">Directorio de negocios</a>
+						<a href="#" title="">Directorio de negocios</a>
 						<ul>
+							<li><a href="/negocios/" title="">Ver Directorio</a></li>
+
+							{% if user.is_authenticated %}
 							<li><a href="/registronegocio/" title="">Registrar negocio</a></li>
+							{% else %}
+							<li><a href="#" class="login-btn" title="">Registrar negocio</a></li>
+							{% endif %}
 							<!--<li><a href="add-listing.html" title="">Add Listings</a></li>
 							<li><a href="edit-profile.html" title="">Edit Profile</a></li>
 							<li><a href="register.html" title="">Register</a></li>
@@ -395,6 +405,7 @@
 					<input class="styled-checkbox" id="styled-checkbox-1" type="checkbox" value="value1">
     				<label for="styled-checkbox-1">Recordar</label>
 				</p>-->
+				<a style="margin-left: 130px;"  class="register-btn" href="#" title="">¿No tienes cuenta?</a>
 				<a href="#" title="">¿Olvidaste tu contraseña?</a>
 				<button type="submit">Ingresar</button>
 				<!--<div class="extra-login">
@@ -470,6 +481,9 @@
 
 {% load sweetify %}
 	{% sweetify %}
+
+
+
 
 </body>
 </html>

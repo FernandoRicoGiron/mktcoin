@@ -63,3 +63,16 @@
 	font-size: 15px;
 	font-weight: bold;
 }
+
+
+
+/*ESTILOS DE ACERCA DE*/
+
+.divabout{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.imgabout{
+  border-radius: 50%;
+}

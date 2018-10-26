@@ -70,9 +70,94 @@
 		<span>¡Intégrate, Actualízate en Tecnologías Digitales y Gana!</span>
 	</div>
 
+	{% if user.is_authenticated %}
+
+
 <center>
 		<a href="/registronegocio/"  class="button" style="vertical-align:middle; background:#d90429; color:#FFFFFF"><span style="">Registrar mi negocio </span></a>
 </center>
+	
+	{% else %}
+	<center>
+		<a href="#"  class="login-btn button" style="vertical-align:middle; background:#d90429; color:#FFFFFF"><span style="">Registrar mi negocio </span></a>
+</center>
+	{% endif %}
+
+
+	<div class="account-popup-sec">
+		<div class="acount-popup login-popup">
+			<span class="close-popup"><i class="la la-close"></i></span>
+			<h3>Ingresar</h3>
+			<form action="/login/" method="post">
+				 {% csrf_token %}
+				<div class="field-form">
+					<input name="usuario" class="effect-16" type="text" placeholder="">
+		            <label>Usuario</label>
+		            <span class="focus-border"></span>
+				</div>
+				<div class="field-form">
+					<input name="password" class="effect-16" type="password" placeholder="">
+		            <label>Contraseña</label>
+		            <span class="focus-border"></span>
+				</div>
+				<!--<p>
+					<input class="styled-checkbox" id="styled-checkbox-1" type="checkbox" value="value1">
+    				<label for="styled-checkbox-1">Recordar</label>
+				</p>-->
+				<a href="#" title="">¿No tienes una cuenta?</a>
+				<a href="#" title="">¿Olvidaste tu contraseña?</a>
+				<button type="submit">Ingresar</button>
+				<!--<div class="extra-login">
+					<span>Or</span>
+					<ul>
+						<center>
+							<li class="connect-fb"><a href="#" title=""><i class="la la-facebook"></i>Facebook</a></li>
+						</center>
+						<li class="connect-twitter"><a href="#" title=""><i class="la la-twitter"></i>Twitter</a></li>
+					</ul>
+				</div>-->
+			</form>
+		</div>
+		<div class="acount-popup register-popup">
+			<span class="close-popup"><i class="la la-close"></i></span>
+			<h3>REGISTRARSE</h3>
+			<form action="/registrar/" method="post">
+				 {% csrf_token %}
+				<div class="field-form">
+					<input name="nombre" class="effect-16" type="text" placeholder="">
+		            <label>Nombres (s)</label>
+		            <span class="focus-border"></span>
+				</div>
+				<div class="field-form">
+					<input name="apellidos" class="effect-16" type="text" placeholder="">
+		            <label>Apellidos (s)</label>
+		            <span class="focus-border"></span>
+				</div>
+				<div class="field-form">
+					<input name="usuario" class="effect-16" type="text" placeholder="">
+		            <label>Usuario</label>
+		            <span class="focus-border"></span>
+				</div>
+				<div class="field-form">
+					<input name="correo" class="effect-16" type="email" placeholder="">
+		            <label>Email</label>
+		            <span class="focus-border"></span>
+				</div>
+				<div class="field-form">
+					<input name="password" class="effect-16" type="password" placeholder="">
+		            <label>Contraseña</label>
+		            <span class="focus-border"></span>
+				</div>
+				<div class="field-form">
+					<input name="password_confirmation" class="effect-16" type="password" placeholder="">
+		            <label>Confirmar Contraseña</label>
+		            <span class="focus-border"></span>
+				</div>
+				<button type="submit">REGISTRAR</button>
+				<p>Al dar clic acepta los <a href="#" title="">Términos y condiciones</a> </p>
+			</form>
+		</div>
+	</div>
 
 
 <center>
@@ -105,7 +190,7 @@
 					<div class="col-md-12">
 						<div class="heading">
 							<h2>EXPLORA POR CIUDADES</h2>
-							<span>Easily Found Among You Wanted More Than 7M Firms</span>
+							<span>Encuentra negocios en tu ciudad</span>
 						</div>
 					</div>
 					<div class="do-tonight-sec">
@@ -113,7 +198,7 @@
 							<div class="col-md-3">
 								<div class="dt-box style2">
 									<a href="#" title="">
-										<img src="http://placehold.it/270x257" alt="" />
+										<img src="{% static 'images/tuxtla.jpg' %}" alt="" />
 										<span>Tuxtla Gutiérrez</span>
 										<strong>Ver</strong>
 									</a>
@@ -122,7 +207,7 @@
 							<div class="col-md-6">
 								<div class="dt-box style2">
 									<a href="#" title="">
-										<img src="http://placehold.it/570x257" alt="" />
+										<img src="{% static 'images/berriozabal.jpg' %}" alt="" />
 										<span>Berriozabal</span>
 										<strong>Ver</strong>
 									</a>
@@ -131,7 +216,7 @@
 							<div class="col-md-3">
 								<div class="dt-box style2">
 									<a href="#" title="">
-										<img src="http://placehold.it/270x257" alt="" />
+										<img src="{% static 'images/sancris.jpg' %}" alt="" />
 										<span>San Cristóbal</span>
 										<strong>Ver</strong>
 									</a>
@@ -142,7 +227,7 @@
 							<div class="col-md-6">
 								<div class="dt-box style2">
 									<a href="#" title="">
-										<img src="http://placehold.it/570x257" alt="" />
+										<img src="{% static 'images/chiapa.jpg' %}" alt="" />
 										<span>Chiapa de Corzo</span>
 										<strong>Ver</strong>
 									</a>
@@ -151,7 +236,7 @@
 							<div class="col-md-3">
 								<div class="dt-box style2">
 									<a href="#" title="">
-										<img src="http://placehold.it/270x257" alt="" />
+										<img src="{% static 'images/coita.jpg' %}" alt="" />
 										<span>Ocozocoautla</span>
 										<strong>Ver</strong>
 									</a>
@@ -160,7 +245,7 @@
 							<div class="col-md-3">
 								<div class="dt-box style2">
 									<a href="#" title="">
-										<img src="http://placehold.it/270x257" alt="" />
+										<img src="{% static 'images/jiquipilas.jpg' %}" alt="" />
 										<span>Jiquipilas</span>
 										<strong>Ver</strong>
 									</a>

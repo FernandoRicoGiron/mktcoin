@@ -12,6 +12,8 @@ urlpatterns = [
     path('login/', views.iniciosesion, name='login'),
     path('cerrarsesion/', views.cerrarsesion),
     path('registrar/', views.registrar),
+    path('altanegocio/', views.altanegocio),
+    path('mensaje/', views.send_email),
    # path('activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',views.activate, name='activate'),
 
     ]

@@ -12,7 +12,7 @@
 						    <div id="map_div">&nbsp;</div>
 						</div>
 						<div class="search-form-map">
-							<div class="directory-searcher">
+							<!--<div class="directory-searcher">
 								<form action="/negocios/busqueda/" method="POST">
 									<div class="field"><select data-placeholder="Categories" class="chosen-select" tabindex="2">
 								            <option value="Pais">País</option>
@@ -38,7 +38,7 @@
 										<button type="submit"><i class="la la-search"></i>BUSCAR</button>
 									</div>
 								</form>
-							</div>
+							</div>-->
 						<!--	<ul class="choose-map-route pull-left">
 								<li><a href="#" title="">Roadmap</a></li>
 								<li><a href="#" title="">Terrain</a></li>
@@ -101,10 +101,81 @@
 
 -->
 
+<section>
+		<div class="block gray ">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 column">
+						<h3 class="mini-title">Lista de negocios</h3>
+						<div class="">
+							<div class="directory-searcher" style="margin:0; left:0; width:100%; margin-bottom: 50px;">
+								<form action="/negocios/busqueda/" method="POST">
+									<div class="field"><select data-placeholder="Categories" class="chosen-select" tabindex="2">
+								            <option value="Pais">País</option>
+								            {% for pais in paises %}
+								            <option value="{{pais.id}}">{{pais.pais}}</option>
+								            {% endfor %}
+								        </select></div>
+									<div class="field"><select data-placeholder="Categories" class="chosen-select" tabindex="2">
+								            <option value="Estado">Estado</option>
+								        </select></div>
+									<div class="field"><input type="text" placeholder="Nombre del negocio"></div>
+									<div class="field">
+										<select data-placeholder="Categories" class="chosen-select" tabindex="2">
+								            <option value="Todas">Todas las Categorías</option>
+								            <option value="Foods">Restaurantes</option>
+								            <option value="Lodging">Cafeterías</option>
+								            <option value="Nightlife">Farmacias</option>
+								            <option value="AOutdoors">Servicios</option>
+								            <option value="Restaurants">Consultorios</option>
+								        </select>
+									</div>
+									<div class="field">
+										<button type="submit"><i class="la la-search"></i>BUSCAR</button>
+									</div>
+								</form>
+							</div><br>
+						<!--	<ul class="choose-map-route pull-left">
+								<li><a href="#" title="">Roadmap</a></li>
+								<li><a href="#" title="">Terrain</a></li>
+								<li><a href="#" title="">Satellite</a></li>
+								<li><a href="#" title="">Current Position</a></li>
+							</ul>-->
+							<!--<ul class="zoomer-btn pull-right">
+								<li><a href="#" title="">Zoom In</a></li>
+								<li><a href="#" title="">Zoom Out</a></li>
+							</ul>-->
+						</div>
+						<div class="grids-listings">
+							<div class="row">
+								{% for negocio in negocios %}
+								<div class="col-md-3 col-sm-6 col-xs-12">
+									<div class="listing-box">
+										<div class="listing-box-thumb">
+											<img src="{{negocio.imagenes.first.imagen.url}}" alt="" />
+											<div class="listing-box-title">
+												<h3><a href="#" title="">{{negocio.nombreEmpresa}}</a></h3>
+												<span>{{negocio.direccionEmpresa}} </span>
+												<span>{{negocio.numTel}}</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								{% endfor %}
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 
 
-<!--
+
+
 	<section>
 		<div class="block light-blue">
 			<div class="container">
@@ -137,7 +208,7 @@
 			</div>
 		</div>
 	</section>
--->
+
 
 	<!--
 
@@ -231,76 +302,7 @@
 	</section>
 -->
 
-	<section>
-		<div class="block gray ">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 column">
-						<h3 class="mini-title">Lista de negocios</h3>
-						<div class="">
-							<div class="directory-searcher" style="margin:0; left:0; width:100%; margin-bottom: 50px;">
-								<form action="/negocios/busqueda/" method="POST">
-									<div class="field"><select data-placeholder="Categories" class="chosen-select" tabindex="2">
-								            <option value="Pais">País</option>
-								            {% for pais in paises %}
-								            <option value="{{pais.id}}">{{pais.pais}}</option>
-								            {% endfor %}
-								        </select></div>
-									<div class="field"><select data-placeholder="Categories" class="chosen-select" tabindex="2">
-								            <option value="Estado">Estado</option>
-								        </select></div>
-									<div class="field"><input type="text" placeholder="Nombre del negocio"></div>
-									<div class="field">
-										<select data-placeholder="Categories" class="chosen-select" tabindex="2">
-								            <option value="Todas">Todas las Categorías</option>
-								            <option value="Foods">Restaurantes</option>
-								            <option value="Lodging">Cafeterías</option>
-								            <option value="Nightlife">Farmacias</option>
-								            <option value="AOutdoors">Servicios</option>
-								            <option value="Restaurants">Consultorios</option>
-								        </select>
-									</div>
-									<div class="field">
-										<button type="submit"><i class="la la-search"></i>BUSCAR</button>
-									</div>
-								</form>
-							</div><br>
-						<!--	<ul class="choose-map-route pull-left">
-								<li><a href="#" title="">Roadmap</a></li>
-								<li><a href="#" title="">Terrain</a></li>
-								<li><a href="#" title="">Satellite</a></li>
-								<li><a href="#" title="">Current Position</a></li>
-							</ul>-->
-							<!--<ul class="zoomer-btn pull-right">
-								<li><a href="#" title="">Zoom In</a></li>
-								<li><a href="#" title="">Zoom Out</a></li>
-							</ul>-->
-						</div>
-						<div class="grids-listings">
-							<div class="row">
-								{% for negocio in negocios %}
-								<div class="col-md-3 col-sm-6 col-xs-12">
-									<div class="listing-box">
-										<div class="listing-box-thumb">
-											<img src="{{negocio.imagenes.first.imagen.url}}" alt="" />
-											<div class="listing-box-title">
-												<h3><a href="#" title="">{{negocio.nombreEmpresa}}</a></h3>
-												<span>{{negocio.direccionEmpresa}} </span>
-												<span>{{negocio.numTel}}</span>
-											</div>
-										</div>
-									</div>
-								</div>
-								{% endfor %}
-
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+	
 
 {% endblock %}
 
