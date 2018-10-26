@@ -37,8 +37,10 @@ def contacto(request):
 	return render(request, "contacto.html", {})
 
 def negocios(request):
-
-	return render(request, "negocios.html", {})
+	negocios = Negocio.objects.filter(validado=True)
+	paises = Pais.objects.all()
+	estados = Estado.objects.all()
+	return render(request, "negocios.html", {"negocios":negocios, "paises":paises, "estados":estados})
 
 def registronegocio(request):
 	return render(request, "registronegocio.html", {})

@@ -13,13 +13,20 @@
 						</div>
 						<div class="search-form-map">
 							<div class="directory-searcher">
-								<form>
-									<div class="field"><input type="text" placeholder="País"></div>
-									<div class="field"><input type="text" placeholder="Estado"></div>
-									<div class="field"><input type="text" placeholder="Palabra Clave"></div>
+								<form action="/negocios/busqueda/" method="POST">
+									<div class="field"><select data-placeholder="Categories" class="chosen-select" tabindex="2">
+								            <option value="Pais">País</option>
+								            {% for pais in paises %}
+								            <option value="{{pais.id}}">{{pais.pais}}</option>
+								            {% endfor %}
+								        </select></div>
+									<div class="field"><select data-placeholder="Categories" class="chosen-select" tabindex="2">
+								            <option value="Estado">Estado</option>
+								        </select></div>
+									<div class="field"><input type="text" placeholder="Nombre del negocio"></div>
 									<div class="field">
 										<select data-placeholder="Categories" class="chosen-select" tabindex="2">
-								            <option value="All Categories">Todas las Categorías</option>
+								            <option value="Todas">Todas las Categorías</option>
 								            <option value="Foods">Restaurantes</option>
 								            <option value="Lodging">Cafeterías</option>
 								            <option value="Nightlife">Farmacias</option>
@@ -94,134 +101,10 @@
 
 -->
 
-	<section class="with-boxed">
-		<div class="block gray">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="heading">
-						<h2>Todos los negocios</h2>
-						<span>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</span>
-					</div>
-					<div class="listing-carousel">
-						<div class="row" id="listing-carousel">
-							<div class="col-md-3">
-								<div class="listing-box">
-									<div class="listing-box-thumb">
-										
-										<img src="http://placehold.it/360x245" alt="" />
-										<div class="listing-box-title">
-											<h3><a href="#" title="">Mantenimiento Automotriz</a></h3>
-											<span>Los Angeles /  Sillicon Valley </span>
-											<span>(416) 551-0589</span>
-										</div>
-									</div>
-									
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="listing-box">
-									<div class="listing-box-thumb">
-										
-										<img src="http://placehold.it/360x245" alt="" />
-										<div class="listing-box-title">
-											<h3><a href="#" title="">Abarrotes doña Mary</a></h3>
-											<span>Los Angeles /  Sillicon Valley </span>
-											<span>(416) 551-0589</span>
-										</div>
-									</div>
-								
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="listing-box">
-									<div class="listing-box-thumb">
-										
-										<img src="http://placehold.it/360x245" alt="" />
-										<div class="listing-box-title">
-											<h3><a href="#" title="">Unidad Médica</a></h3>
-											<span>Los Angeles /  Sillicon Valley </span>
-											<span>(416) 551-0589</span>
-										</div>
-									</div>
-								
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="listing-box">
-									<div class="listing-box-thumb">
-										
-										<img src="http://placehold.it/360x245" alt="" />
-										<div class="listing-box-title">
-											<h3><a href="#" title="">Mantenimiento de Cómputo </a></h3>
-											<span>Los Angeles /  Sillicon Valley </span>
-											<span>(416) 551-0589</span>
-										</div>
-									</div>
-								
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="listing-box">
-									<div class="listing-box-thumb">
-										
-										<img src="http://placehold.it/360x245" alt="" />
-										<div class="listing-box-title">
-											<h3><a href="#" title="">Bienes Raíces</a></h3>
-											<span>Los Angeles /  Sillicon Valley </span>
-											<span>(416) 551-0589</span>
-										</div>
-									</div>
-								
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
 
-	<section>
-		<div class="block">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="heading">
-							<h2>Búsqueda Rápida y Fácil</h2>
-						</div>
-					</div>
-					<div class="col-md-12">
-						<div class="services-sec">
-							<div class="row">
-								<div class="col-md-4">
-									<div class="services style2">
-										<i class="la la-paperclip"></i>
-										<h3>Eleige la categoría</h3>
-										<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="services style2">
-										<i class="la la-map-marker"></i>
-										<h3>Busca por ciudad o estado</h3>
-										<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="services style2">
-										<i class="la la-tencent-weibo"></i>
-										<h3>¡Vamos a divertirnos!</h3>
-										<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
 
+
+<!--
 	<section>
 		<div class="block light-blue">
 			<div class="container">
@@ -254,6 +137,7 @@
 			</div>
 		</div>
 	</section>
+-->
 
 	<!--
 
@@ -324,96 +208,7 @@
 
 -->
 
-	<section>
-		<div class="block">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="heading">
-							<h2>CATEGORIAS</h2>
-							<span>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium <br />doloremque laudantium, totam rem aperiam.</span>
-						</div>
-						<div class="categories-sec">
-							<div class="row">
-								<div class="col-md-3 col-sm-4 col-xs-12">
-									<div class="category-box style2">
-										<div class="category-box-detail">
-											<span><i class="la la-briefcase"></i></span>
-											<h3><a href="#" title="">Negocios</a></h3>
-											<p>8 listings</p>
-										</div>
-									</div><!-- Category Box -->
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-12">
-									<div class="category-box style2">
-										<div class="category-box-detail">
-											<span><i class="la la-car"></i></span>
-											<h3><a href="#" title="">Servicios</a></h3>
-											<p>8 listings</p>
-										</div>
-									</div><!-- Category Box -->
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-12">
-									<div class="category-box style2">
-										<div class="category-box-detail">
-											<span><i class="la la-bed"></i></span>
-											<h3><a href="#" title="">Hoteles</a></h3>
-											<p>8 listings</p>
-										</div>
-									</div><!-- Category Box -->
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-12">
-									<div class="category-box style2">
-										<div class="category-box-detail">
-											<span><i class="la la-spoon"></i></span>
-											<h3><a href="#" title="">Comidas y Bebidas</a></h3>
-											<p>8 listings</p>
-										</div>
-									</div><!-- Category Box -->
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-12">
-									<div class="category-box style2">
-										<div class="category-box-detail">
-											<span><i class="la la-shopping-cart"></i></span>
-											<h3><a href="#" title="">Tiendas</a></h3>
-											<p>8 listings</p>
-										</div>
-									</div><!-- Category Box -->
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-12">
-									<div class="category-box style2">
-										<div class="category-box-detail">
-											<span><i class="la la-book"></i></span>
-											<h3><a href="#" title="">Educación</a></h3>
-											<p>8 listings</p>
-										</div>
-									</div><!-- Category Box -->
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-12">
-									<div class="category-box style2">
-										<div class="category-box-detail">
-											<span><i class="la la-briefcase"></i></span>
-											<h3><a href="#" title="">Cafeterias</a></h3>
-											<p>8 listings</p>
-										</div>
-									</div><!-- Category Box -->
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-12">
-									<div class="category-box style2">
-										<div class="category-box-detail">
-											<span><i class="la la-plane"></i></span>
-											<h3><a href="#" title="">Viajes</a></h3>
-											<p>8 listings</p>
-										</div>
-									</div><!-- Category Box -->
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+	
 <!--
 
 	<section class="with-boxed">
@@ -437,34 +232,70 @@
 -->
 
 	<section>
-		<div class="block remove-top">
+		<div class="block gray ">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-12">
-						<div class="client-sec">
+					<div class="col-md-12 column">
+						<h3 class="mini-title">Lista de negocios</h3>
+						<div class="">
+							<div class="directory-searcher" style="margin:0; left:0; width:100%; margin-bottom: 50px;">
+								<form action="/negocios/busqueda/" method="POST">
+									<div class="field"><select data-placeholder="Categories" class="chosen-select" tabindex="2">
+								            <option value="Pais">País</option>
+								            {% for pais in paises %}
+								            <option value="{{pais.id}}">{{pais.pais}}</option>
+								            {% endfor %}
+								        </select></div>
+									<div class="field"><select data-placeholder="Categories" class="chosen-select" tabindex="2">
+								            <option value="Estado">Estado</option>
+								        </select></div>
+									<div class="field"><input type="text" placeholder="Nombre del negocio"></div>
+									<div class="field">
+										<select data-placeholder="Categories" class="chosen-select" tabindex="2">
+								            <option value="Todas">Todas las Categorías</option>
+								            <option value="Foods">Restaurantes</option>
+								            <option value="Lodging">Cafeterías</option>
+								            <option value="Nightlife">Farmacias</option>
+								            <option value="AOutdoors">Servicios</option>
+								            <option value="Restaurants">Consultorios</option>
+								        </select>
+									</div>
+									<div class="field">
+										<button type="submit"><i class="la la-search"></i>BUSCAR</button>
+									</div>
+								</form>
+							</div><br>
+						<!--	<ul class="choose-map-route pull-left">
+								<li><a href="#" title="">Roadmap</a></li>
+								<li><a href="#" title="">Terrain</a></li>
+								<li><a href="#" title="">Satellite</a></li>
+								<li><a href="#" title="">Current Position</a></li>
+							</ul>-->
+							<!--<ul class="zoomer-btn pull-right">
+								<li><a href="#" title="">Zoom In</a></li>
+								<li><a href="#" title="">Zoom Out</a></li>
+							</ul>-->
+						</div>
+						<div class="grids-listings">
 							<div class="row">
-								<div class="col-md-3 col-sm-6 col-xs-6">
-									<div class="client-box">
-										<a href="#" title=""><img src="http://placehold.it/232x75" alt="" /></a>
-									</div><!-- Client Box -->
+								{% for negocio in negocios %}
+								<div class="col-md-3 col-sm-6 col-xs-12">
+									<div class="listing-box">
+										<div class="listing-box-thumb">
+											<img src="{{negocio.imagenes.first.imagen.url}}" alt="" />
+											<div class="listing-box-title">
+												<h3><a href="#" title="">{{negocio.nombreEmpresa}}</a></h3>
+												<span>{{negocio.direccionEmpresa}} </span>
+												<span>{{negocio.numTel}}</span>
+											</div>
+										</div>
+									</div>
 								</div>
-								<div class="col-md-3 col-sm-6 col-xs-6">
-									<div class="client-box">
-										<a href="#" title=""><img src="http://placehold.it/232x75" alt="" /></a>
-									</div><!-- Client Box -->
-								</div>
-								<div class="col-md-3 col-sm-6 col-xs-6">
-									<div class="client-box">
-										<a href="#" title=""><img src="http://placehold.it/232x75" alt="" /></a>
-									</div><!-- Client Box -->
-								</div>
-								<div class="col-md-3 col-sm-6 col-xs-6">
-									<div class="client-box">
-										<a href="#" title=""><img src="http://placehold.it/232x75" alt="" /></a>
-									</div><!-- Client Box -->
-								</div>
+								{% endfor %}
+
 							</div>
 						</div>
+
 					</div>
 				</div>
 			</div>
@@ -479,10 +310,11 @@
 	
 	$(document).on('ready', function(){
 
+
 	//------- Google Maps ---------//
 		  
 	// Creating a LatLng object containing the coordinate for the center of the map
-	var latlng = new google.maps.LatLng(53.385846,-1.471385);
+	var latlng = new google.maps.LatLng(16.731563,-93.0387017);
 	  
 	// Creating an object literal containing the properties we want to pass to the map  
 	var options = {  
@@ -494,205 +326,58 @@
 	var map = new google.maps.Map(document.getElementById('map_div'), options);  
 	
 	// Define Marker properties
-	var image = new google.maps.MarkerImage('../images/marker1.png',
+	var image = new google.maps.MarkerImage("{% static 'images/marker1.png' %}",
 		new google.maps.Size(46, 57),
 		new google.maps.Point(0,0),
 		new google.maps.Point(18, 42)
 	);
 
 	// Define Marker properties
-	var image2 = new google.maps.MarkerImage('../images/marker2.png',
+	var image2 = new google.maps.MarkerImage("{% static 'images/marker2.png' %}",
 		new google.maps.Size(46, 57),
 		new google.maps.Point(0,0),
 		new google.maps.Point(0, 42)
 	);
 
 	// Define Marker properties
-	var image3 = new google.maps.MarkerImage('../images/marker3.png',
+	var image3 = new google.maps.MarkerImage("{% static 'images/marker3.png' %}",
 		new google.maps.Size(46, 57),
 		new google.maps.Point(0,0),
 		new google.maps.Point(0, 42)
 	);
 
 	// Define Marker properties
-	var image4 = new google.maps.MarkerImage('../images/marker4.png',
+	var image4 = new google.maps.MarkerImage("{% static 'images/marker4.png' %}",
 		new google.maps.Size(46, 57),
 		new google.maps.Point(0,0),
 		new google.maps.Point(0, 42)
 	);
 
-	// Define Marker properties
-	var image5 = new google.maps.MarkerImage('../images/marker2.png',
-		new google.maps.Size(46, 57),
-		new google.maps.Point(0,0),
-		new google.maps.Point(0, 42)
-	);
-
-	// Define Marker properties
-	var image6 = new google.maps.MarkerImage('../images/marker1.png',
-		new google.maps.Size(46, 57),
-		new google.maps.Point(0,0),
-		new google.maps.Point(0, 42)
-	);
-
-	// Define Marker properties
-	var image7 = new google.maps.MarkerImage('../images/marker4.png',
-		new google.maps.Size(46, 57),
-		new google.maps.Point(0,0),
-		new google.maps.Point(18, 42)
-	);
-
-	// Define Marker properties
-	var image8 = new google.maps.MarkerImage('../images/marker3.png',
-		new google.maps.Size(46, 57),
-		new google.maps.Point(0,0),
-		new google.maps.Point(18, 42)
-	);
-
-	
+	{% for negocio in negocios %}
 	// Add Marker
-	var marker1 = new google.maps.Marker({
-		position: new google.maps.LatLng(53.385846,-1.471385), 
+	// alert(parseFloat("{{negocio.ubicacion.latitud}}"))
+	var marker{{negocio.id}} = new google.maps.Marker({
+		position: new google.maps.LatLng(parseFloat("{{negocio.ubicacion.latitud}}"), parseFloat("{{negocio.ubicacion.longitud}}")), 
 		map: map,		
 		icon: image // This path is the custom pin to be shown. Remove this line and the proceeding comma to use default pin
 	});	
-
-	// Add Marker
-	var marker2 = new google.maps.Marker({
-		position: new google.maps.LatLng(53.389000,-1.473000), 
-		map: map,		
-		icon: image2 // This path is the custom pin to be shown. Remove this line and the proceeding comma to use default pin
-	});
-
-	// Add Marker
-	var marker3 = new google.maps.Marker({
-		position: new google.maps.LatLng(53.381000,-1.471000), 
-		map: map,		
-		icon: image3 // This path is the custom pin to be shown. Remove this line and the proceeding comma to use default pin
-	});
-
-	// Add Marker
-	var marker4 = new google.maps.Marker({
-		position: new google.maps.LatLng(53.391000,-1.480000), 
-		map: map,		
-		icon: image4 // This path is the custom pin to be shown. Remove this line and the proceeding comma to use default pin
-	});
-
-	// Add Marker
-	var marker5 = new google.maps.Marker({
-		position: new google.maps.LatLng(53.385000,-1.490000), 
-		map: map,		
-		icon: image5 // This path is the custom pin to be shown. Remove this line and the proceeding comma to use default pin
-	});
-
-	// Add Marker
-	var marker6 = new google.maps.Marker({
-		position: new google.maps.LatLng(53.385000,-1.500000), 
-		map: map,		
-		icon: image6 // This path is the custom pin to be shown. Remove this line and the proceeding comma to use default pin
-	});
-
-	// Add Marker
-	var marker7 = new google.maps.Marker({
-		position: new google.maps.LatLng(53.385000,-1.450000), 
-		map: map,		
-		icon: image7 // This path is the custom pin to be shown. Remove this line and the proceeding comma to use default pin
-	});
-
-	// Add Marker
-	var marker8 = new google.maps.Marker({
-		position: new google.maps.LatLng(53.384000,-1.460000), 
-		map: map,		
-		icon: image8 // This path is the custom pin to be shown. Remove this line and the proceeding comma to use default pin
-	});
 	
 	// Add listener for a click on the pin
-	google.maps.event.addListener(marker1, 'click', function() {  
-		infowindow1.open(map, marker1);  
+	google.maps.event.addListener(marker{{negocio.id}}, 'click', function() {  
+		infowindow{{negocio.id}}.open(map, marker{{negocio.id}});  
 		$('body .infowindow').parent().parent().parent().parent().parent().parent().addClass('custom-tooltip')
 	});
 
-	// Add listener for a click on the pin
-	google.maps.event.addListener(marker2, 'click', function() {  
-		infowindow2.open(map, marker2);  
-		$('body .infowindow').parent().parent().parent().parent().parent().parent().addClass('custom-tooltip')
-	});
+	// Add information window
+	var infowindow{{negocio.id}} = new google.maps.InfoWindow({  
+		content:  createInfo('<div class="listing-box"> <div class="listing-box-thumb"> <img src="{{negocio.imagenes.first.imagen.url}}" alt="" /> <div class="listing-box-title"> <h3><a href="/negocios/{{negocio.id}}/" title="">{{negocio.nombreEmpresa}}</a></h3> <span>{{negocio.direccionEmpresa}}</span> <span>{{negocio.numTel}}</span> </div> </div> <div class="listing-rate-share">  </div> </div>')
+	}); 
 
-	// Add listener for a click on the pin
-	google.maps.event.addListener(marker3, 'click', function() {  
-		infowindow3.open(map, marker3);  
-		$('body .infowindow').parent().parent().parent().parent().parent().parent().addClass('custom-tooltip')
-	});
-
-	// Add listener for a click on the pin
-	google.maps.event.addListener(marker4, 'click', function() {  
-		infowindow4.open(map, marker4);  
-		$('body .infowindow').parent().parent().parent().parent().parent().parent().addClass('custom-tooltip')
-	});
-
-	// Add listener for a click on the pin
-	google.maps.event.addListener(marker5, 'click', function() {  
-		infowindow5.open(map, marker5);  
-		$('body .infowindow').parent().parent().parent().parent().parent().parent().addClass('custom-tooltip')
-	});
-
-	// Add listener for a click on the pin
-	google.maps.event.addListener(marker6, 'click', function() {  
-		infowindow6.open(map, marker6);  
-		$('body .infowindow').parent().parent().parent().parent().parent().parent().addClass('custom-tooltip')
-	});
-
-	// Add listener for a click on the pin
-	google.maps.event.addListener(marker7, 'click', function() {  
-		infowindow7.open(map, marker7);  
-		$('body .infowindow').parent().parent().parent().parent().parent().parent().addClass('custom-tooltip')
-	});
-
-	// Add listener for a click on the pin
-	google.maps.event.addListener(marker8, 'click', function() {  
-		infowindow8.open(map, marker8);  
-		$('body .infowindow').parent().parent().parent().parent().parent().parent().addClass('custom-tooltip')
-	});
+	{% endfor %}
 		
-	// Add information window
-	var infowindow1 = new google.maps.InfoWindow({  
-		content:  createInfo('<div class="listing-box"> <div class="listing-box-thumb"> <span class="price-list">$149.90</span> <img src="http://placehold.it/360x245" alt="" /> <div class="listing-box-title"> <h3><a href="#" title="">Sunpro Technology inc</a></h3> <span>Los Angeles /  Sillicon Valley </span> <span>(416) 551-0589</span> </div> </div> <div class="listing-rate-share"> <div class="rated-list"> <b class="la la-star"></b> <b class="la la-star"></b> <b class="la la-star"></b> <b class="la la-star-o"></b> <b class="la la-star-o"></b> <span>(13)</span> </div> <span><i class="la la-share-alt"></i></span> <a href="#" title=""><i class="la la-heart-o"></i></a> </div> </div>')
-	}); 
+	
 
-	// Add information window
-	var infowindow2 = new google.maps.InfoWindow({  
-		content:  createInfo('<div class="listing-box"> <div class="listing-box-thumb"> <span class="price-list">$149.90</span> <img src="http://placehold.it/360x245" alt="" /> <div class="listing-box-title"> <h3><a href="#" title="">Sunpro Technology inc</a></h3> <span>Los Angeles /  Sillicon Valley </span> <span>(416) 551-0589</span> </div> </div> <div class="listing-rate-share"> <div class="rated-list"> <b class="la la-star"></b> <b class="la la-star"></b> <b class="la la-star"></b> <b class="la la-star-o"></b> <b class="la la-star-o"></b> <span>(13)</span> </div> <span><i class="la la-share-alt"></i></span> <a href="#" title=""><i class="la la-heart-o"></i></a> </div> </div>')
-	}); 
-
-	// Add information window
-	var infowindow3 = new google.maps.InfoWindow({  
-		content:  createInfo('<div class="listing-box"> <div class="listing-box-thumb"> <span class="price-list">$149.90</span> <img src="http://placehold.it/360x245" alt="" /> <div class="listing-box-title"> <h3><a href="#" title="">Sunpro Technology inc</a></h3> <span>Los Angeles /  Sillicon Valley </span> <span>(416) 551-0589</span> </div> </div> <div class="listing-rate-share"> <div class="rated-list"> <b class="la la-star"></b> <b class="la la-star"></b> <b class="la la-star"></b> <b class="la la-star-o"></b> <b class="la la-star-o"></b> <span>(13)</span> </div> <span><i class="la la-share-alt"></i></span> <a href="#" title=""><i class="la la-heart-o"></i></a> </div> </div>')
-	}); 
-
-	// Add information window
-	var infowindow4 = new google.maps.InfoWindow({  
-		content:  createInfo('<div class="listing-box"> <div class="listing-box-thumb"> <span class="price-list">$149.90</span> <img src="http://placehold.it/360x245" alt="" /> <div class="listing-box-title"> <h3><a href="#" title="">Sunpro Technology inc</a></h3> <span>Los Angeles /  Sillicon Valley </span> <span>(416) 551-0589</span> </div> </div> <div class="listing-rate-share"> <div class="rated-list"> <b class="la la-star"></b> <b class="la la-star"></b> <b class="la la-star"></b> <b class="la la-star-o"></b> <b class="la la-star-o"></b> <span>(13)</span> </div> <span><i class="la la-share-alt"></i></span> <a href="#" title=""><i class="la la-heart-o"></i></a> </div> </div>')
-	}); 
-
-	// Add information window
-	var infowindow5 = new google.maps.InfoWindow({  
-		content:  createInfo('<div class="listing-box"> <div class="listing-box-thumb"> <span class="price-list">$149.90</span> <img src="http://placehold.it/360x245" alt="" /> <div class="listing-box-title"> <h3><a href="#" title="">Sunpro Technology inc</a></h3> <span>Los Angeles /  Sillicon Valley </span> <span>(416) 551-0589</span> </div> </div> <div class="listing-rate-share"> <div class="rated-list"> <b class="la la-star"></b> <b class="la la-star"></b> <b class="la la-star"></b> <b class="la la-star-o"></b> <b class="la la-star-o"></b> <span>(13)</span> </div> <span><i class="la la-share-alt"></i></span> <a href="#" title=""><i class="la la-heart-o"></i></a> </div> </div>')
-	}); 
-
-	// Add information window
-	var infowindow6 = new google.maps.InfoWindow({  
-		content:  createInfo('<div class="listing-box"> <div class="listing-box-thumb"> <span class="price-list">$149.90</span> <img src="http://placehold.it/360x245" alt="" /> <div class="listing-box-title"> <h3><a href="#" title="">Sunpro Technology inc</a></h3> <span>Los Angeles /  Sillicon Valley </span> <span>(416) 551-0589</span> </div> </div> <div class="listing-rate-share"> <div class="rated-list"> <b class="la la-star"></b> <b class="la la-star"></b> <b class="la la-star"></b> <b class="la la-star-o"></b> <b class="la la-star-o"></b> <span>(13)</span> </div> <span><i class="la la-share-alt"></i></span> <a href="#" title=""><i class="la la-heart-o"></i></a> </div> </div>')
-	});
-
-	// Add information window
-	var infowindow7 = new google.maps.InfoWindow({  
-		content:  createInfo('<div class="listing-box"> <div class="listing-box-thumb"> <span class="price-list">$149.90</span> <img src="http://placehold.it/360x245" alt="" /> <div class="listing-box-title"> <h3><a href="#" title="">Sunpro Technology inc</a></h3> <span>Los Angeles /  Sillicon Valley </span> <span>(416) 551-0589</span> </div> </div> <div class="listing-rate-share"> <div class="rated-list"> <b class="la la-star"></b> <b class="la la-star"></b> <b class="la la-star"></b> <b class="la la-star-o"></b> <b class="la la-star-o"></b> <span>(13)</span> </div> <span><i class="la la-share-alt"></i></span> <a href="#" title=""><i class="la la-heart-o"></i></a> </div> </div>')
-	});
-
-	// Add information window
-	var infowindow8 = new google.maps.InfoWindow({  
-		content:  createInfo('<div class="listing-box"> <div class="listing-box-thumb"> <span class="price-list">$149.90</span> <img src="http://placehold.it/360x245" alt="" /> <div class="listing-box-title"> <h3><a href="#" title="">Sunpro Technology inc</a></h3> <span>Los Angeles /  Sillicon Valley </span> <span>(416) 551-0589</span> </div> </div> <div class="listing-rate-share"> <div class="rated-list"> <b class="la la-star"></b> <b class="la la-star"></b> <b class="la la-star"></b> <b class="la la-star-o"></b> <b class="la la-star-o"></b> <span>(13)</span> </div> <span><i class="la la-share-alt"></i></span> <a href="#" title=""><i class="la la-heart-o"></i></a> </div> </div>')
-	});
+	
 	
 	// Create information window
 	function createInfo(title, content) {
@@ -700,7 +385,7 @@
 	} 
 
 });
-	
+
 </script>
 
 {% endblock %}
