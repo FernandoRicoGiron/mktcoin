@@ -127,8 +127,7 @@ def altanegocio(request):
 		twitter=request.POST.get("twitter"),
 		whatsapp=request.POST.get("whatsapp"),
 		sitioweb=request.POST.get("sitioweb"),
-		comentarios= request.POST.get("comentarios"),
-		#imagenes=, 
+		comentarios= request.POST.get("comentarios"), 
 
 		)
 
@@ -137,19 +136,10 @@ def altanegocio(request):
 	for f in lista:
 		image = Imagen.objects.create(imagen=f)
 		negocio.imagenes.add(image)
-
-	
-
 	negocio.save()
-
 
 	sweetify.success(request, '¡Felicidades!', text='Se ha agregado con éxito', persistent=':)')
 	return HttpResponseRedirect(request.META.get('HTTP_REFERER','/'))
-
-	#categoria foren
- 	#unicacion foren 
-	#imagees manytomany
-
 
 def send_email(request):
     nombre = request.POST.get('nombre', '')
