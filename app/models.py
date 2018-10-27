@@ -80,7 +80,7 @@ class Negocio(models.Model):
 	nombreEmpresa = models.CharField(null=True, blank= True, max_length=100)
 	categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
 	pais = models.ForeignKey(Pais, on_delete=models.CASCADE)
-	#ubicacion = models.ForeignKey(Ubicacion, on_delete=models.CASCADE)
+	ubicacion = models.ForeignKey(Ubicacion, on_delete=models.CASCADE, blank=True, null=True)
 	descripcion =  models. TextField(null=True, blank= True)
 	estado = models.CharField(null=True, blank= True, max_length=50)
 	municipio = models.CharField(null=True, blank= True, max_length=50)
@@ -97,10 +97,3 @@ class Negocio(models.Model):
 	sitioweb = models.URLField()
 	comentarios =  models.TextField(null=True, blank= True)
 	imagenes = models.ManyToManyField(Imagen)
-
-
-
-
-
-
-
