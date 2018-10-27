@@ -31,8 +31,9 @@ from django.contrib.auth.models import User
 
 def index(request):
 	banners = Banner.objects.all()
+	testimonios = Testimonios.objects.all()
 
-	return render(request, "index.html", {"banners":banners})
+	return render(request, "index.html", {"banners":banners, "testimonios":testimonios})
 
 def contacto(request):
 	return render(request, "contacto.html", {})
@@ -94,10 +95,10 @@ def cerrarsesion(request):
 @login_required
 def registronegocio(request):
 	categorias = Categoria.objects.all()
-	ubicacion = Ubicacion.objects.all()
+	#ubicacion = Ubicacion.objects.all()
 	paises = Pais.objects.all()
 
-	return render(request, "registronegocio.html", {"categorias":categorias,"ubicacion":ubicacion,"paises":paises})
+	return render(request, "registronegocio.html", {"categorias":categorias,"paises":paises})
 
 def altanegocio(request):
 	usuario = request.user
@@ -127,8 +128,7 @@ def altanegocio(request):
 		twitter=request.POST.get("twitter"),
 		whatsapp=request.POST.get("whatsapp"),
 		sitioweb=request.POST.get("sitioweb"),
-		comentarios= request.POST.get("comentarios"),
-		#imagenes=, 
+		comentarios= request.POST.get("comentarios"), 
 
 		)
 
@@ -137,19 +137,10 @@ def altanegocio(request):
 	for f in lista:
 		image = Imagen.objects.create(imagen=f)
 		negocio.imagenes.add(image)
-
-	
-
 	negocio.save()
-
 
 	sweetify.success(request, '¡Felicidades!', text='Se ha agregado con éxito', persistent=':)')
 	return HttpResponseRedirect(request.META.get('HTTP_REFERER','/'))
-
-	#categoria foren
- 	#unicacion foren 
-	#imagees manytomany
-
 
 def send_email(request):
     nombre = request.POST.get('nombre', '')
@@ -169,3 +160,6 @@ def send_email(request):
     else:
         return HttpResponse('Complete los campos de informacion')
 	
+def descripcionnegocio(request):
+	
+	return render(request, "descripcionnegocio.html",{})
