@@ -94,10 +94,10 @@ def cerrarsesion(request):
 @login_required
 def registronegocio(request):
 	categorias = Categoria.objects.all()
-	ubicacion = Ubicacion.objects.all()
+	#ubicacion = Ubicacion.objects.all()
 	paises = Pais.objects.all()
 
-	return render(request, "registronegocio.html", {"categorias":categorias,"ubicacion":ubicacion,"paises":paises})
+	return render(request, "registronegocio.html", {"categorias":categorias,"paises":paises})
 
 def altanegocio(request):
 	usuario = request.user
