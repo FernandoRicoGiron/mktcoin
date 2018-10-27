@@ -790,21 +790,29 @@
 					<div class="col-md-12">
 						<div class="heading">
 							<h2>Testimonios</h2>
-							<span>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium <br />doloremque laudantium, totam rem aperiam.</span>
+							<span>Queremos ofrecerte servicios de calidad, por eso es impotante tu testimonio. Gracias por compartir</span>
 						</div>
 						<ul class="testimonial-sec">
+
+							{% for tes in testimonios %}
+
+
 							<li>
+								<img width="87" height="87" src="{{ tes.imagen.url }}" alt="" />
+								<p>{{ tes.descripcion }}</p>
+							</li>
+
+							{% endfor %}
+
+
+							<!--<li>
 								<img src="http://placehold.it/87x87" alt="" />
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eueget ante venenatis euismod. Etiam in odio mattis, suscipit ex sit amet, toroni inoui bibenidum risus. Suspendisse tempus vulputate nisl. tiam in odio mattis, suscipit ex sit amet, toroni inoui bibenidum risus. Suspendisse tempus vulputate nisl.</p>
 							</li>
 							<li>
 								<img src="http://placehold.it/87x87" alt="" />
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eueget ante venenatis euismod. Etiam in odio mattis, suscipit ex sit amet, toroni inoui bibenidum risus. Suspendisse tempus vulputate nisl. tiam in odio mattis, suscipit ex sit amet, toroni inoui bibenidum risus. Suspendisse tempus vulputate nisl.</p>
-							</li>
-							<li>
-								<img src="http://placehold.it/87x87" alt="" />
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eueget ante venenatis euismod. Etiam in odio mattis, suscipit ex sit amet, toroni inoui bibenidum risus. Suspendisse tempus vulputate nisl. tiam in odio mattis, suscipit ex sit amet, toroni inoui bibenidum risus. Suspendisse tempus vulputate nisl.</p>
-							</li>
+							</li>-->
 						</ul>
 					</div>
 				</div>

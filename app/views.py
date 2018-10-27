@@ -31,8 +31,9 @@ from django.contrib.auth.models import User
 
 def index(request):
 	banners = Banner.objects.all()
+	testimonios = Testimonios.objects.all()
 
-	return render(request, "index.html", {"banners":banners})
+	return render(request, "index.html", {"banners":banners, "testimonios":testimonios})
 
 def contacto(request):
 	return render(request, "contacto.html", {})
@@ -159,3 +160,6 @@ def send_email(request):
     else:
         return HttpResponse('Complete los campos de informacion')
 	
+def descripcionnegocio(request):
+	
+	return render(request, "descripcionnegocio.html",{})
