@@ -64,7 +64,7 @@
 									<div class="row">
 										<div class="col-md-12">
 											<center>
-												<h3 style="color:red; font-family: Arial; text-shadow: 1px 1px;">A continuación inserta tus datos para tu registro</h3>
+												<h2 style="color:red; font-family: Arial; text-shadow: 1px 1px; margin-bottom: 50px;">A continuación inserta tus datos para tu registro</h2>
 											</center>
 										</div>
 
@@ -202,10 +202,27 @@
 
 
 
-										<div class="col-md-6">
+										<div class="col-md-12">
 											<label class="labform">Dirección</label>
 											<input name="direccionEmpresa" type="text" placeholder="Dirección" />
 										</div>
+										<div class="col-md-12">
+											<label class="labform">Coloca tu ubicación en el mapa</label>
+											<div class="add-listing-map">
+												<div id="map-container">
+												    <div id="map_div">&nbsp;</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<label class="labform">Latitud</label>
+											<input name="direccionEmpresa" type="text" placeholder="Dirección" />
+										</div>
+										<div class="col-md-6">
+											<label class="labform">Longitud</label>
+											<input name="direccionEmpresa" type="text" placeholder="Dirección" />
+										</div>
+										
 
 										<div class="col-md-6">
 											<label class="labform">Contácto del negocio</label>
@@ -249,7 +266,7 @@
 											<textarea name="comentarios" placeholder="Comentarios"></textarea>
 										</div>
 
-						<div class="col-md-12 col-sm-6 col-xs-12  has-feedback">
+						<div class="col-md-6 col-sm-6 col-xs-12  has-feedback">
                               <label for="heard">Añadir fotos del negocio:</label><br>
                               <a class="be-ava-user style-2" href="" id="list">
                                 <img id="list" src="{{ persona.Foto_de_Perfil.url }}" alt="">
@@ -258,6 +275,18 @@
 
                                 <span class="btn btn-default btn-file" >Agregar imagenes<input multiple type="file" id="files" name="imagen" defaultValue="" accept="image/jpeg, image/png"/></span></a>
                         </div>
+
+
+						<div class="col-md-6 col-sm-6 col-xs-12  has-feedback">
+                              <label for="heard">Añadir foto de portada de negocio:</label><br>
+                              <a class="be-ava-user style-2" href="" id="list">
+                                <img id="list" src="{{ persona.Foto_de_Perfil.url }}" alt="">
+                              </a>
+                              <a class="btn color-4 size-2 hover-7">
+
+                                <span class="btn btn-default btn-file" >Agregar imagenes<input multiple type="file" id="files" name="imagen" defaultValue="" accept="image/jpeg, image/png"/></span></a>
+                        </div>
+
 
 
 
