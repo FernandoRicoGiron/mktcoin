@@ -19,6 +19,8 @@ import json
 import smtplib
 import sweetify
 import datetime
+from django.contrib.gis.geos import *
+from django.contrib.gis.measure import Distance
 
 """
 
@@ -97,21 +99,33 @@ def cerrarsesion(request):
 	logout(request)
 	return HttpResponseRedirect("/")
 
+@csrf_exempt
+def changepaises(request):
+	# print(request.POST.get("pais"))
+	estados = Estado.objects.filter(pais__id=request.POST.get("id"))
+	data = {}
+	for estado in estados:
+		data[estado.id] = estado.estado
+	print(data)
+	return JsonResponse(data)
+
 @login_required
 def registronegocio(request):
 	categorias = Categoria.objects.all()
 	#ubicacion = Ubicacion.objects.all()
-	#paises = Pais.objects.all()
+	paises = Pais.objects.all()
 	form = NegocioForm()
 
-	return render(request, "registronegocio.html", {"categorias":categorias, "form":form})
+	return render(request, "registronegocio.html", {"categorias":categorias, "form":form, "paises":paises})
 
 def altanegocio(request):
 	usuario = request.user
 	categoria =  Categoria.objects.get(id=request.POST.get("categoria"))
 	pais =  Pais.objects.get(id=request.POST.get("pais"))
-
+	estado =  Estado.objects.get(id=request.POST.get("estado"))
+	
 	negocio = Negocio.objects.create(usuario=usuario,
+		ubicacion = request.POST["ubicacion"],
 		nombreTitular = request.POST.get("nombreTitular"),
 		fechaNacimiento= request.POST.get("fechaNacimiento"),
 		numeroTelefonotitular =request.POST.get("numeroTelefonotitular"),
@@ -120,9 +134,9 @@ def altanegocio(request):
 		nombreEmpresa= request.POST.get("nombreEmpresa"),
 		categoria = categoria,
 		pais= pais,
-		descripcion =request.POST.get("descripcion"),
-		estado = request.POST.get("estado"),
+		estado=estado,
 		municipio=request.POST.get("municipio"),
+		descripcion =request.POST.get("descripcion"),
 		direccionEmpresa=request.POST.get("direccionEmpresa"),
 		numTel=request.POST.get("numTel"),
 		quieninvito=request.POST.get("quieninvito"),
@@ -137,8 +151,8 @@ def altanegocio(request):
 		comentarios= request.POST.get("comentarios"), 
 
 		)
+	negocio.imgPortada = request.FILES["imagenp"]
 
-	
 	lista = request.FILES.getlist("imagen")
 	for f in lista:
 		image = Imagen.objects.create(imagen=f)
