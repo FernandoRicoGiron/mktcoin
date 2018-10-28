@@ -89,10 +89,7 @@
 					<div class="col-md-12 column">
 						<h3 class="mini-title">Negocios</h3>
 						<div class="filter-bar">
-							<div class="which-style">
-								<a href="#" title="" class="grid-style active"><i class="la la-th-large"></i></a>
-								<a href="#" title="" class="list-style"><i class="la la-th-list"></i></a>
-							</div>
+							
 							<div class="open-filter-btns">
 								<span class="close-filter"><i class="la la-close"></i> Cerrar</span>
 								<span class="open-filter"><i class="la la-filter"></i> Filtro</span>
@@ -119,9 +116,7 @@
 										</div>
 
 										<div class="col-md-3">
-											<select data-placeholder="Municipios" class="chosen-select" tabindex="2">
-									            <option value="">Municipios</option>
-									        </select>
+											<input type="text" class="input-style" placeholder="Municipio" />
 										</div>
 										
 										
@@ -460,6 +455,26 @@
 
 {% block script %}
 <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCYc537bQom7ajFpWE5sQaVyz1SQa9_tuY&sensor=true&libraries=places"></script>
+<script type="text/javascript">
+$(".selectpais").on("change", function () {
+	var id = $(this).val()
+	// console.log(id)
+	$.ajax({ // create an AJAX call...
+                data: {id:id}, // get the form data
+                type: "POST", // GET or POST
+                url: "/changepaises/", // the file to call
+                success: function(json) { // on success..
+                	// console.log(json)
+                	 $('.selectestado').html("")
+                	$.each(json,function(index,val) {
+					  $('.selectestado').append('<option value="'+index+'">'+val+'</option>');
+					});
+                	
+                	$('.selectestado').trigger("chosen:updated");
+                }
+            });
+});
+</script>
 <script type="text/javascript">
 	
 	$(document).on('ready', function(){

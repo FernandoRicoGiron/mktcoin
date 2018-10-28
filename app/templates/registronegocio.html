@@ -58,7 +58,7 @@
 						<div class="add-listing-sec">
 
 
-							<form action="/altanegocio/" method="POST">
+							<form action="/altanegocio/" method="POST" enctype="multipart/form-data">
 								{% csrf_token %}
 								<div class="form-listing">
 									<div class="row">
@@ -158,7 +158,7 @@
 
 										<div class="col-md-4">
 											<label class="labform">País</label>
-											<select name="pais" data-placeholder="País" class="chosen-select" tabindex="2">
+											<select style="width:100%" name="pais" data-placeholder="País" class="chosen-select selectpais" tabindex="2">
 
 												{% for p in paises %}
 									            <option value="{{p.id}}">{{p.pais}}</option>
@@ -175,15 +175,13 @@
 											<label class="labform">Estado</label>
 
 											
-											<input name="estado" type="text" placeholder="Estado" />
-										
-											<!--<select data-placeholder="Estado" class="chosen-select" tabindex="2">
-									            <option value="All Categories">All Categories</option>
-									            <option value="Foods">Foods</option>
-									            <option value="Salads">Salaads</option>
-									            <option value="Kingston">Kingston</option>
-									            <option value="Signing">Signing</option>
-									        </select>-->
+											<select style="width:100%" name="estado" data-placeholder="Estado" class="chosen-select selectestado" tabindex="2">
+
+												
+									            <option value="">Seleccione un estado</option>
+									            
+									           
+									        </select>
 										</div>
 										<div class="col-md-4">
 											<label class="labform">Municipio o Ciudad </label>
@@ -275,7 +273,7 @@
                               </a>
                               <a class="btn color-4 size-2 hover-7">
 
-                                <span class="btn btn-default btn-file" >Agregar imagenes<input multiple type="file" id="files" name="imagen" defaultValue="" accept="image/jpeg, image/png"/></span></a>
+                                <span class="btn btn-default btn-file" >Agregar imagenes<input multiple type="file" id="files" name="imagenp" defaultValue="" accept="image/jpeg, image/png"/></span></a>
                         </div>
 
 
@@ -297,5 +295,30 @@
 		</div>
 	</section>
 
+
+{% endblock %}
+
+{% block script %}
+
+<script type="text/javascript">
+$(".selectpais").on("change", function () {
+	var id = $(this).val()
+	// console.log(id)
+	$.ajax({ // create an AJAX call...
+                data: {id:id}, // get the form data
+                type: "POST", // GET or POST
+                url: "/changepaises/", // the file to call
+                success: function(json) { // on success..
+                	// console.log(json)
+                	 $('.selectestado').html("")
+                	$.each(json,function(index,val) {
+					  $('.selectestado').append('<option value="'+index+'">'+val+'</option>');
+					});
+                	
+                	$('.selectestado').trigger("chosen:updated");
+                }
+            });
+});
+</script>
 
 {% endblock %}
