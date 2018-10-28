@@ -41,9 +41,9 @@ def contacto(request):
 
 def negocios(request):
 	negocios = Negocio.objects.filter(Q(validado=True) and ~Q(ubicacion=None))
-	paises = Pais.objects.all()
+	#paises = Pais.objects.all()
 	estados = Estado.objects.all()
-	return render(request, "negocios.html", {"negocios":negocios, "paises":paises, "estados":estados})
+	return render(request, "negocios.html", {"negocios":negocios,"estados":estados})
 
 
 
