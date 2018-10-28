@@ -79,9 +79,7 @@ class Negocio(models.Model):
 	correo = models.CharField(max_length=100)
 	nombreEmpresa = models.CharField(null=True, blank= True, max_length=100)
 	categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
-	estado = models.ForeignKey(Estado, on_delete=models.CASCADE)
-	municipio = models.ForeignKey(Municipio, on_delete=models.CASCADE)
-	#ubicacion = models.ForeignKey(Ubicacion, on_delete=models.CASCADE)
+	ubicacion = models.ForeignKey(Ubicacion, on_delete=models.CASCADE, blank=True, null=True)
 	descripcion =  models. TextField(null=True, blank= True)
 	#estado = models.CharField(null=True, blank= True, max_length=50)
 	#municipio = models.CharField(null=True, blank= True, max_length=50)
@@ -111,3 +109,4 @@ class Testimonios(models.Model):
 
 
 
+>>>>>>> d74eec21b039f457ccfe5f225efea7aa5a0c8efc

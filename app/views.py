@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django.db.models import Q
 from django.shortcuts import render, render_to_response, redirect
 from django.utils import timezone
 from .models import *
@@ -40,7 +40,7 @@ def contacto(request):
 
 
 def negocios(request):
-	negocios = Negocio.objects.filter(validado=True)
+	negocios = Negocio.objects.filter(Q(validado=True) and ~Q(ubicacion=None))
 	paises = Pais.objects.all()
 	estados = Estado.objects.all()
 	return render(request, "negocios.html", {"negocios":negocios, "paises":paises, "estados":estados})
