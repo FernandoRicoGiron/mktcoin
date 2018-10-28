@@ -13,6 +13,8 @@ from django.core.mail import BadHeaderError, send_mail
 from django.conf import settings
 from django.core import serializers
 from django.contrib.auth.hashers import check_password
+from .forms import *
+from django.views.generic import FormView, ListView, UpdateView
 import json
 import smtplib
 import sweetify
@@ -31,7 +33,7 @@ from django.contrib.auth.models import User
 
 def index(request):
 	banners = Banner.objects.all()
-	testimonios = Testimonios.objects.all()
+	testimonios = Testimonio.objects.all()
 
 	return render(request, "index.html", {"banners":banners, "testimonios":testimonios})
 
@@ -41,9 +43,12 @@ def contacto(request):
 
 def negocios(request):
 	negocios = Negocio.objects.filter(Q(validado=True) and ~Q(ubicacion=None))
-	#paises = Pais.objects.all()
+	paises = Pais.objects.all()
 	estados = Estado.objects.all()
-	return render(request, "negocios.html", {"negocios":negocios,"estados":estados})
+
+
+	return render(request, "negocios.html", {"negocios":negocios, "paises":paises, "estados":estados})
+
 
 
 
@@ -97,8 +102,9 @@ def registronegocio(request):
 	categorias = Categoria.objects.all()
 	#ubicacion = Ubicacion.objects.all()
 	#paises = Pais.objects.all()
+	form = NegocioForm()
 
-	return render(request, "registronegocio.html", {"categorias":categorias})
+	return render(request, "registronegocio.html", {"categorias":categorias, "form":form})
 
 def altanegocio(request):
 	usuario = request.user
@@ -160,6 +166,7 @@ def send_email(request):
     else:
         return HttpResponse('Complete los campos de informacion')
 	
-def descripcionnegocio(request):
-	
-	return render(request, "descripcionnegocio.html",{})
+def descripcionnegocio(request, id):
+	negocio = Negocio.objects.get(id=id)
+	paises = Pais.objects.all()
+	return render(request, "descripcionnegocio.html",{"negocio":negocio, "paises":paises})

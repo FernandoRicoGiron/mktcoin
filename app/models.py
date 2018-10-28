@@ -6,6 +6,7 @@ from django.dispatch import receiver
 from django.contrib.auth.models import User, AbstractUser
 from django.conf import settings
 import json
+from django.contrib.gis.db import models as pos
 
 # Create your models here.
 
@@ -37,10 +38,6 @@ class Imagen(models.Model):
 
 class Municipio(models.Model):
 	municipio = models.CharField(max_length=100)
-
-	class Meta:
-		verbose_name = "Estado"
-		verbose_name_plural = "Estados"
 		
 	def __str__(self):
 		return self.municipio
@@ -48,29 +45,25 @@ class Municipio(models.Model):
 class Estado(models.Model):
 	estado = models.CharField(max_length=100)
 	municipio = models.ForeignKey(Municipio, on_delete=models.CASCADE)
+		
+	def __str__(self):
+		return self.estado
+
+class Pais(models.Model):
+	pais = models.CharField(max_length=100)
+	estado = models.ForeignKey(Estado, on_delete=models.CASCADE)
 
 	class Meta:
 		verbose_name = "Pais"
 		verbose_name_plural = "Paises"
 		
 	def __str__(self):
-		return self.estado
-
-class Ubicacion(models.Model):
-	latitud = models.CharField(max_length=100)
-	longitud = models.CharField(max_length=100)
-	#pais = models.ForeignKey(Pais, on_delete=models.CASCADE)
-
-	class Meta:
-		verbose_name = "Ubicacion"
-		verbose_name_plural = "Ubicaciones"
-		
-	def __str__(self):
-		return "Ubicacion " + str(self.id)	
+		return self.pais
 
 
 class Negocio(models.Model):
 	validado = models.BooleanField(default=False)
+	ubicacion = pos.PointField(null=False, blank=False, srid=4326, verbose_name="Location")
 	usuario = models.ForeignKey(User, on_delete=models.CASCADE)
 	nombreTitular = models.CharField(max_length=100)
 	fechaNacimiento =  models.DateField()
@@ -79,26 +72,29 @@ class Negocio(models.Model):
 	correo = models.CharField(max_length=100)
 	nombreEmpresa = models.CharField(null=True, blank= True, max_length=100)
 	categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
-	ubicacion = models.ForeignKey(Ubicacion, on_delete=models.CASCADE, blank=True, null=True)
+	pais = models.ForeignKey(Pais, on_delete=models.CASCADE, blank=True, null=True)
+	estado = models.ForeignKey(Estado, on_delete=models.CASCADE, blank=True, null=True)
+	municipio = models.ForeignKey(Municipio, on_delete=models.CASCADE, blank=True, null=True)
 	descripcion =  models. TextField(null=True, blank= True)
-	#estado = models.CharField(null=True, blank= True, max_length=50)
-	#municipio = models.CharField(null=True, blank= True, max_length=50)
 	direccionEmpresa = models.CharField(null=True, blank= True,max_length=100)
 	numTel = models.CharField(null=True, blank= True, max_length=20)
 	quieninvito = models.CharField(null=True, blank= True, max_length=50)
 	loginmkt = models.CharField(null=True, blank= True, max_length=50)
 	porcentaje = models.IntegerField(null=True, blank= True, default=0)
+	whatsapp = models.CharField(max_length=50)
 	facebook = models.URLField()
 	instagram = models.URLField()
 	youtube = models.URLField()
 	twitter = models.URLField()
-	whatsapp = models.URLField()
 	sitioweb = models.URLField()
 	comentarios =  models.TextField(null=True, blank= True)
 	imgPortada = models.ImageField()
 	imagenes = models.ManyToManyField(Imagen)
 
-class Testimonios(models.Model):
+class Testimonio(models.Model):
 	imagen = models.ImageField(upload_to='testimonios')
 	descripcion = models.TextField()
+		
+	def __str__(self):
+		return "Testimonio " + str(self.id)
 

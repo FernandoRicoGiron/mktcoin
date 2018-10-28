@@ -87,106 +87,46 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 column">
-						<h3 class="mini-title">Grid Listing</h3>
+						<h3 class="mini-title">Negocios</h3>
 						<div class="filter-bar">
-							<span>11 Results Found</span>
 							<div class="which-style">
 								<a href="#" title="" class="grid-style active"><i class="la la-th-large"></i></a>
 								<a href="#" title="" class="list-style"><i class="la la-th-list"></i></a>
 							</div>
 							<div class="open-filter-btns">
-								<span class="close-filter"><i class="la la-close"></i> Close</span>
-								<span class="open-filter"><i class="la la-filter"></i> Filter</span>
+								<span class="close-filter"><i class="la la-close"></i> Cerrar</span>
+								<span class="open-filter"><i class="la la-filter"></i> Filtro</span>
 							</div>
 
 							<div class="side-search-form with-filters">
 								<form>
 									<div class="row">
-										<div class="col-md-4">
-											<input type="text" class="input-style" placeholder="Keywords" />
+										<div class="col-md-3">
+											<input type="text" class="input-style" placeholder="Negocio" />
 										</div>
-										<div class="col-md-4">
-											<select data-placeholder="All Locations" class="chosen-select" tabindex="2">
-									            <option value="All Locations">All Locations</option>
-									            <option value="United States">United States</option>
-									            <option value="United Kingdom">United Kingdom</option>
-									            <option value="Afghanistan">Afghanistan</option>
-									            <option value="Aland Islands">Aland Islands</option>
-									            <option value="Albania">Albania</option>
+										<div class="col-md-3">
+											<select data-placeholder="Paises" class="chosen-select" tabindex="2">
+									            <option value="">Paises</option>
+										        {% for pais in paises %}
+									            <option value="{{pais.id}}">{{pais.pais}}</option>
+									            {% endfor %}
 									        </select>
 										</div>
-										<div class="col-md-4">
-											<select data-placeholder="All Categories" class="chosen-select" tabindex="2">
-									            <option value="All Categories">All Categories</option>
-									            <option value="Restaurants">Restaurants</option>
-									            <option value="Foods">Foods</option>
-									            <option value="Hotels">Hotels</option>
-									            <option value="Bars">Bars</option>
-									            <option value="PlayLands">PlayLands</option>
+										<div class="col-md-3">
+											<select data-placeholder="Estados" class="chosen-select" tabindex="2">
+									            <option value="">Estados</option>
 									        </select>
 										</div>
-										<div class="col-md-4">
-											<p>
-												<input class="styled-checkbox" id="styled-checkbox-342" type="checkbox" value="value1">
-												<label for="styled-checkbox-342">Radius: 50 km</label>
-											</p>
+
+										<div class="col-md-3">
+											<select data-placeholder="Municipios" class="chosen-select" tabindex="2">
+									            <option value="">Municipios</option>
+									        </select>
 										</div>
-										<div class="col-md-8">
-											<div class="selecteurprix">
-												<div class="range-slider">
-													<input class="input-range" type="range" value="250" min="100" max="500">
-												</div>    
-											</div>
-										</div>
+										
+										
 										<div class="col-md-12">
-											<div class="filter-by-tags">
-												<h3>Filter by tag:</h3>
-												<div class="row">
-													<div class="col-md-3">
-														<p>
-															<input class="styled-checkbox" id="styled-checkbox-2" type="checkbox" value="value1">
-															<label for="styled-checkbox-2">Accepts Cards</label>
-														</p>
-														<p>
-															<input class="styled-checkbox" id="styled-checkbox-3" type="checkbox" value="value1">
-															<label for="styled-checkbox-3">Bike Parking</label>
-														</p>
-													</div>
-													<div class="col-md-3">
-														<p>
-															<input class="styled-checkbox" id="styled-checkbox-4" type="checkbox" value="value1">
-															<label for="styled-checkbox-4">Street Parking</label>
-														</p>
-														<p>
-															<input class="styled-checkbox" id="styled-checkbox-5" type="checkbox" value="value1">
-															<label for="styled-checkbox-5">Coupons</label>
-														</p>
-													</div>
-													<div class="col-md-3">
-														<p>
-															<input class="styled-checkbox" id="styled-checkbox-6" type="checkbox" value="value1">
-															<label for="styled-checkbox-6">Alcohol</label>
-														</p>
-														<p>
-															<input class="styled-checkbox" id="styled-checkbox-7" type="checkbox" value="value1">
-															<label for="styled-checkbox-7">Pets Friendly</label>
-														</p>
-													</div>
-													<div class="col-md-3">
-														<p>
-															<input class="styled-checkbox" id="styled-checkbox-8" type="checkbox" value="value1">
-															<label for="styled-checkbox-8">Reservations</label>
-														</p>
-														<p>
-															<input class="styled-checkbox" id="styled-checkbox-9" type="checkbox" value="value1">
-															<label for="styled-checkbox-9">Good for Kids</label>
-														</p>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-12">
-											<button type="submit">Update Listings</button>
+											<button type="submit">Buscar</button>
 										</div>
 									</div>
 								</form>
@@ -209,312 +149,23 @@
 
 						<div class="grids-listings">
 							<div class="row">
+								{% for negocio in negocios %}
 								<div class="col-md-3 col-sm-6 col-xs-12">
 									<div class="listing-box">
+										<div class="listing-box-thumb">
+											<img src="{{negocio.imagenes.first.imagen.url}}" alt="" />
+											<div class="listing-box-title">
+												<h3><a href="/negocios/{{negocio.id}}/" title="">{{negocio.nombreEmpresa}}</a></h3>
+												<span>{{negocio.direccionEmpresa}} </span>
+												<span>{{negocio.numTel}}</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								{% endfor %}
 
-										<div class="listing-box-thumb">
-											<span class="price-list">$149.90</span>
-											<img src="http://placehold.it/263x235" alt="" />
-											<div class="listing-box-title">
-												<h3><a href="/descripcionnegocio/" title="">Coffee Parade</a></h3>
-												<span>Los Angeles /  Sillicon Valley </span>
-												<span>(416) 551-0589</span>
-											</div>
-										</div>
-
-										<div class="listing-rate-share">
-											<div class="rated-list">
-												<b class="la la-star"></b>
-												<b class="la la-star"></b>
-												<b class="la la-star"></b>
-												<b class="la la-star-o"></b>
-												<b class="la la-star-o"></b>
-												<span>(13)</span>
-											</div>
-											<span><i class="la la-share-alt"></i></span>
-											<a href="#" title=""><i class="la la-heart-o"></i></a>
-										</div>
-
-
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-6 col-xs-12">
-									<div class="listing-box">
-										<div class="listing-box-thumb">
-											<span class="price-list">$149.90</span>
-											<img src="http://placehold.it/263x235" alt="" />
-											<div class="listing-box-title">
-												<h3><a href="#" title="">Evin Electroni</a></h3>
-												<span>Los Angeles /  Sillicon Valley </span>
-												<span>(416) 551-0589</span>
-											</div>
-										</div>
-										<div class="listing-rate-share">
-											<div class="rated-list">
-												<b class="la la-star"></b>
-												<b class="la la-star"></b>
-												<b class="la la-star"></b>
-												<b class="la la-star-o"></b>
-												<b class="la la-star-o"></b>
-												<span>(13)</span>
-											</div>
-											<span><i class="la la-share-alt"></i></span>
-											<a href="#" title=""><i class="la la-heart-o"></i></a>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-6 col-xs-12">
-									<div class="listing-box">
-										<div class="listing-box-thumb">
-											<span class="price-list">$149.90</span>
-											<img src="http://placehold.it/263x235" alt="" />
-											<div class="listing-box-title">
-												<h3><a href="#" title="">Baloon City Excursion</a></h3>
-												<span>Los Angeles /  Sillicon Valley </span>
-												<span>(416) 551-0589</span>
-											</div>
-										</div>
-										<div class="listing-rate-share">
-											<div class="rated-list">
-												<b class="la la-star"></b>
-												<b class="la la-star"></b>
-												<b class="la la-star"></b>
-												<b class="la la-star-o"></b>
-												<b class="la la-star-o"></b>
-												<span>(13)</span>
-											</div>
-											<span><i class="la la-share-alt"></i></span>
-											<a href="#" title=""><i class="la la-heart-o"></i></a>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-6 col-xs-12">
-									<div class="listing-box">
-										<div class="listing-box-thumb">
-											<span class="price-list">$149.90</span>
-											<img src="http://placehold.it/263x235" alt="" />
-											<div class="listing-box-title">
-												<h3><a href="#" title="">Extreme Sport</a></h3>
-												<span>Los Angeles /  Sillicon Valley </span>
-												<span>(416) 551-0589</span>
-											</div>
-										</div>
-										<div class="listing-rate-share">
-											<div class="rated-list">
-												<b class="la la-star"></b>
-												<b class="la la-star"></b>
-												<b class="la la-star"></b>
-												<b class="la la-star-o"></b>
-												<b class="la la-star-o"></b>
-												<span>(13)</span>
-											</div>
-											<span><i class="la la-share-alt"></i></span>
-											<a href="#" title=""><i class="la la-heart-o"></i></a>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-6 col-xs-12">
-									<div class="listing-box">
-										<div class="listing-box-thumb">
-											<span class="price-list">$149.90</span>
-											<img src="http://placehold.it/263x235" alt="" />
-											<div class="listing-box-title">
-												<h3><a href="#" title="">Food Seminar</a></h3>
-												<span>Los Angeles /  Sillicon Valley </span>
-												<span>(416) 551-0589</span>
-											</div>
-										</div>
-										<div class="listing-rate-share">
-											<div class="rated-list">
-												<b class="la la-star"></b>
-												<b class="la la-star"></b>
-												<b class="la la-star"></b>
-												<b class="la la-star-o"></b>
-												<b class="la la-star-o"></b>
-												<span>(13)</span>
-											</div>
-											<span><i class="la la-share-alt"></i></span>
-											<a href="#" title=""><i class="la la-heart-o"></i></a>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-6 col-xs-12">
-									<div class="listing-box">
-										<div class="listing-box-thumb">
-											<span class="price-list">$149.90</span>
-											<img src="http://placehold.it/263x235" alt="" />
-											<div class="listing-box-title">
-												<h3><a href="#" title="">Evin Electroni</a></h3>
-												<span>Los Angeles /  Sillicon Valley </span>
-												<span>(416) 551-0589</span>
-											</div>
-										</div>
-										<div class="listing-rate-share">
-											<div class="rated-list">
-												<b class="la la-star"></b>
-												<b class="la la-star"></b>
-												<b class="la la-star"></b>
-												<b class="la la-star-o"></b>
-												<b class="la la-star-o"></b>
-												<span>(13)</span>
-											</div>
-											<span><i class="la la-share-alt"></i></span>
-											<a href="#" title=""><i class="la la-heart-o"></i></a>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-6 col-xs-12">
-									<div class="listing-box">
-										<div class="listing-box-thumb">
-											<span class="price-list">$149.90</span>
-											<img src="http://placehold.it/263x235" alt="" />
-											<div class="listing-box-title">
-												<h3><a href="#" title="">Baloon City Excursion</a></h3>
-												<span>Los Angeles /  Sillicon Valley </span>
-												<span>(416) 551-0589</span>
-											</div>
-										</div>
-										<div class="listing-rate-share">
-											<div class="rated-list">
-												<b class="la la-star"></b>
-												<b class="la la-star"></b>
-												<b class="la la-star"></b>
-												<b class="la la-star-o"></b>
-												<b class="la la-star-o"></b>
-												<span>(13)</span>
-											</div>
-											<span><i class="la la-share-alt"></i></span>
-											<a href="#" title=""><i class="la la-heart-o"></i></a>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-6 col-xs-12">
-									<div class="listing-box">
-										<div class="listing-box-thumb">
-											<span class="price-list">$149.90</span>
-											<img src="http://placehold.it/263x235" alt="" />
-											<div class="listing-box-title">
-												<h3><a href="#" title="">Extreme Sport</a></h3>
-												<span>Los Angeles /  Sillicon Valley </span>
-												<span>(416) 551-0589</span>
-											</div>
-										</div>
-										<div class="listing-rate-share">
-											<div class="rated-list">
-												<b class="la la-star"></b>
-												<b class="la la-star"></b>
-												<b class="la la-star"></b>
-												<b class="la la-star-o"></b>
-												<b class="la la-star-o"></b>
-												<span>(13)</span>
-											</div>
-											<span><i class="la la-share-alt"></i></span>
-											<a href="#" title=""><i class="la la-heart-o"></i></a>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-6 col-xs-12">
-									<div class="listing-box">
-										<div class="listing-box-thumb">
-											<span class="price-list">$149.90</span>
-											<img src="http://placehold.it/263x235" alt="" />
-											<div class="listing-box-title">
-												<h3><a href="#" title="">Gitar Course</a></h3>
-												<span>Los Angeles /  Sillicon Valley </span>
-												<span>(416) 551-0589</span>
-											</div>
-										</div>
-										<div class="listing-rate-share">
-											<div class="rated-list">
-												<b class="la la-star"></b>
-												<b class="la la-star"></b>
-												<b class="la la-star"></b>
-												<b class="la la-star-o"></b>
-												<b class="la la-star-o"></b>
-												<span>(13)</span>
-											</div>
-											<span><i class="la la-share-alt"></i></span>
-											<a href="#" title=""><i class="la la-heart-o"></i></a>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-6 col-xs-12">
-									<div class="listing-box">
-										<div class="listing-box-thumb">
-											<span class="price-list">$149.90</span>
-											<img src="http://placehold.it/263x235" alt="" />
-											<div class="listing-box-title">
-												<h3><a href="#" title="">Food Seminar</a></h3>
-												<span>Los Angeles /  Sillicon Valley </span>
-												<span>(416) 551-0589</span>
-											</div>
-										</div>
-										<div class="listing-rate-share">
-											<div class="rated-list">
-												<b class="la la-star"></b>
-												<b class="la la-star"></b>
-												<b class="la la-star"></b>
-												<b class="la la-star-o"></b>
-												<b class="la la-star-o"></b>
-												<span>(13)</span>
-											</div>
-											<span><i class="la la-share-alt"></i></span>
-											<a href="#" title=""><i class="la la-heart-o"></i></a>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-6 col-xs-12">
-									<div class="listing-box">
-										<div class="listing-box-thumb">
-											<span class="price-list">$149.90</span>
-											<img src="http://placehold.it/263x235" alt="" />
-											<div class="listing-box-title">
-												<h3><a href="#" title="">Evin Electroni</a></h3>
-												<span>Los Angeles /  Sillicon Valley </span>
-												<span>(416) 551-0589</span>
-											</div>
-										</div>
-										<div class="listing-rate-share">
-											<div class="rated-list">
-												<b class="la la-star"></b>
-												<b class="la la-star"></b>
-												<b class="la la-star"></b>
-												<b class="la la-star-o"></b>
-												<b class="la la-star-o"></b>
-												<span>(13)</span>
-											</div>
-											<span><i class="la la-share-alt"></i></span>
-											<a href="#" title=""><i class="la la-heart-o"></i></a>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-6 col-xs-12">
-									<div class="listing-box">
-										<div class="listing-box-thumb">
-											<span class="price-list">$149.90</span>
-											<img src="http://placehold.it/263x235" alt="" />
-											<div class="listing-box-title">
-												<h3><a href="#" title="">Baloon City Excursion</a></h3>
-												<span>Los Angeles /  Sillicon Valley </span>
-												<span>(416) 551-0589</span>
-											</div>
-										</div>
-										<div class="listing-rate-share">
-											<div class="rated-list">
-												<b class="la la-star"></b>
-												<b class="la la-star"></b>
-												<b class="la la-star"></b>
-												<b class="la la-star-o"></b>
-												<b class="la la-star-o"></b>
-												<span>(13)</span>
-											</div>
-											<span><i class="la la-share-alt"></i></span>
-											<a href="#" title=""><i class="la la-heart-o"></i></a>
-										</div>
-									</div>
-								</div>
 							</div>
-						</div>
+						</div><!--
 						<div class="pagination">
 							<ul>
 								<li class="prev"><a href=""><i class="la  la-arrow-left"></i></a></li>
@@ -525,7 +176,7 @@
 								<li><a href="">22</a></li>
 								<li class="next"><a href=""><i class="la  la-arrow-right"></i></a></li>
 							</ul>
-						</div>
+						</div>-->
 					</div>
 				</div>
 			</div>
@@ -808,7 +459,7 @@
 {% endblock %}
 
 {% block script %}
-
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCYc537bQom7ajFpWE5sQaVyz1SQa9_tuY&sensor=true&libraries=places"></script>
 <script type="text/javascript">
 	
 	$(document).on('ready', function(){
@@ -821,7 +472,7 @@
 	  
 	// Creating an object literal containing the properties we want to pass to the map  
 	var options = {  
-		zoom: 15, // This number can be set to define the initial zoom level of the map
+		zoom: 13, // This number can be set to define the initial zoom level of the map
 		center: latlng,
 		mapTypeId: google.maps.MapTypeId.ROADMAP // This value can be set to define the map type ROADMAP/SATELLITE/HYBRID/TERRAIN
 	};  
@@ -860,7 +511,7 @@
 	// Add Marker
 	// alert(parseFloat("{{negocio.ubicacion.latitud}}"))
 	var marker{{negocio.id}} = new google.maps.Marker({
-		position: new google.maps.LatLng(parseFloat("{{negocio.ubicacion.latitud}}"), parseFloat("{{negocio.ubicacion.longitud}}")), 
+		position: new google.maps.LatLng(parseFloat("{{negocio.ubicacion.y}}"), parseFloat("{{negocio.ubicacion.x}}")), 
 		map: map,		
 		icon: image // This path is the custom pin to be shown. Remove this line and the proceeding comma to use default pin
 	});	
