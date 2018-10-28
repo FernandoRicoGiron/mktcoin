@@ -36,22 +36,8 @@ class Imagen(models.Model):
 	def __str__(self):
 		return "Imagen " + str(self.id)
 
-class Municipio(models.Model):
-	municipio = models.CharField(max_length=100)
-		
-	def __str__(self):
-		return self.municipio
-
-class Estado(models.Model):
-	estado = models.CharField(max_length=100)
-	municipio = models.ForeignKey(Municipio, on_delete=models.CASCADE)
-		
-	def __str__(self):
-		return self.estado
-
 class Pais(models.Model):
 	pais = models.CharField(max_length=100)
-	estado = models.ForeignKey(Estado, on_delete=models.CASCADE)
 
 	class Meta:
 		verbose_name = "Pais"
@@ -59,6 +45,15 @@ class Pais(models.Model):
 		
 	def __str__(self):
 		return self.pais
+
+class Estado(models.Model):
+	estado = models.CharField(max_length=100)
+	pais = models.ForeignKey(Pais, on_delete=models.CASCADE)
+	
+	def __str__(self):
+		return self.estado
+
+
 
 
 class Negocio(models.Model):
@@ -74,7 +69,7 @@ class Negocio(models.Model):
 	categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
 	pais = models.ForeignKey(Pais, on_delete=models.CASCADE, blank=True, null=True)
 	estado = models.ForeignKey(Estado, on_delete=models.CASCADE, blank=True, null=True)
-	municipio = models.ForeignKey(Municipio, on_delete=models.CASCADE, blank=True, null=True)
+	municipio = models.CharField(default=True, max_length=100)
 	descripcion =  models. TextField(null=True, blank= True)
 	direccionEmpresa = models.CharField(null=True, blank= True,max_length=100)
 	numTel = models.CharField(null=True, blank= True, max_length=20)
