@@ -102,11 +102,3 @@ class Testimonios(models.Model):
 	imagen = models.ImageField(upload_to='testimonios')
 	descripcion = models.TextField()
 
-
-
-
-
-
-
-
->>>>>>> d74eec21b039f457ccfe5f225efea7aa5a0c8efc
