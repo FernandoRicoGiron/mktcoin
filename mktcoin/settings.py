@@ -38,13 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app',
+    'django.contrib.gis',
     'sweetify',
-    # "geoposition",
+    'mapwidgets',
+    'app',
 ]
 
 GEOPOSITION_GOOGLE_MAPS_API_KEY = "AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"
-GOOGLE_MAPS_API_KEY = "AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -86,10 +86,10 @@ DATABASES = {
     #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     # }
     'default': {
-           'ENGINE': 'django.db.backends.postgresql_psycopg2',
-           'NAME': 'tuxmapa_mktcoin',
+           'ENGINE': 'django.contrib.gis.db.backends.postgis',
+           'NAME': 'mktcoin',
            'USER': 'tuxmapa',
-           'PASSWORD': 'i0cj6y339JMxHb2Z',
+           'PASSWORD': 'rockmax28',
            'HOST': 'localhost',
            'PORT': ''
         }
