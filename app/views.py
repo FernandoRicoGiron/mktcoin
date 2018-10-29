@@ -209,3 +209,44 @@ def descripcionnegocio(request, id):
 	negocio = Negocio.objects.get(id=id)
 	paises = Pais.objects.all()
 	return render(request, "descripcionnegocio.html",{"negocio":negocio, "paises":paises})
+
+def modificar(request):
+	user = request.user
+	negocio = Negocio.objects.get(user=user)
+
+	return render(request, "modificarnegocio.html",{"negocio":negocio})
+
+
+def modificarnegocio(render):	
+	user = request.user
+	negocio = Negocio.objects.get(user=user)
+
+	negocio.ubicacion = request.POST["ubicacion"],
+	negocio.nombreTitular = request.POST.get("nombreTitular"),
+	negocio.fechaNacimiento= request.POST.get("fechaNacimiento"),
+	negocio.numeroTelefonotitular =request.POST.get("numeroTelefonotitular"),
+	negocio.direccionTitular=request.POST.get("direccionTitular"),
+	negocio.correo= request.POST.get("correo"),
+	negocio.nombreEmpresa= request.POST.get("nombreEmpresa"),
+	negocio.categoria = categoria,
+	negocio.pais= pais,
+	negocio.estado=estado,
+	negocio.municipio=request.POST.get("municipio"),
+	negocio.descripcion =request.POST.get("descripcion"),
+	negocio.direccionEmpresa=request.POST.get("direccionEmpresa"),
+	negocio.numTel=request.POST.get("numTel"),
+	negocio.quieninvito=request.POST.get("quieninvito"),
+	negocio.loginmkt=request.POST.get("loginmkt"),
+	negocio.porcentaje=request.POST.get("porcentaje"),
+	negocio.facebook=request.POST.get("facebook"),
+	negocio.instagram =request.POST.get("instagram"),
+	negocio.youtube= request.POST.get("youtube"),
+	negocio.twitter=request.POST.get("twitter"),
+	negocio.whatsapp=request.POST.get("whatsapp"),
+	negocio.sitioweb=request.POST.get("sitioweb"),
+	negocio.comentarios= request.POST.get("comentarios"), 
+
+	negocio.save()
+
+	sweetify.success(request, 'Gracias!', text="Ha sido modificado correctamente", persistent=':)')
+	return HttpResponseRedirect('/')

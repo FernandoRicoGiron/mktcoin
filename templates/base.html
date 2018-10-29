@@ -48,8 +48,9 @@
 			{% if user.is_authenticated %}
 
 			<div class="acount-header-btn">
-				<span class="register-btn">{{user.username}}</span>
+				
 				<a href="/cerrarsesion/"><span>Cerrar Sesión</span></a>
+				<span class="register-btn">{{user.username}}</span>
 			</div>
 			{% else %}
 
@@ -148,8 +149,9 @@
 			{% if user.is_authenticated %}
 
 			<div class="acount-header-btn">
-				<span class="register-btn">{{user.username}}</span>
-				<a href="/cerrarsesion/"><span>Cerrar Sesión</span></a>
+				<a href="/cerrarsesion/"><span>Cerrar Sesión</span></a>				
+				<span class="register-btn">{{user.username}}</span>	
+				<a href="/modificar/"><span>Perfil</span></a>				
 			</div>
 			{% else %}
 

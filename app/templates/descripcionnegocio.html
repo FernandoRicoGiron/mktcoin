@@ -12,14 +12,14 @@
 						<ul class="list-detail-carousel" id="listing-detail-carousel">
 							<li>
 								<div class="list-detail-box">
-									<img src="http://placehold.it/1170x570	" alt="" />
+									<img src="{{negocio.imgPortada.url}}"	" alt="" />
 									<div class="list-detail-info">
-										<h3>UNIPYMES</h3>
-										<span>Instituto Tecnológico de Tuxtla Gutiérrez</span>
-										<span>Tuxtla Gutiérrez, Chiapas. México</span>
-										<p>(416) 551-0589</p>
+										<h3>{{negocio.nombreEmpresa}}</h3>
+										<span>{{negocio.direccionEmpresa}}</span>
+										<span>{{negocio.municipio}}, {{negocio.estado.estado}}, {{negocio.pais.pais}}</span>
+										<p>{{negocio.numTel}}</p>
 										<center>
-											<a style="margin-right: 330px;" href="#" title="" class="write-review">30% en MKT</a>
+											<a style="margin-right: 330px;" href="#" title="" class="write-review">{{negocio.porcentaje}} % en MKT</a>
 										</center>
 										
 									</div>
@@ -27,14 +27,14 @@
 							</li>
 							<li>
 								<div class="list-detail-box">
-									<img src="http://placehold.it/1170x570	" alt="" />
+									<img src="{{negocio.imgPortada.url}}" alt="" />
 									<div class="list-detail-info">
-										<h3>UNIPYMES</h3>
-										<span>Instituto Tecnológico de Tuxtla Gutiérrez</span>
-										<span>Tuxtla Gutiérrez, Chiapas. México</span>
-										<p>(416) 551-0589</p>
+										<h3>{{negocio.nombreEmpresa}}</h3>
+										<span>{{negocio.direccionEmpresa}}</span>
+										<span>{{negocio.municipio}}, {{negocio.estado.estado}}, {{negocio.pais.pais}}</span>
+										<p>{{negocio.numTel}}</p>
 										<center>
-											<a href="#" title="" class="write-review">WrIte a RevIew</a>
+											<a href="#" title="" class="write-review">{{negocio.porcentaje}} % en MKT</a>
 										</center>
 										
 										
@@ -43,14 +43,14 @@
 							</li>
 							<li>
 								<div class="list-detail-box">
-									<img src="http://placehold.it/1170x570	" alt="" />
+									<img src="{{negocio.imgPortada.url}}" alt="" />
 									<div class="list-detail-info">
-										<h3>UNIPYMES</h3>
-										<span>Instituto Tecnológico de Tuxtla Gutiérrez</span>
-										<span>Tuxtla Gutiérrez, Chiapas. México</span>
-										<p>(416) 551-0589</p>
+										<h3>{{negocio.nombreEmpresa}}</h3>
+										<span>{{negocio.direccionEmpresa}}</span>
+										<span>{{negocio.municipio}}, {{negocio.estado.estado}}, {{negocio.pais.pais}}</span>
+										<p>{{negocio.numTel}}</p>
 										<center>
-											<a href="#" title="" class="write-review">WrIte a RevIew</a>
+											<a href="#" title="" class="write-review">{{negocio.porcentaje}} % en MKT</a>
 										</center>
 										
 										
@@ -75,8 +75,7 @@
 										<div class="description-detail-box" id="description">
 											<h3 class="mini-title">DESCRIPCIÓN</h3>
 											<div class="detail-descriptions">
-												<p>Curabitur lacinia erat quis nisi mollis, non pulvinar diam auctor. Integer ornare lobortis tristique. Vestibulum congue eleifend sapien, ac tristique nisi dapibus quis. Vivamus ligula erat, convallis nec leo vel, eleifend imperdiet lacus. Maecenas a euismod augue. Nam eu neque in velit fermentum finibus. Morbi sed lacus in odio ullamcorper facilisis. Vivamus maximus fringilla nisi, eget tristique elit mollis sit amet.</p>
-												<p>Mauris in enim sit amet erat consequat vulputate. Donec ut justo nec est congue cursus sit amet aliquet lorem. In at eros id nisi sollicitudin consectetur at vel risus. Integer elit sapien, posuere nec augue non, tempus molestie est. Ut quis congue dui. Quisque finibus rhoncus nulla, nec consectetur nibh finibus sit amet. Duis eget justo venenatis nisi interdum facilisis non eget purus.</p>
+												<p>{{negocio.descripcion}}</p>
 												<div class="amenities-sec">
 													<!--<h3>Amenities</h3>
 													<span><i class="la la-check-circle"></i>Wi-Fi</span>
@@ -106,10 +105,10 @@
 										<div class="contactinfo-box" id="contact">
 											<h3 class="mini-title">Contacto</h3>
 											<div class="contact-info-list">
-												<span><strong>Dirección</strong>10 Bay Street Toronto Ontario Canada</span>
-												<span><strong>Teléfono</strong>+1 (647) 347-7347</span>
-												<span><strong>E-mail</strong>İnfo@firm.com</span>
-												<span><strong>Sitio Web</strong>www.firm.com</span>
+												<span><strong>Dirección</strong>{{negocio.direccionEmpresa}}</span>
+												<span><strong>Teléfono</strong>{{negocio.numTel}}</span>
+												<span><strong>E-mail</strong>{{negocio.correo}}</span>
+												<span><strong>Sitio Web</strong>{{negocio.sitioweb}}</span>
 											</div>
 										</div>
 									
@@ -117,13 +116,14 @@
 									</div>
 									<aside class="col-md-3 column">
 										<div class="widget">
-											<h3 class="mini-title">DESCRIPCIÓN</h3>
+											<h3 class="mini-title">REDES SOCIALES</h3>
 											<div class="specifi-widget">
-												<span><i class="la la-cog"></i>Facebook</span>
-												<span><i class="la la-cloud"></i>Twitter</span>
-												<span><i class="la la-warning"></i>Instagram</span>
-												<span><i class="la la-television"></i>Youtube</span>
-												<span><i class="la la-music"></i>Goggle Plus</span>
+
+												<span><a target="blank" href="{{negocio.facebook}}"><i class="la la-facebook"></i></a>{{negocio.facebook}}</span>
+												<span><a href="{{negocio.twitter}}"> <i class="la la-twitter"></i></a>{{negocio.twitter}}</span>
+												<span><a href="{{negocio.instagram}}"><i class="la la-instagram"></i></a> {{negocio.instagram}}</span>
+												<span><a href="{{negocio.youtube}}"><i class="la la-youtube"></i></a> {{negocio.youtube}}</span>
+												<span><i class="la la-whatsapp"></i>{{negocio.whatsapp}}</span>
 												
 											</div>
 										</div>
@@ -131,12 +131,21 @@
 											<h3 class="mini-title">GALERIA</h3>
 											<div class="photo-widget open-image">
 												<div class="row">
+
+													{% for img in negocio.imagenes.all %}
+
+													<div class="col-md-6">
+														<a href="images/preview.png" title="">
+															<img src="{{img.imagen.url}}" alt="" />
+														</a>
+													</div>
+													{% endfor %}
+
+													<!--<div class="col-md-6"><a href="images/preview.png" title=""><img src="http://placehold.it/100x90" alt="" /></a></div>
 													<div class="col-md-6"><a href="images/preview.png" title=""><img src="http://placehold.it/100x90" alt="" /></a></div>
-													<div class="col-md-6"><a href="images/preview.png" title=""><img src="http://placehold.it/100x90" alt="" /></a></div>
-													<div class="col-md-6"><a href="images/preview.png" title=""><img src="http://placehold.it/100x90" alt="" /></a></div>
-													<div class="col-md-6"><a href="images/preview.png" title=""><img src="http://placehold.it/100x90" alt="" /></a></div>
+													<div class="col-md-6"><a href="images/preview.png" title=""><img src="http://placehold.it/100x90" alt="" /></a></div>-->
 												</div>
-												<span>All Photos (45)</span>
+												<span></span>
 											</div>
 										</div>
 									

@@ -17,6 +17,8 @@ urlpatterns = [
     path('mensaje/', views.send_email),
     path('changepaises/', views.changepaises),
     re_path('negocios/(?P<id>\d+)/', views.descripcionnegocio),
+    path('modificar/', views.modificar),
+    path('modificarnegocio/', views.modificarnegocio),
    # path('activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',views.activate, name='activate'),
 
     ]
