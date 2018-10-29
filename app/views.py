@@ -212,16 +212,21 @@ def descripcionnegocio(request, id):
 
 def modificar(request):
 	user = request.user
-	negocio = Negocio.objects.get(user=user)
+	paises = Pais.objects.all()
+	categorias = Categoria.objects.all()
+	negocio = Negocio.objects.get(usuario=user)
 
-	return render(request, "modificarnegocio.html",{"negocio":negocio})
+	return render(request, "modificarnegocio.html",{"negocio":negocio,"paises":paises,"categorias":categorias})
 
 
-def modificarnegocio(render):	
+def modificarnegocio(request):	
 	user = request.user
-	negocio = Negocio.objects.get(user=user)
+	negocio = Negocio.objects.get(usuario=user)
+	categoria =  Categoria.objects.get(id=request.POST.get("categoria"))
+	pais =  Pais.objects.get(id=request.POST.get("pais"))
+	estado =  Estado.objects.get(id=request.POST.get("estado"))
 
-	negocio.ubicacion = request.POST["ubicacion"],
+	#negocio.ubicacion = request.POST["ubicacion"],
 	negocio.nombreTitular = request.POST.get("nombreTitular"),
 	negocio.fechaNacimiento= request.POST.get("fechaNacimiento"),
 	negocio.numeroTelefonotitular =request.POST.get("numeroTelefonotitular"),
@@ -244,7 +249,14 @@ def modificarnegocio(render):
 	negocio.twitter=request.POST.get("twitter"),
 	negocio.whatsapp=request.POST.get("whatsapp"),
 	negocio.sitioweb=request.POST.get("sitioweb"),
-	negocio.comentarios= request.POST.get("comentarios"), 
+	negocio.comentarios= request.POST.get("comentarios"),
+
+	negocio.imgPortada = request.FILES["imagenp"]
+
+	lista = request.FILES.getlist("imagen")
+	for f in lista:
+		image = Imagen.objects.create(imagen=f)
+		negocio.imagenes.add(image) 
 
 	negocio.save()
 

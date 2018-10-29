@@ -65,7 +65,7 @@
 									<div class="row">
 										<div class="col-md-12">
 											<center>
-												<h2 style=" font-family: Arial; text-shadow: 1px 1px; margin-bottom: 50px;">A continuación inserta tus datos para tu registro</h2>
+												<h2 style=" font-family: Arial; text-shadow: 1px 1px; margin-bottom: 50px;">Modifique los datos del negocio</h2>
 											</center>
 										</div>
 
@@ -82,21 +82,21 @@
 
 										<div class="col-md-6">
 											<label class="labform">Fecha de Nacimiento</label>
-											<input name="fechaNacimiento" type="date" placeholder="Twitter" />
+											<input value="{{negocio.fechaNacimiento|date:'Y-m-d'}}" name="fechaNacimiento" type="date" placeholder="Twitter" />
 										</div>
 
 										<div class="col-md-6">
 											<label class="labform">Número de teléfono</label>
-											<input name="numeroTelefonotitular" type="text" placeholder="Número de teléfono" />
+											<input value="{{negocio.numeroTelefonotitular}}" name="numeroTelefonotitular" type="text" placeholder="Número de teléfono" />
 										</div>
 
 										<div class="col-md-6">
 											<label class="labform">Dirección</label>
-											<input name="direccionTitular" type="text" placeholder="Twitter" />
+											<input value="{{negocio.direccionTitular}}" name="direccionTitular" type="text" placeholder="Twitter" />
 										</div>
 										<div class="col-md-6">
 											<label class="labform">Correo electrónico</label>
-											<input name="correo" type="email" placeholder="Correo electrónico" />
+											<input value="{{negocio.correo}}" name="correo" type="email" placeholder="Correo electrónico" />
 										</div>
 
 										<div class="col-md-12">
@@ -105,16 +105,16 @@
 
 										<div class="col-md-6">
 											<label class="labform">¿Quién lo invitó a unirse?</label>
-											<input name="quieninvito" type="text" placeholder="¿Quién lo invitó a uniser?" />
+											<input value="{{negocio.quieninvito}}" name="quieninvito" type="text" placeholder="¿Quién lo invitó a uniser?" />
 										</div>
 										<div class="col-md-6">
 											<label class="labform">Login de MKTCoin</label>
-											<input name="loginmkt" type="text" placeholder="Login de MKTCoin" />
+											<input value="{{negocio.loginmkt}}" name="loginmkt" type="text" placeholder="Login de MKTCoin" />
 										</div>
 
 										<div class="col-md-6">
 											<label class="labform">¿Qué porcentaje aceptará de MKTCoin?</label>
-											<input name="porcentaje" type="number" placeholder="¿Qué porcentaje aceptará de mktcoin?" />
+											<input value="{{negocio.porcentaje}}" name="porcentaje" type="number" placeholder="¿Qué porcentaje aceptará de mktcoin?" />
 										</div>
 
 
@@ -126,7 +126,7 @@
 
 										<div class="col-md-8">
 											<label class="labform">Nombre del negocio y/o servicio</label>
-											<input name="nombreEmpresa" type="text" placeholder="Nombre del negocio y/o servicio" />
+											<input value="{{negocio.nombreEmpresa}}" name="nombreEmpresa" type="text" placeholder="Nombre del negocio y/o servicio" />
 										</div>
 
 										<div class="col-md-4">
@@ -141,7 +141,7 @@
 
 										<div class="col-md-12">
 											<label class="labform">Descripción del negocio y/o servicio</label>
-											<textarea name="descripcion" placeholder="Descripción del negocio y/o servicio"></textarea>
+											<textarea value="{{negocio.descripcion}}" name="descripcion" placeholder="Descripción del negocio y/o servicio"></textarea>
 										</div>
 
 										<!--
@@ -187,7 +187,7 @@
 										<div class="col-md-4">
 											<label class="labform">Municipio o Ciudad </label>
 											
-											<input name="municipio" type="text" placeholder="Municipio o Ciudad" />
+											<input value="{{negocio.municipio}}" name="municipio" type="text" placeholder="Municipio o Ciudad" />
 										
 
 											<!--<select data-placeholder="Municipio o ciudad" class="chosen-select" tabindex="2">
@@ -203,7 +203,7 @@
 
 										<div class="col-md-12">
 											<label class="labform">Dirección</label>
-											<input name="direccionEmpresa" type="text" placeholder="Dirección" />
+											<input value="{{negocio.direccionEmpresa}}" name="direccionEmpresa" type="text" placeholder="Dirección" />
 										</div>
 										<div class="col-md-12">
 											<label class="labform">Coloca tu ubicación en el mapa</label>
@@ -227,7 +227,7 @@
 
 										<div class="col-md-6">
 											<label class="labform">Contácto del negocio</label>
-											<input name="numTel" type="text" placeholder="Contácto del negocio" />
+											<input value="{{negocio.numTel}}" name="numTel" type="text" placeholder="Contácto del negocio" />
 										</div>
 
 										<div class="col-md-12">
@@ -236,35 +236,35 @@
 
 										<div class="col-md-6">
 											<label class="labform">Facebook</label>
-											<input name="facebook" type="text" placeholder="Facebook" />
+											<input value="{{negocio.facebook}}" name="facebook" type="text" placeholder="Facebook" />
 										</div>
 
 										<div class="col-md-6">
 											<label class="labform">Instagram</label>
-											<input name="instagram" type="text" placeholder="Instagram" />
+											<input value="{{negocio.instagram}}"" name="instagram" type="text" placeholder="Instagram" />
 										</div>
 
 										<div class="col-md-6">
 											<label class="labform">Youtube</label>
-											<input name="youtube" type="text" placeholder="Youtube" />
+											<input value="{{negocio.youtube}}"" name="youtube" type="text" placeholder="Youtube" />
 										</div>
 										<div class="col-md-6">
 											<label class="labform">Twitter</label>
-											<input name="twitter" type="text" placeholder="Twitter" />
+											<input value="{{negocio.twitter}}"" name="twitter" type="text" placeholder="Twitter" />
 										</div>
 
 										<div class="col-md-6">
 											<label class="labform">WhatsApp</label>
-											<input name="whatsapp" type="text" placeholder="WhatsApp"/>
+											<input value="{{negocio.whatsapp}}"" name="whatsapp" type="text" placeholder="WhatsApp"/>
 										</div>
 										<div class="col-md-6">
 											<label class="labform">Sitio Web</label>
-											<input name="sitioweb" type="text" placeholder="Sitio Web"/>
+											<input value="{{negocio.sitioweb}}" name="sitioweb" type="text" placeholder="Sitio Web"/>
 										</div>
 
 										<div class="col-md-12">
 											<label class="labform">Comentarios</label>
-											<textarea name="comentarios" placeholder="Comentarios"></textarea>
+											<textarea value="{{negocio.comentarios}}" name="comentarios" placeholder="Comentarios"></textarea>
 										</div>
 
 						<div class="col-md-6 col-sm-6 col-xs-12  has-feedback">
@@ -274,7 +274,7 @@
                               </a>
                               <a class="btn color-4 size-2 hover-7">
 
-                                <span class="btn btn-default btn-file" >Agregar imagenes<input multiple type="file" id="files" name="imagen" defaultValue="" accept="image/jpeg, image/png"/></span></a>
+                                <span class="btn btn-default btn-file" >Agregar imagenes<input value="{{negocio.imagenes}}" multiple type="file" id="files" name="imagen" defaultValue="" accept="image/jpeg, image/png"/></span></a>
                         </div>
 
 
@@ -285,7 +285,7 @@
                               </a>
                               <a class="btn color-4 size-2 hover-7">
 
-                                <span class="btn btn-default btn-file" >Agregar imagenes<input multiple type="file" id="files" name="imagenp" defaultValue="" accept="image/jpeg, image/png"/></span></a>
+                                <span class="btn btn-default btn-file" >Agregar imagenes<input value="{{negocio.imgPortada}}" multiple type="file" id="files" name="imagenp" defaultValue="" accept="image/jpeg, image/png"/></span></a>
                         </div>
 
 
@@ -337,4 +337,3 @@ $(".selectpais").on("change", function () {
 
 
 
-{% endblock %}
