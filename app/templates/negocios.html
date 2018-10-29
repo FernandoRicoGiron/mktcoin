@@ -95,14 +95,23 @@
 								<span class="open-filter"><i class="la la-filter"></i> Filtro</span>
 							</div>
 
-							<div class="side-search-form with-filters">
-								<form>
+							<div style="position: inherit;" class="side-search-form with-filters">
+								<form action="/negocios/filtro/" method="POST">
+									{% csrf_token %}
 									<div class="row">
-										<div class="col-md-3">
-											<input type="text" class="input-style" placeholder="Negocio" />
+										<div class="col-sm-12">
+											<select name="categoria" data-placeholder="Categorias" class="chosen-select" tabindex="2">
+									            <option value="">Categorias</option>
+									            {% for categoria in categorias %}
+									            <option value="{{categoria.id}}">{{categoria.nombre}}</option>
+									            {% endfor %}
+									        </select>
 										</div>
 										<div class="col-md-3">
-											<select data-placeholder="Paises" class="chosen-select" tabindex="2">
+											<input name="negocio" type="text" class="input-style" placeholder="Negocio" />
+										</div>
+										<div class="col-md-3">
+											<select name="pais" data-placeholder="Paises" class="chosen-select selectpais" tabindex="2">
 									            <option value="">Paises</option>
 										        {% for pais in paises %}
 									            <option value="{{pais.id}}">{{pais.pais}}</option>
@@ -110,14 +119,15 @@
 									        </select>
 										</div>
 										<div class="col-md-3">
-											<select data-placeholder="Estados" class="chosen-select" tabindex="2">
+											<select name="estado" data-placeholder="Estados" class="chosen-select selectestado" tabindex="2">
 									            <option value="">Estados</option>
 									        </select>
 										</div>
 
 										<div class="col-md-3">
-											<input type="text" class="input-style" placeholder="Municipio" />
+											<input name="municipio" type="text" class="input-style" placeholder="Municipio" />
 										</div>
+
 										
 										
 										<div class="col-md-12">
@@ -127,17 +137,15 @@
 								</form>
 							</div>
 
-
+							<!--
 							<div class="filter-dropdowns">
-								<select data-placeholder="Sort By" class="chosen-select" tabindex="2">
-						            <option value="Sort By">Sort By</option>
-						            <option value="Latest">Latest</option>
-						            <option value="Oldest">Oldest</option>
-						            <option value="Top Trending">Top Trending</option>
-						            <option value="Price High">Price High</option>
-						            <option value="Price Low">Price Low</option>
+								<select data-placeholder="Categorias" class="chosen-select" tabindex="2">
+						            <option value="">Categorias</option>
+						            {% for categoria in categorias %}
+						            <option value="{{categoria.id}}">{{categoria.nombre}}</option>
+						            {% endfor %}
 						        </select>
-							</div>	
+							</div>-->	
 						</div>
 
 

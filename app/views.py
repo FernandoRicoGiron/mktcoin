@@ -42,14 +42,39 @@ def index(request):
 def contacto(request):
 	return render(request, "contacto.html", {})
 
+def filtro(request):
+	categoria = request.POST.get("categoria")
+	nombre = request.POST.get("negocio")
+	pais = request.POST.get("pais")
+	estado = request.POST.get("estado")
+	municipio = request.POST.get("municipio")
+	print(categoria + " " + nombre + " " + pais + " " + estado + " " + municipio)
+	if pais != "" and estado != "" and categoria != "" and municipio != "":
+		negocios = Negocio.objects.filter(Q(validado=True) and ~Q(ubicacion=None) and Q(nombreEmpresa__icontains=nombre) and Q(pais__id=pais) and Q(estado__id=estado) and Q(municipio=municipio) and Q(categoria__id=categoria))
+	elif pais != "" and estado != "" and categoria != "":
+		negocios = Negocio.objects.filter(Q(validado=True) and ~Q(ubicacion=None) and Q(nombreEmpresa__icontains=nombre) and Q(pais__id=pais) and Q(estado__id=estado) and Q(categoria__id=categoria))
+	elif pais != "" and estado != "":
+		negocios = Negocio.objects.filter(Q(validado=True) and ~Q(ubicacion=None) and Q(nombreEmpresa__icontains=nombre) and Q(pais__id=pais) and Q(estado__id=estado))
+	elif categoria != "":
+		negocios = Negocio.objects.filter(Q(validado=True) and ~Q(ubicacion=None) and Q(nombreEmpresa__icontains=nombre) and Q(categoria__id=categoria))
+	else:
+		negocios = Negocio.objects.filter(Q(validado=True) and ~Q(ubicacion=None) and Q(nombreEmpresa__icontains=nombre))
+	paises = Pais.objects.all()
+	estados = Estado.objects.all()
+	categorias = Categoria.objects.all()
+
+	return render(request, "negocios.html", {"negocios":negocios, "paises":paises, "estados":estados, "categorias":categorias})
 
 def negocios(request):
 	negocios = Negocio.objects.filter(Q(validado=True) and ~Q(ubicacion=None))
 	paises = Pais.objects.all()
 	estados = Estado.objects.all()
+	categorias = Categoria.objects.all()
 
+	#return render(request, "negocios.html", {"negocios":negocios, "paises":paises, "estados":estados})
 
-	return render(request, "negocios.html", {"negocios":negocios, "paises":paises, "estados":estados})
+	return render(request, "negocios.html", {"negocios":negocios, "paises":paises, "estados":estados, "categorias":categorias})
+
 
 
 
