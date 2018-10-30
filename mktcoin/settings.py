@@ -56,6 +56,7 @@ INSTALLED_APPS = [
 ]
 
 GEOPOSITION_GOOGLE_MAPS_API_KEY = "AIzaSyBl-aJJ8WQCxlEJYeKjiI9Uc54zn3Az_H4"
+#GEOPOSITION_GOOGLE_MAPS_API_KEY = "AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
