@@ -98,8 +98,8 @@ DATABASES = {
     # }
     'default': {
            'ENGINE': 'django.contrib.gis.db.backends.postgis',
-           'NAME': 'tuxmapa',
-           'USER': 'tuxmapa_mktcoin',
+           'NAME': 'tuxmapa_mktcoin',
+           'USER': 'tuxmapa',
            'PASSWORD': 'i0cj6y339JMxHb2Z',
            'HOST': 'localhost',
            'PORT': ''
