@@ -12,7 +12,7 @@
 						<ul class="list-detail-carousel" id="listing-detail-carousel">
 							<li>
 								<div class="list-detail-box">
-									<img src="{{negocio.imgPortada.url}}"	" alt="" />
+									<img src="{{negocio.imgPortada.url}}"	 alt="" />
 									<div class="list-detail-info">
 										<h3>{{negocio.nombreEmpresa}}</h3>
 										<span>{{negocio.direccionEmpresa}}</span>
@@ -96,10 +96,10 @@
 										<div class="location-box" id="location">
 											<h3 class="mini-title">UBICACIÓN</h3>
 											<div class="list-location">
-												<a class="map-btn" href="#" title=""><i class="la la-map-marker"></i> Mapa</a>
-												<a class="street-map-btn" href="#" title=""><i class="la la-street-view"></i> Street Map</a>
-												<a class="direction-btn" href="#" title=""><i class="la la-mail-forward"></i> Direction</a>
-												<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5925803.412513284!2d-97.57383311511944!3d37.73518855206203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1506528387794" style="border:0" allowfullscreen></iframe>
+												
+												<div style="min-height:370px;" id="map-container">
+												    <div style="height:370px;" id="map_div">&nbsp;</div>
+												</div>
 											</div>
 										</div>
 										<div class="contactinfo-box" id="contact">
@@ -162,4 +162,68 @@
 
 
 
+{% endblock %}
+
+{% block script %}
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCYc537bQom7ajFpWE5sQaVyz1SQa9_tuY&sensor=true&libraries=places"></script>
+<script type="text/javascript">
+	
+	$(document).on('ready', function(){
+
+
+	//------- Google Maps ---------//
+		  
+	// Creating a LatLng object containing the coordinate for the center of the map
+	var latlng = new google.maps.LatLng(parseFloat("{{negocio.ubicacion.y}}"), parseFloat("{{negocio.ubicacion.x}}"));
+	  
+	// Creating an object literal containing the properties we want to pass to the map  
+	var options = {  
+		zoom: 13, // This number can be set to define the initial zoom level of the map
+		center: latlng,
+		mapTypeId: google.maps.MapTypeId.ROADMAP // This value can be set to define the map type ROADMAP/SATELLITE/HYBRID/TERRAIN
+	};  
+	// Calling the constructor, thereby initializing the map  
+	var map = new google.maps.Map(document.getElementById('map_div'), options);  
+	
+	// Define Marker properties
+	var image = new google.maps.MarkerImage("{% static 'images/marker1.png' %}",
+		new google.maps.Size(46, 57),
+		new google.maps.Point(0,0),
+		new google.maps.Point(18, 42)
+	);
+
+	
+	// Add Marker
+	// alert(parseFloat("{{negocio.ubicacion.latitud}}"))
+	var marker{{negocio.id}} = new google.maps.Marker({
+		position: new google.maps.LatLng(parseFloat("{{negocio.ubicacion.y}}"), parseFloat("{{negocio.ubicacion.x}}")), 
+		map: map,		
+		icon: image // This path is the custom pin to be shown. Remove this line and the proceeding comma to use default pin
+	});	
+	
+	// Add listener for a click on the pin
+	google.maps.event.addListener(marker{{negocio.id}}, 'click', function() {  
+		infowindow{{negocio.id}}.open(map, marker{{negocio.id}});  
+		$('body .infowindow').parent().parent().parent().parent().parent().parent().addClass('custom-tooltip')
+	});
+
+	// Add information window
+	var infowindow{{negocio.id}} = new google.maps.InfoWindow({  
+		content:  createInfo('<div class="listing-box"> <div class="listing-box-thumb"> <img src="{{negocio.imagenes.first.imagen.url}}" alt="" /> <div class="listing-box-title"> <h3><a href="/negocios/{{negocio.id}}/" title="">{{negocio.nombreEmpresa}}</a></h3> <span>{{negocio.direccionEmpresa}}</span> <span>{{negocio.numTel}}</span> </div> </div> <div class="listing-rate-share">  </div> </div>')
+	}); 
+
+	
+		
+	
+
+	
+	
+	// Create information window
+	function createInfo(title, content) {
+		return '<div class="infowindow"><span>'+ title +'</span>'+content+'</div>';
+	} 
+
+});
+
+</script>
 {% endblock %}

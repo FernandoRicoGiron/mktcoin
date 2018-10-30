@@ -214,9 +214,14 @@ def modificar(request):
 	user = request.user
 	paises = Pais.objects.all()
 	categorias = Categoria.objects.all()
-	negocio = Negocio.objects.get(usuario=user)
-
-	return render(request, "modificarnegocio.html",{"negocio":negocio,"paises":paises,"categorias":categorias})
+	
+	form = NegocioForm()
+	if Negocio.objects.filter(usuario=user).exists():
+		negocio = Negocio.objects.get(usuario=user)
+		return render(request, "modificarnegocio.html",{"form":form,"negocio":negocio,"paises":paises,"categorias":categorias})
+	else:
+		sweetify.success(request, '!Opps!', text="Registra tu negocio porfavor", persistent=':)')
+		return redirect("/registronegocio/")
 
 
 def modificarnegocio(request):	
@@ -226,7 +231,8 @@ def modificarnegocio(request):
 	pais =  Pais.objects.get(id=request.POST.get("pais"))
 	estado =  Estado.objects.get(id=request.POST.get("estado"))
 
-	#negocio.ubicacion = request.POST["ubicacion"],
+	if request.POST["ubicacion"]:
+		negocio.ubicacion = request.POST["ubicacion"],
 	negocio.nombreTitular = request.POST.get("nombreTitular"),
 	negocio.fechaNacimiento= request.POST.get("fechaNacimiento"),
 	negocio.numeroTelefonotitular =request.POST.get("numeroTelefonotitular"),
