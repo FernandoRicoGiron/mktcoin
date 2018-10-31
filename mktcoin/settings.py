@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     'app',
 ]
 
-GEOPOSITION_GOOGLE_MAPS_API_KEY = "AIzaSyBl-aJJ8WQCxlEJYeKjiI9Uc54zn3Az_H4"
+GOOGLE_MAP_API_KEY = "AIzaSyAJmeDzN7crTR_s0JzVby6WQlWxuRitDHE"
 #GEOPOSITION_GOOGLE_MAPS_API_KEY = "AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"
 
 MIDDLEWARE = [
@@ -165,3 +165,10 @@ EMAIL_HOST_USER = 'wilderesc97@gmail.com'
 EMAIL_HOST_PASSWORD = 'Bocajunior10'
 EMAIL_PORT = 587
 
+MAP_WIDGETS = {
+    "GooglePointFieldWidget": (
+        ("zoom", 13),
+        ("mapCenterLocation", [16.753043887702606, -93.12201404296877]),
+    ),
+    "GOOGLE_MAP_API_KEY": GOOGLE_MAP_API_KEY,
+}

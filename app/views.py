@@ -66,7 +66,7 @@ def filtro(request):
 	return render(request, "negocios.html", {"negocios":negocios, "paises":paises, "estados":estados, "categorias":categorias})
 
 def negocios(request):
-	negocios = Negocio.objects.filter(Q(validado=True) and ~Q(ubicacion=None))
+	negocios = Negocio.objects.filter(validado=True)
 	paises = Pais.objects.all()
 	estados = Estado.objects.all()
 	categorias = Categoria.objects.all()
