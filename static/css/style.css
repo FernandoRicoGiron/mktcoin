@@ -3436,11 +3436,11 @@ footer.wide-container .container {
 }
 #map-container, #map {
     float: left;
-    min-height: 560px;
+    min-height: 340px;
     width: 100%;
 }
 #map_div {
-    height: 770px;
+    height: 550px;
     width: 100%;
 }
 .infowindow .price-list {

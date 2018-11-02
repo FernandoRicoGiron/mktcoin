@@ -466,7 +466,11 @@
 
 <!--<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCYc537bQom7ajFpWE5sQaVyz1SQa9_tuY&sensor=true&libraries=places"></script>-->
 
+
+<!--<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBl-aJJ8WQCxlEJYeKjiI9Uc54zn3Az_H4&sensor=true&libraries=places"></script>-->
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJmeDzN7crTR_s0JzVby6WQlWxuRitDHE&sensor=true&libraries=places"></script>
+
 
 
 <script type="text/javascript">
@@ -497,11 +501,12 @@ $(".selectpais").on("change", function () {
 	//------- Google Maps ---------//
 		  
 	// Creating a LatLng object containing the coordinate for the center of the map
-	var latlng = new google.maps.LatLng(16.731563,-93.0387017);
+	//var latlng = new google.maps.LatLng(16.731563,-93.0387017);
+	var latlng = new google.maps.LatLng(24.38511941343221,-102.64458846874999);
 	  
 	// Creating an object literal containing the properties we want to pass to the map  
 	var options = {  
-		zoom: 13, // This number can be set to define the initial zoom level of the map
+		zoom:5, // This number can be set to define the initial zoom level of the map
 		center: latlng,
 		mapTypeId: google.maps.MapTypeId.ROADMAP // This value can be set to define the map type ROADMAP/SATELLITE/HYBRID/TERRAIN
 	};  
