@@ -99,9 +99,9 @@ DATABASES = {
     # }
     'default': {
            'ENGINE': 'django.contrib.gis.db.backends.postgis',
-           'NAME': 'mktcoin',
+           'NAME': 'tuxmapa_mktcoin',
            'USER': 'tuxmapa',
-           'PASSWORD': 'rockmax28',
+           'PASSWORD': 'i0cj6y339JMxHb2Z',
            'HOST': 'localhost',
            'PORT': ''
         }
@@ -165,21 +165,9 @@ EMAIL_HOST_USER = 'wilderesc97@gmail.com'
 EMAIL_HOST_PASSWORD = 'Bocajunior10'
 EMAIL_PORT = 587
 
-"""
 MAP_WIDGETS = {
     "GooglePointFieldWidget": (
         ("zoom", 13),
-        ("mapCenterLocation", [16.753043887702606, -93.12201404296877]),
-    ),
-    "GOOGLE_MAP_API_KEY": GOOGLE_MAP_API_KEY,
-}
-
-"""
-
-MAP_WIDGETS = {
-    "GooglePointFieldWidget": (
-        ("zoom", 13),
-        #("mapCenterLocationName", 'Mexico'),
         ("mapCenterLocation", [16.753043887702606, -93.12201404296877]),
     ),
     "GOOGLE_MAP_API_KEY": GOOGLE_MAP_API_KEY,
