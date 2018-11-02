@@ -261,9 +261,9 @@
 								<ul>
 									<li><a href="#" title=""><i class="la la-twitter"></i></a></li>
 									<li><a href="#" title=""><i class="la la-instagram"></i></a></li>
-									<li><a href="#" title=""><i class="la la-pinterest"></i></a></li>
-									<li><a href="#" title=""><i class="la la-google-plus"></i></a></li>
-									<li><a href="#" title=""><i class="la la-tumblr "></i></a></li>
+									<li><a target="blank" href="https://www.facebook.com/NegociosMktcoin/" title=""><i class="la la-facebook"></i></a></li>
+									<li><a href="#" title=""><i class="la la-youtube"></i></a></li>
+									
 								</ul>
 							</div>
 						</div><!-- Widget -->
@@ -276,7 +276,13 @@
 									<li><a href="/" title="">Inicio</a></li>
 									<li><a href="/nosotros/" title="">Acerca de</a></li>
 									<li><a href="/negocios/" title="">Directorio de negocios</a></li>
-									<li><a href="/registrar/" title="">Registrar negocio</a></li>
+
+									{% if user.is_authenticated %}
+									<li><a href="/registronegocio/" title="">Registrar negocio</a></li>
+									{% else %}
+									<li><a href="#" class="login-btn" title="">Registrar negocio</a></li>
+									{% endif %}
+
 									<li><a href="/contacto/" title="">Contacto</a></li>
 									
 								</ul>
@@ -291,17 +297,19 @@
 									<li>
 										<i class="la la-map"></i>
 										<span>Dirección</span>
-										<span>Proudly Made in Canada & USA</span>
+										<span></span>
 									</li>
 									<li>
 										<i class="la la-mobile"></i>
 										<span>Teléfono</span>
-										<span>+0-456-098-789, +1-456-789-123</span>
+										<span>+52 1 961 655 5462</span>
+										<span> +52 1 961 220 5527</span>
+										<span>+52 1 961 210 7464</span>
 									</li>
 									<li>
 										<i class="la la-envelope"></i>
 										<span>Correo electrónico</span>
-										<span><a href="mailto:info@prolist.com">info@prolist.com</a>, <a href="mailto:support@prolist.com">support@prolist.com</a></span>
+										<span><a href="mailto:info@negociosmktcoin.com">info@negociosmktcoin.com</a>, <a href="mailto:support@negociosmktcoin.com">support@negociosmktcoin.com</a></span>
 									</li>
 								</ul>
 							</div>
