@@ -36,8 +36,22 @@ from django.contrib.auth.models import User
 def index(request):
 	banners = Banner.objects.all()
 	testimonios = Testimonio.objects.all()
+	negocios = Negocio.objects.all()
+	negocio = []
+	negociocuatro = []
+	for i in negocios[::-1]:
+		negociosdos = [i]
+		negocio = negocio + negociosdos
 
-	return render(request, "index.html", {"banners":banners, "testimonios":testimonios})
+	for j in negocio [:6]:
+		negociotres = [j]
+		negociocuatro =  negociocuatro + negociotres
+
+	resultado =  negociocuatro
+	
+
+
+	return render(request, "index.html", {"resultado":resultado,"negocios":negocios,"banners":banners, "testimonios":testimonios})
 
 def contacto(request):
 	return render(request, "contacto.html", {})
@@ -68,6 +82,11 @@ def filtro(request):
 	categorias = Categoria.objects.all()
 
 	return render(request, "negocios.html", {"negocios":negocios, "paises":paises, "estados":estados, "categorias":categorias})
+
+def filmunicipio(request):
+	municipio =  request.POST.get("municipio")
+	negocios = Negocio.objects.filter(Q(validado=True) and ~Q(ubicacion=None) and Q(municipio__icontains=municipio))
+	return render(request,"negocios.html",{"negocios":negocios, "municipio":municipio})
 
 def negocios(request):
 	negocios = Negocio.objects.filter(validado=True)

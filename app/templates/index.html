@@ -27,7 +27,7 @@
 							</div>
 
 							
-							<div class="directory-searcher style2  extra-margin">
+							<!--<div class="directory-searcher style2  extra-margin">
 								<form>
 									<div class="field"><input type="text" placeholder="Keywords"></div>
 									<div class="field">
@@ -54,7 +54,7 @@
 										<button type="submit"><i class="la la-search"></i>Buscar</button>
 									</div>
 								</form>
-							</div>
+							</div>-->
 							<a class="arrow-down floating" href="#scroll-here" title=""><i class="la la-angle-down"></i></a>
 						</div>
 						
@@ -194,64 +194,99 @@
 						</div>
 					</div>
 					<div class="do-tonight-sec">
+
+						
+
 						<div class="row">
+
 							<div class="col-md-3">
 								<div class="dt-box style2">
-									<a href="/negocios/" title="">
-										<img src="{% static 'images/tuxtla.jpg' %}" alt="" />
-										<span>Tuxtla Gutiérrez</span>
-										<strong>Ir a Directorio</strong>
+									<a   title="">
+
+										<img src="{% static 'images/unouno.jpg' %}" alt="" />
+										<form action="/negocios/municipios/" method="POST">
+										{% csrf_token %}
+
+										<span>{{resultado.0.municipio}}</span>											
+									<strong> <button name="municipio" value="{{resultado.0.municipio}}" type="submit" style=" background-color: Transparent; border: none;">Ir a Directorio</button></strong>
+										</form>
 									</a>
 								</div>
 							</div>
+
 							<div class="col-md-6">
 								<div class="dt-box style2">
-									<a href="/negocios/" title="">
-										<img src="{% static 'images/berriozabal.jpg' %}" alt="" />
-										<span>Berriozabal</span>
-										<strong>Ir a Directorio</strong>
+									<a title="">
+										<img src="{% static 'images/tres.jpg' %}" alt="" />
+										<form action="/negocios/municipios/" method="POST">
+										{% csrf_token %}
+
+										<span>{{resultado.1.municipio}}</span>											
+									<strong> <button name="municipio" value="{{resultado.1.municipio}}" type="submit" style=" background-color: Transparent; border: none;">Ir a Directorio</button></strong>
+										</form>
 									</a>
 								</div>
 							</div>
 							<div class="col-md-3">
 								<div class="dt-box style2">
-									<a href="/negocios/" title="">
-										<img src="{% static 'images/sancris.jpg' %}" alt="" />
-										<span>San Cristóbal</span>
-										<strong>Ir a Directorio</strong>
+									<a  title="">
+										<img src="{% static 'images/dos.jpg' %}" alt="" />
+										<form action="/negocios/municipios/" method="POST">
+										{% csrf_token %}
+
+										<span>{{resultado.2.municipio}}</span>											
+									<strong> <button name="municipio" value="{{resultado.2.municipio}}" type="submit" style=" background-color: Transparent; border: none;">Ir a Directorio</button></strong>
+										</form>
 									</a>
 								</div>
 							</div>
 						</div>
+
 						<div class="row">
 							<div class="col-md-6">
 								<div class="dt-box style2">
-									<a href="/negocios/" title="">
-										<img src="{% static 'images/chiapa.jpg' %}" alt="" />
-										<span>Chiapa de Corzo</span>
-										<strong>Ir a Directorio</strong>
+									<a  title="">
+										<img src="{% static 'images/cinco.jpg' %}" alt="" />
+
+										<form action="/negocios/municipios/" method="POST">
+										{% csrf_token %}
+
+										<span>{{resultado.3.municipio}}</span>											
+									<strong> <button name="municipio" value="{{resultado.3.municipio}}" type="submit" style=" background-color: Transparent; border: none;">Ir a Directorio</button></strong>
+										</form>
 									</a>
 								</div>
 							</div>
 							<div class="col-md-3">
 								<div class="dt-box style2">
-									<a href="/negocios/" title="">
-										<img src="{% static 'images/coita.jpg' %}" alt="" />
-										<span>Ocozocoautla</span>
-										<strong>Ir a Directorio</strong>
+									<a  title="">
+										<img src="{% static 'images/cuatro.jpg' %}" alt="" />
+										<form action="/negocios/municipios/" method="POST">
+										{% csrf_token %}
+
+										<span>{{resultado.4.municipio}}</span>											
+									<strong> <button name="municipio" value="{{resultado.4.municipio}}" type="submit" style=" background-color: Transparent; border: none;">Ir a Directorio</button></strong>
+										</form>
 									</a>
 								</div>
 							</div>
 							<div class="col-md-3">
 								<div class="dt-box style2">
-									<a href="/negocios/" title="">
-										<img src="{% static 'images/jiquipilas.jpg' %}" alt="" />
-										<span>Jiquipilas</span>
-										<strong>Ir a Directorio</strong>
+									<a  title="">
+										<img src="{% static 'images/seis.jpg' %}" alt="" />
+										<form action="/negocios/municipios/" method="POST">
+										{% csrf_token %}
+
+										<span>{{resultado.5.municipio}}</span>											
+									<strong> <button name="municipio" value="{{resultado.5.municipio}}" type="submit" style=" background-color: Transparent; border: none;">Ir a Directorio</button></strong>
+										</form>
 									</a>
 								</div>
 							</div>
 						</div>
+
+						
+						
 					</div>
 				</div>
 			</div>

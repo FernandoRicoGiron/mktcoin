@@ -135,7 +135,7 @@
 													{% for img in negocio.imagenes.all %}
 
 													<div class="col-md-6">
-														<a href="images/preview.png" title="">
+														<a href="{{img.imagen.url}}" title="">
 															<img src="{{img.imagen.url}}" alt="" />
 														</a>
 													</div>
@@ -148,6 +148,8 @@
 												<span></span>
 											</div>
 										</div>
+
+										
 									
 									</aside>
 								</div>
