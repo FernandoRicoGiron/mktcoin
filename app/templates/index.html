@@ -5,7 +5,7 @@
 
 
 <section>
-		<div class="block no-padding">
+		<div style="position: static; margin-bottom: 150px;" class="block no-padding">
 			<div class="row">
 				<div class="col-md-12">
 					
@@ -16,9 +16,6 @@
 							
 							<li><img height="600" width="1300" src="{{ ban.banner.url }}" alt="" /></li>
 							{% endfor %}
-							<!--<li><img src="http://placehold.it/1600x950" alt="" /></li>
-							<li><img src="http://placehold.it/1600x950" alt="" /></li>
-							<li><img src="http://placehold.it/1600x950" alt="" /></li>-->
 						</ul>
 						<div class="mian-featured-area">
 							<div class="main-featured-text">
@@ -65,23 +62,25 @@
 		</div>
 	</section>
 
-	<div class="heading">
-		<h2>Regístrate y Aprovecha</h2>
-		<span>¡Intégrate, Actualízate en Tecnologías Digitales y Gana!</span>
-	</div>
+
+	<div style="margin-top: 750px;">
+		<div class="heading">
+			<h2>Regístrate y Aprovecha</h2>
+			<span>¡Intégrate, Actualízate en Tecnologías Digitales y Gana!</span>
+		</div>
 
 	{% if user.is_authenticated %}
-
-
-<center>
-		<a href="/registronegocio/"  class="button" style="vertical-align:middle; background:#d90429; color:#FFFFFF"><span style="">Registrar mi negocio </span></a>
-</center>
+		<center>
+			<a href="/registronegocio/"  class="button" style="margin-bottom: 50px; margin-top: 50px; vertical-align:middle; background:#d90429; color:#FFFFFF"><span style="">Registrar mi negocio </span></a>
+		</center>
 	
 	{% else %}
-	<center>
-		<a href="#"  class="login-btn button" style="vertical-align:middle; background:#d90429; color:#FFFFFF"><span style="">Registrar mi negocio </span></a>
-</center>
+		<center>
+			<a href="#"  class="login-btn button" style="margin-bottom: 50px;margin-top: 50px; vertical-align:middle; background:#d90429; color:#FFFFFF"><span style="">Registrar mi negocio </span></a>
+		</center>
 	{% endif %}
+	</div>
+	
 
 
 	<div class="account-popup-sec">
@@ -100,10 +99,6 @@
 		            <label>Contraseña</label>
 		            <span class="focus-border"></span>
 				</div>
-				<!--<p>
-					<input class="styled-checkbox" id="styled-checkbox-1" type="checkbox" value="value1">
-    				<label for="styled-checkbox-1">Recordar</label>
-				</p>-->
 				<a href="#" title="">¿No tienes una cuenta?</a>
 				<a href="#" title="">¿Olvidaste tu contraseña?</a>
 				<button type="submit">Ingresar</button>
@@ -161,7 +156,7 @@
 
 
 <center>
-			<div class="row" style="margin-bottom: 50px; margin-top: 50px;">
+			<div class="row" style="position: static; margin-bottom: 50px; margin-top: 50px;">
 			  <div class="col-md-4">
 			  	<img style="border-radius: 50%; max-width: 100px; max-height: 100px;" width="100" height="100" src="{%  static 'images/comglobal.jpg' %}"><br><br>
 			  	<p><strong>Comunidad global</strong></p>
@@ -181,8 +176,6 @@
 </center>
 
 
-	
-
 	<section id="scroll-here">
 		<div class="block">
 			<div class="container">
@@ -194,9 +187,6 @@
 						</div>
 					</div>
 					<div class="do-tonight-sec">
-
-						
-
 						<div class="row">
 
 							<div class="col-md-3">
@@ -292,297 +282,6 @@
 			</div>
 		</div>
 	</section>
-<!--
-	<section>
-		<div class="block gray">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="heading">
-							<h2>Negocios mas destacados</h2>
-							<span>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</span>
-						</div>
-						<div class="recent-place-sec" id="places-carousel">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="recent-places-box">
-										<div class="recent-place-thumb">
-											<a href="#" title=""><img src="http://placehold.it/245x209" alt="" /></a>
-										</div>
-										<div class="recent-place-detail">
-											<div class="listing-box-title">
-												<h3><a href="#" title="">Ejemplo Uno</a></h3>
-												<span>Tuxtla Gutiérrez</span>
-												<span>(416) 551-0589</span>
-											</div>
-											
-									
-										</div>
-									</div>
-									<div class="recent-places-box">
-										<div class="recent-place-thumb">
-											<a href="#" title=""><img src="http://placehold.it/245x209" alt="" /></a>
-										</div>
-										<div class="recent-place-detail">
-											<div class="listing-box-title">
-												<h3><a href="#" title="">Ejemplo Dos</a></h3>
-												<span>Tuxtla Gutiérrez</span>
-												<span>(416) 551-0589</span>
-											</div>
-										
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="recent-places-box">
-										<div class="recent-place-thumb">
-											<a href="#" title=""><img src="http://placehold.it/245x209" alt="" /></a>
-										</div>
-										<div class="recent-place-detail">
-											<div class="listing-box-title">
-												<h3><a href="#" title="">Ejemplo Tres</a></h3>
-												<span>Tuxtla Gutiérrez</span>
-												<span>(416) 551-0589</span>
-											</div>
-										
-										</div>
-									</div>
-									<div class="recent-places-box">
-										<div class="recent-place-thumb">
-											<a href="#" title=""><img src="http://placehold.it/245x209" alt="" /></a>
-										</div>
-										<div class="recent-place-detail">
-											<div class="listing-box-title">
-												<h3><a href="#" title="">Ejemplo Cuatro</a></h3>
-												<span>Tuxtla Gutiérrez</span>
-												<span>(416) 551-0589</span>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-							</div>-->
-
-							<!--
-							<div class="row">
-								<div class="col-md-6">
-									<div class="recent-places-box">
-										<div class="recent-place-thumb">
-											<a href="#" title=""><img src="http://placehold.it/245x209" alt="" /></a>
-										</div>
-										<div class="recent-place-detail">
-											<div class="listing-box-title">
-												<h3><a href="#" title="">Sunpro Technology inc</a></h3>
-												<span>Los Angeles /  Sillicon Valley </span>
-												<span>(416) 551-0589</span>
-											</div>
-											<span class="price-list">$149.90</span>
-											<div class="listing-rate-share">
-												<div class="rated-list">
-													<b class="la la-star"></b>
-													<b class="la la-star"></b>
-													<b class="la la-star"></b>
-													<b class="la la-star-o"></b>
-													<b class="la la-star-o"></b>
-													<span>(13)</span>
-												</div>
-												<span><i class="la la-share-alt"></i><strong>Share</strong></span>
-												<a href="#" title=""><i class="la la-heart-o"></i></a>
-											</div>
-										</div>
-									</div>
-									<div class="recent-places-box">
-										<div class="recent-place-thumb">
-											<a href="#" title=""><img src="http://placehold.it/245x209" alt="" /></a>
-										</div>
-										<div class="recent-place-detail">
-											<div class="listing-box-title">
-												<h3><a href="#" title="">Sunpro Technology inc</a></h3>
-												<span>Los Angeles /  Sillicon Valley </span>
-												<span>(416) 551-0589</span>
-											</div>
-											<span class="price-list">$149.90</span>
-											<div class="listing-rate-share">
-												<div class="rated-list">
-													<b class="la la-star"></b>
-													<b class="la la-star"></b>
-													<b class="la la-star"></b>
-													<b class="la la-star-o"></b>
-													<b class="la la-star-o"></b>
-													<span>(13)</span>
-												</div>
-												<span><i class="la la-share-alt"></i><strong>Share</strong></span>
-												<a href="#" title=""><i class="la la-heart-o"></i></a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="recent-places-box">
-										<div class="recent-place-thumb">
-											<a href="#" title=""><img src="http://placehold.it/245x209" alt="" /></a>
-										</div>
-										<div class="recent-place-detail">
-											<div class="listing-box-title">
-												<h3><a href="#" title="">Sunpro Technology inc</a></h3>
-												<span>Los Angeles /  Sillicon Valley </span>
-												<span>(416) 551-0589</span>
-											</div>
-											<span class="price-list">$149.90</span>
-											<div class="listing-rate-share">
-												<div class="rated-list">
-													<b class="la la-star"></b>
-													<b class="la la-star"></b>
-													<b class="la la-star"></b>
-													<b class="la la-star-o"></b>
-													<b class="la la-star-o"></b>
-													<span>(13)</span>
-												</div>
-												<span><i class="la la-share-alt"></i><strong>Share</strong></span>
-												<a href="#" title=""><i class="la la-heart-o"></i></a>
-											</div>
-										</div>
-									</div>
-									<div class="recent-places-box">
-										<div class="recent-place-thumb">
-											<a href="#" title=""><img src="http://placehold.it/245x209" alt="" /></a>
-										</div>
-										<div class="recent-place-detail">
-											<div class="listing-box-title">
-												<h3><a href="#" title="">Sunpro Technology inc</a></h3>
-												<span>Los Angeles /  Sillicon Valley </span>
-												<span>(416) 551-0589</span>
-											</div>
-											<span class="price-list">$149.90</span>
-											<div class="listing-rate-share">
-												<div class="rated-list">
-													<b class="la la-star"></b>
-													<b class="la la-star"></b>
-													<b class="la la-star"></b>
-													<b class="la la-star-o"></b>
-													<b class="la la-star-o"></b>
-													<span>(13)</span>
-												</div>
-												<span><i class="la la-share-alt"></i><strong>Share</strong></span>
-												<a href="#" title=""><i class="la la-heart-o"></i></a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-6">
-									<div class="recent-places-box">
-										<div class="recent-place-thumb">
-											<a href="#" title=""><img src="http://placehold.it/245x209" alt="" /></a>
-										</div>
-										<div class="recent-place-detail">
-											<div class="listing-box-title">
-												<h3><a href="#" title="">Sunpro Technology inc</a></h3>
-												<span>Los Angeles /  Sillicon Valley </span>
-												<span>(416) 551-0589</span>
-											</div>
-											<span class="price-list">$149.90</span>
-											<div class="listing-rate-share">
-												<div class="rated-list">
-													<b class="la la-star"></b>
-													<b class="la la-star"></b>
-													<b class="la la-star"></b>
-													<b class="la la-star-o"></b>
-													<b class="la la-star-o"></b>
-													<span>(13)</span>
-												</div>
-												<span><i class="la la-share-alt"></i><strong>Share</strong></span>
-												<a href="#" title=""><i class="la la-heart-o"></i></a>
-											</div>
-										</div>
-									</div>
-									<div class="recent-places-box">
-										<div class="recent-place-thumb">
-											<a href="#" title=""><img src="http://placehold.it/245x209" alt="" /></a>
-										</div>
-										<div class="recent-place-detail">
-											<div class="listing-box-title">
-												<h3><a href="#" title="">Sunpro Technology inc</a></h3>
-												<span>Los Angeles /  Sillicon Valley </span>
-												<span>(416) 551-0589</span>
-											</div>
-											<span class="price-list">$149.90</span>
-											<div class="listing-rate-share">
-												<div class="rated-list">
-													<b class="la la-star"></b>
-													<b class="la la-star"></b>
-													<b class="la la-star"></b>
-													<b class="la la-star-o"></b>
-													<b class="la la-star-o"></b>
-													<span>(13)</span>
-												</div>
-												<span><i class="la la-share-alt"></i><strong>Share</strong></span>
-												<a href="#" title=""><i class="la la-heart-o"></i></a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="recent-places-box">
-										<div class="recent-place-thumb">
-											<a href="#" title=""><img src="http://placehold.it/245x209" alt="" /></a>
-										</div>
-										<div class="recent-place-detail">
-											<div class="listing-box-title">
-												<h3><a href="#" title="">Sunpro Technology inc</a></h3>
-												<span>Los Angeles /  Sillicon Valley </span>
-												<span>(416) 551-0589</span>
-											</div>
-											<span class="price-list">$149.90</span>
-											<div class="listing-rate-share">
-												<div class="rated-list">
-													<b class="la la-star"></b>
-													<b class="la la-star"></b>
-													<b class="la la-star"></b>
-													<b class="la la-star-o"></b>
-													<b class="la la-star-o"></b>
-													<span>(13)</span>
-												</div>
-												<span><i class="la la-share-alt"></i><strong>Share</strong></span>
-												<a href="#" title=""><i class="la la-heart-o"></i></a>
-											</div>
-										</div>
-									</div>
-									<div class="recent-places-box">
-										<div class="recent-place-thumb">
-											<a href="#" title=""><img src="http://placehold.it/245x209" alt="" /></a>
-										</div>
-										<div class="recent-place-detail">
-											<div class="listing-box-title">
-												<h3><a href="#" title="">Sunpro Technology inc</a></h3>
-												<span>Los Angeles /  Sillicon Valley </span>
-												<span>(416) 551-0589</span>
-											</div>
-											<span class="price-list">$149.90</span>
-											<div class="listing-rate-share">
-												<div class="rated-list">
-													<b class="la la-star"></b>
-													<b class="la la-star"></b>
-													<b class="la la-star"></b>
-													<b class="la la-star-o"></b>
-													<b class="la la-star-o"></b>
-													<span>(13)</span>
-												</div>
-												<span><i class="la la-share-alt"></i><strong>Share</strong></span>
-												<a href="#" title=""><i class="la la-heart-o"></i></a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>-->
 
 	<section>
 		<div class="block">
@@ -624,108 +323,6 @@
 			</div>
 		</div>
 	</section>
-
-<!--	<section>
-		<div class="block light-blue">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="counter-sec">
-							<div class="counter">
-								<i class="la la-file"></i>
-								<h3>EMPRESAS</h3>
-								<span>108</span>
-							</div>
-							<div class="counter">
-								<i class="la la-user"></i>
-								<h3>USUARIOS</h3>
-								<span>675</span>
-							</div>
-							<div class="counter">
-								<i class="la la-list"></i>
-								<h3>ASOCIADOS</h3>
-								<span>13</span>
-							</div>
-							<div class="counter">
-								<i class="la la-folder-o"></i>
-								<h3>CATEGORIAS</h3>
-								<span>45</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>-->
-
-	<!--
-
-	<section>
-		<div class="block gray">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="heading">
-							<h2>ArtIcles & TIps</h2>
-							<span>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium <br />doloremque laudantium, totam rem aperiam.</span>
-						</div>
-						<div class="blog-sec">
-							<div class="row">
-								<div class="col-md-4">
-									<div class="blog-post style2">
-										<div class="blog-post-thumb"> <a href="#" title=""><img src="http://placehold.it/328x250" alt="" /></a></div>
-										<div class="blog-detail">
-											<ul class="blog-metas"> 
-												<li><a href="#" title="">May 22, 2016</a></li>
-												<li><a href="#" title="">Traveling</a></li>
-												<li><a href="#" title="">by Jessica Moor</a></li>
-											</ul>
-											<h3><a href="#" title="">Top 15 Romantic Date Ideas for </a></h3>
-											<p>Dating is a part of the human mating process whereby two people meet socially for…</p>
-											<a href="#" title="">MORE</a>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="blog-post style2">
-										<div class="blog-post-thumb"> <a href="#" title=""><img src="http://placehold.it/328x250" alt="" /></a></div>
-										<div class="blog-detail">
-											<ul class="blog-metas"> 
-												<li><a href="#" title="">May 22, 2016</a></li>
-												<li><a href="#" title="">Traveling</a></li>
-												<li><a href="#" title="">by Jessica Moor</a></li>
-											</ul>
-											<h3><a href="#" title="">Tips for Top Quality Pics</a></h3>
-											<p>Dating is a part of the human mating process whereby two people meet socially for…</p>
-											<a href="#" title="">MORE</a>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="blog-post style2">
-										<div class="blog-post-thumb"> <a href="#" title=""><img src="http://placehold.it/328x250" alt="" /></a></div>
-										<div class="blog-detail">
-											<ul class="blog-metas"> 
-												<li><a href="#" title="">May 22, 2016</a></li>
-												<li><a href="#" title="">Traveling</a></li>
-												<li><a href="#" title="">by Jessica Moor</a></li>
-											</ul>
-											<h3><a href="#" title="">Tips for Top Quality Pics</a></h3>
-											<p>Dating is a part of the human mating process whereby two people meet socially for…</p>
-											<a href="#" title="">MORE</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<a href="#" title="" class="view-all-blog">View Blog</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
--->
 
 	<section>
 		<div class="block">
@@ -830,67 +427,16 @@
 						<ul class="testimonial-sec">
 
 							{% for tes in testimonios %}
-
-
 							<li>
 								<img width="87" height="87" src="{{ tes.imagen.url }}" alt="" />
 								<p>{{ tes.descripcion }}</p>
 							</li>
-
 							{% endfor %}
-
-
-							<!--<li>
-								<img src="http://placehold.it/87x87" alt="" />
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eueget ante venenatis euismod. Etiam in odio mattis, suscipit ex sit amet, toroni inoui bibenidum risus. Suspendisse tempus vulputate nisl. tiam in odio mattis, suscipit ex sit amet, toroni inoui bibenidum risus. Suspendisse tempus vulputate nisl.</p>
-							</li>
-							<li>
-								<img src="http://placehold.it/87x87" alt="" />
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eueget ante venenatis euismod. Etiam in odio mattis, suscipit ex sit amet, toroni inoui bibenidum risus. Suspendisse tempus vulputate nisl. tiam in odio mattis, suscipit ex sit amet, toroni inoui bibenidum risus. Suspendisse tempus vulputate nisl.</p>
-							</li>-->
 						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-<!--
-
-	<section>
-		<div class="block remove-top">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="client-sec">
-							<div class="row">
-								<div class="col-md-3 col-sm-6 col-xs-6">
-									<div class="client-box">
-										<a href="#" title=""><img src="http://placehold.it/232x75" alt="" /></a>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-6 col-xs-6">
-									<div class="client-box">
-										<a href="#" title=""><img src="http://placehold.it/232x75" alt="" /></a>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-6 col-xs-6">
-									<div class="client-box">
-										<a href="#" title=""><img src="http://placehold.it/232x75" alt="" /></a>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-6 col-xs-6">
-									<div class="client-box">
-										<a href="#" title=""><img src="http://placehold.it/232x75" alt="" /></a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>-->
-
-
 
 	{% endblock %}
