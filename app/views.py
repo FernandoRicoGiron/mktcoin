@@ -164,11 +164,8 @@ def changepaises(request):
 def registronegocio(request):
 	categorias = Categoria.objects.all()
 	#ubicacion = Ubicacion.objects.all()
-	negocios2 = Negocio.objects.filter(validado=True)
-	paiseslist = []
-	for negocio in negocios2:
-		paiseslist.append(negocio.pais.pais)
-	paises = Pais.objects.filter(pais__in=paiseslist)
+	
+	paises = Pais.objects.all()
 	form = NegocioForm()
 
 	return render(request, "registronegocio.html", {"categorias":categorias, "form":form, "paises":paises})
