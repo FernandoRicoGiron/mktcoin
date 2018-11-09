@@ -64,16 +64,20 @@ def filtro(request):
 	municipio = request.POST.get("municipio")
 	print(categoria + " " + nombre + " " + pais + " " + estado + " " + municipio)
 	if pais != "" and estado != "" and categoria != "" and municipio != "":
-		negocios = Negocio.objects.filter(Q(validado=True) and ~Q(ubicacion=None) and Q(nombreEmpresa__icontains=nombre) and Q(pais__id=pais) and Q(estado__id=estado) and Q(municipio=municipio) and Q(categoria__id=categoria))
+		negocios = Negocio.objects.filter(validado=True, nombreEmpresa__icontains=nombre, pais__id=pais, estado__id=estado, municipio=municipio, categoria__id=categoria).exclude(ubicacion__isnull=True)
 	elif pais != "" and estado != "" and categoria != "":
-		negocios = Negocio.objects.filter(Q(validado=True) and ~Q(ubicacion=None) and Q(nombreEmpresa__icontains=nombre) and Q(pais__id=pais) and Q(estado__id=estado) and Q(categoria__id=categoria))
+		negocios = Negocio.objects.filter(validado=True, nombreEmpresa__icontains=nombre, pais__id=pais, estado__id=estado, categoria__id=categoria).exclude(ubicacion__isnull=True)
 	elif pais != "" and estado != "":
-		negocios = Negocio.objects.filter(Q(validado=True) and ~Q(ubicacion=None) and Q(nombreEmpresa__icontains=nombre) and Q(pais__id=pais) and Q(estado__id=estado))
+		negocios = Negocio.objects.filter(validado=True, nombreEmpresa__icontains=nombre, pais__id=pais, estado__id=estado).exclude(ubicacion__isnull=True)
 	elif categoria != "":
-		negocios = Negocio.objects.filter(Q(validado=True) and ~Q(ubicacion=None) and Q(nombreEmpresa__icontains=nombre) and Q(categoria__id=categoria))
+		negocios = Negocio.objects.filter(validado=True, nombreEmpresa__icontains=nombre, categoria__id=categoria).exclude(ubicacion__isnull=True)
 	else:
-		negocios = Negocio.objects.filter(Q(validado=True) and ~Q(ubicacion=None) and Q(nombreEmpresa__icontains=nombre))
-	paises = Pais.objects.all()
+		negocios = Negocio.objects.filter(validado=True, nombreEmpresa__icontains=nombre).exclude(ubicacion__isnull=True)
+	negocios2 = Negocio.objects.filter(validado=True)
+	paiseslist = []
+	for negocio in negocios2:
+		paiseslist.append(negocio.pais.pais)
+	paises = Pais.objects.filter(pais__in=paiseslist)
 	estados = Estado.objects.all()
 	categorias = Categoria.objects.all()
 
@@ -86,7 +90,10 @@ def filmunicipio(request):
 
 def negocios(request):
 	negocios = Negocio.objects.filter(validado=True)
-	paises = Pais.objects.all()
+	paiseslist = []
+	for negocio in negocios:
+		paiseslist.append(negocio.pais.pais)
+	paises = Pais.objects.filter(pais__in=paiseslist)
 	estados = Estado.objects.all()
 	categorias = Categoria.objects.all()
 
@@ -157,7 +164,11 @@ def changepaises(request):
 def registronegocio(request):
 	categorias = Categoria.objects.all()
 	#ubicacion = Ubicacion.objects.all()
-	paises = Pais.objects.all()
+	negocios2 = Negocio.objects.filter(validado=True)
+	paiseslist = []
+	for negocio in negocios2:
+		paiseslist.append(negocio.pais.pais)
+	paises = Pais.objects.filter(pais__in=paiseslist)
 	form = NegocioForm()
 
 	return render(request, "registronegocio.html", {"categorias":categorias, "form":form, "paises":paises})
