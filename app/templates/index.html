@@ -2,18 +2,83 @@
 {% load static %}
 
 {% block content %}
+<section>
+		<div  class="block no-padding">
+			<div class="row">
+				<div class="col-md-12">
 
 
+					<section id="slider" class="containerdos" style="margin-bottom: 50px;">
+
+		<ul class="slider-wrapper">
+			{% for ban in banners %}
+		<li class="current-slide">
+			<img   height="850" width="1600"  src="{{ ban.banner.url }}" alt="">
+
+			<!--<div class="caption">
+				<h2 class="slider-title">Diseño web</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, placeat est. Alias illo hic quo nobis, aspernatur iste ut voluptate.</p>
+			</div>-->
+		</li>
+		{% endfor %}
+
+		</ul>
+		
+		
+		<!-- Controles de Navegacion -->
+		<center><ul id="control-buttons" class="control-buttons"></ul></center>
+	</section>
+
+
+
+
+				</div>
+			</div>
+		</div>
+</section>			
+
+
+	
+	
+
+<!--
+
+<section>
+		<div style="position: static; margin-bottom: 50px;" class="block no-padding">
+			<div class="row">
+
+				<div class="col-md-12">
+	<div class="sliderdos">
+	<div class="containerdos">
+		{% for ban in banners %}
+		<img  height="550" width="1300"  src="{{ ban.banner.url }}" alt="">
+		{% endfor %}
+
+		<div class="controlsdos">
+			<ul></ul>
+		</div>
+		
+	</div>
+</div>
+	
+</div>
+
+
+
+			</div>
+		</div>
+</section>
+
+-->
+
+<!--
 <section>
 		<div style="position: static; margin-bottom: 150px;" class="block no-padding">
 			<div class="row">
 				<div class="col-md-12">
-					
 					<div class="main-featured-sec no-layer">
-						
 						<ul class="featured-bg-slide">
 							{% for ban in banners %}
-							
 							<li><img height="600" width="1300" src="{{ ban.banner.url }}" alt="" /></li>
 							{% endfor %}
 						</ul>
@@ -22,48 +87,17 @@
 								<h1>{{ ban.titulo }}</h1>
 								<span>{{ban.subtitulo}}</span>
 							</div>
-
-							
-							<!--<div class="directory-searcher style2  extra-margin">
-								<form>
-									<div class="field"><input type="text" placeholder="Keywords"></div>
-									<div class="field">
-										<select data-placeholder="Estados" class="chosen-select" tabindex="2">
-								            <option value="All Locations">Municipios</option>
-								            <option value="United States">Chiapa de Corzo</option>
-								            <option value="United Kingdom">Ocozocoautla</option>
-								            <option value="Afghanistan">San Cristóbal</option>
-								            <option value="Aland Islands">Berriozabal</option>
-								            <option value="Albania">San Fernando</option>
-								        </select>
-									</div>
-									<div class="field">
-										<select data-placeholder="All Categories" class="chosen-select" tabindex="2">
-								            <option value="All Categories">Todas las Categorías</option>
-								            <option value="Foods">Restaurantes</option>
-								            <option value="Lodging">Cafeterías</option>
-								            <option value="Nightlife">Farmacias</option>
-								            <option value="AOutdoors">Servicios</option>
-								            <option value="Restaurants">Consultorios</option>
-								        </select>
-									</div>
-									<div class="field">
-										<button type="submit"><i class="la la-search"></i>Buscar</button>
-									</div>
-								</form>
-							</div>-->
 							<a class="arrow-down floating" href="#scroll-here" title=""><i class="la la-angle-down"></i></a>
-						</div>
-						
+						</div>	
 					</div>
-					
 				</div>
 			</div>
 		</div>
-	</section>
+</section>
+-->
 
 
-	<div style="margin-top: 750px;">
+	<div style="margin-top: 150px;">
 		<div class="heading">
 			<h2>Regístrate y Aprovecha</h2>
 			<span>¡Intégrate, Actualízate en Tecnologías Digitales y Gana!</span>
@@ -197,8 +231,8 @@
 										<form action="/negocios/municipios/" method="POST">
 										{% csrf_token %}
 
-										<span>{{resultado.0.municipio}}</span>											
-									<strong> <button name="municipio" value="{{resultado.0.municipio}}" type="submit" style=" background-color: Transparent; border: none;">Ir a Directorio</button></strong>
+										<span>{{resultado.0}}</span>											
+									<strong> <button name="municipio" value="{{resultado.0}}" type="submit" style=" background-color: Transparent; border: none;">Ir a Directorio</button></strong>
 										</form>
 									</a>
 								</div>
@@ -211,8 +245,8 @@
 										<form action="/negocios/municipios/" method="POST">
 										{% csrf_token %}
 
-										<span>{{resultado.1.municipio}}</span>											
-									<strong> <button name="municipio" value="{{resultado.1.municipio}}" type="submit" style=" background-color: Transparent; border: none;">Ir a Directorio</button></strong>
+										<span>{{resultado.1}}</span>											
+									<strong> <button name="municipio" value="{{resultado.1}}" type="submit" style=" background-color: Transparent; border: none;">Ir a Directorio</button></strong>
 										</form>
 									</a>
 								</div>
@@ -224,8 +258,8 @@
 										<form action="/negocios/municipios/" method="POST">
 										{% csrf_token %}
 
-										<span>{{resultado.2.municipio}}</span>											
-									<strong> <button name="municipio" value="{{resultado.2.municipio}}" type="submit" style=" background-color: Transparent; border: none;">Ir a Directorio</button></strong>
+										<span>{{resultado.2}}</span>											
+									<strong> <button name="municipio" value="{{resultado.2}}" type="submit" style=" background-color: Transparent; border: none;">Ir a Directorio</button></strong>
 										</form>
 									</a>
 								</div>
@@ -241,8 +275,8 @@
 										<form action="/negocios/municipios/" method="POST">
 										{% csrf_token %}
 
-										<span>{{resultado.3.municipio}}</span>											
-									<strong> <button name="municipio" value="{{resultado.3.municipio}}" type="submit" style=" background-color: Transparent; border: none;">Ir a Directorio</button></strong>
+										<span>{{resultado.3}}</span>											
+									<strong> <button name="municipio" value="{{resultado.3}}" type="submit" style=" background-color: Transparent; border: none;">Ir a Directorio</button></strong>
 										</form>
 									</a>
 								</div>
@@ -254,8 +288,8 @@
 										<form action="/negocios/municipios/" method="POST">
 										{% csrf_token %}
 
-										<span>{{resultado.4.municipio}}</span>											
-									<strong> <button name="municipio" value="{{resultado.4.municipio}}" type="submit" style=" background-color: Transparent; border: none;">Ir a Directorio</button></strong>
+										<span>{{resultado.4}}</span>											
+									<strong> <button name="municipio" value="{{resultado.4}}" type="submit" style=" background-color: Transparent; border: none;">Ir a Directorio</button></strong>
 										</form>
 									</a>
 								</div>
@@ -267,8 +301,8 @@
 										<form action="/negocios/municipios/" method="POST">
 										{% csrf_token %}
 
-										<span>{{resultado.5.municipio}}</span>											
-									<strong> <button name="municipio" value="{{resultado.5.municipio}}" type="submit" style=" background-color: Transparent; border: none;">Ir a Directorio</button></strong>
+										<span>{{resultado.5}}</span>											
+									<strong> <button name="municipio" value="{{resultado.5}}" type="submit" style=" background-color: Transparent; border: none;">Ir a Directorio</button></strong>
 										</form>
 									</a>
 								</div>
@@ -440,3 +474,4 @@
 	</section>
 
 	{% endblock %}
+

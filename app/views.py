@@ -39,17 +39,21 @@ def index(request):
 	negocios = Negocio.objects.all()
 	negocio = []
 	negociocuatro = []
+	negocio_municipio=[]
+
 	for i in negocios[::-1]:
-		negociosdos = [i]
+		negociosdos = [i.municipio]
 		negocio = negocio + negociosdos
 
-	for j in negocio [:6]:
+	for j in negocio:
+		if j not in negocio_municipio:
+			negocio_municipio.append(j)
+
+	for j in negocio_municipio [:6]:
 		negociotres = [j]
 		negociocuatro =  negociocuatro + negociotres
 
 	resultado =  negociocuatro
-	
-
 
 	return render(request, "index.html", {"resultado":resultado,"negocios":negocios,"banners":banners, "testimonios":testimonios})
 
