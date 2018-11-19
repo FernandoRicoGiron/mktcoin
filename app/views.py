@@ -45,6 +45,8 @@ def index(request):
 		negociosdos = [i.municipio]
 		negocio = negocio + negociosdos
 
+	negocio = [element.upper() for element in negocio]
+
 	for j in negocio:
 		if j not in negocio_municipio:
 			negocio_municipio.append(j)
