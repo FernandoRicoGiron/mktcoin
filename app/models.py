@@ -76,7 +76,7 @@ class Negocio(models.Model):
 	quieninvito = models.CharField(null=True, blank= True, max_length=50)
 	loginmkt = models.CharField(null=True, blank= True, max_length=50)
 	porcentaje = models.IntegerField(null=True, blank= True, default=0)
-	whatsapp = models.CharField(max_length=50)
+	whatsapp = models.CharField(max_length=50,blank=True, null=True)
 	facebook = models.URLField(blank=True, null=True)
 	instagram = models.URLField(blank=True, null=True)
 	youtube = models.URLField(blank=True, null=True)
